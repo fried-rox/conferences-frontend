@@ -1,0 +1,15 @@
+.NewConf {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 50px;
+  margin-right: 200px;
+}
+
+.NewConference form {
+  padding-bottom: 15px;
+}
+
+.NewConference form textarea {
+  height: 300px;
+  font-size: 24px;
+}

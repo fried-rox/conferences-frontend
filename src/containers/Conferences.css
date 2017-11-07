@@ -1,0 +1,18 @@
+.Conferences {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 50px;
+  margin-right: 200px;
+}
+
+.Conferences h2 {
+  font-size: 50px;
+}
+
+.Conferences .update {
+  float: right;
+}
+
+.Conferences .settings {
+  float: right;
+}

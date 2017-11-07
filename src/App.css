@@ -1,0 +1,9 @@
+.App .Navbar-container {
+  font-weight: bold;
+  display:flex;
+  flex-direction:row;
+}
+
+.App-container #logo {
+  height:150%;
+}

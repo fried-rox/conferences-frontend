@@ -1,0 +1,36 @@
+.ConferencesUpdate form {
+  padding-bottom: 15px;
+}
+
+.ConferencesUpdate form textarea {
+  height: 300px;
+  font-size: 24px;
+}
+
+.ConferencesUpdate {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 50px;
+  margin-right: 200px;
+}
+
+.button-panel {
+  /*Put the safari flex in*/
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+}
+
+.delete-button {
+  flex-basis: 0;
+  flex-grow: 2;
+}
+
+.save-button {
+  flex-grow: 4;
+  flex-basis: 0;
+}
+
+.button-panel * {
+  margin:1%;
+}
