@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel, Checkbox } from "react-bootstrap";
 import DayPicker from "react-day-picker";
 
+import ConfNavbar from "./ConfNavbar";
 import { invokeApig, s3Upload } from "../libs/awsLib";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
@@ -169,6 +170,7 @@ export default class ConferencesUpdate extends Component {
   render() {
     return (
       <div className="ConferencesUpdate">
+        <ConfNavbar {...this.props} />
         {this.state.conference &&
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="confTitle">

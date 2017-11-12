@@ -68,8 +68,6 @@ export default class Conferences extends Component {
   }
 
   render() {
-    console.log(this.props)
-
     return (
       <div>
         <ConfNavbar {...this.props} />

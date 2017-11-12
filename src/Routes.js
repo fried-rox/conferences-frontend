@@ -12,6 +12,12 @@ import Conferences from "./containers/Conferences";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 import Participants from "./containers/Participants";
+import Registration from "./containers/Registration";
+import Scientific from "./containers/Scientific";
+import Tourism from "./containers/Tourism";
+import Reports from "./containers/Reports";
+import ProgramPlanning from "./containers/ProgramPlanning";
+
 
 export default ({ childProps }) =>
   <Switch>
@@ -22,6 +28,11 @@ export default ({ childProps }) =>
     <AuthenticatedRoute path="/conferences/:id" exact component={Conferences} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/update" exact component={ConferencesUpdate} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/participants" exact component={Participants} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/registration" exact component={Registration} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/scientific" exact component={Scientific} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/tourism" exact component={Tourism} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/reports" exact component={Reports} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/programplanning" exact component={ProgramPlanning} props={childProps} />
     { /* Finally, catch all unmatched routes */ }
     <Route component={NotFound} />
   </Switch>;
