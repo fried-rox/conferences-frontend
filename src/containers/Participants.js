@@ -4,7 +4,7 @@ import { PageHeader, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 import ConfNavbar from "./ConfNavbar";
 import { invokeApig } from '../libs/awsLib';
 
-//import './Participants.css';
+import './Participants.css';
 
 export default class Participants extends Component {
   constructor(props) {

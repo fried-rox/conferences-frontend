@@ -141,6 +141,9 @@ export default class Conferences extends Component {
               </tbody>
             </Table>
           </div>
+          <h3>Registration Categories</h3>
+          <div>
+          </div>
         </div>
       </div>
     );
