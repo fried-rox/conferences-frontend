@@ -40,7 +40,7 @@ export default class ConfNavbar extends Component {
   render() {
     return (
       <div>
-        <Navbar className="nav-container">
+        <Navbar>
           <Nav>
             <RouteNavItem key={4} onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
             <RouteNavItem key={5} onClick={this.handleRegistrationClick}>Registration</RouteNavItem>

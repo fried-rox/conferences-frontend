@@ -124,68 +124,78 @@ export default class Signup extends Component {
 
   renderConfirmationForm() {
     return (
-      <form onSubmit={this.handleConfirmationSubmit}>
-        <FormGroup controlId="confirmationCode" bsSize="large">
-          <ControlLabel>Confirmation Code</ControlLabel>
-          <FormControl
-            autoFocus
-            type="tel"
-            value={this.state.confirmationCode}
-            onChange={this.handleChange}
+      <div className="confirm">
+        <h1>Target Conferences Ltd</h1>
+        <p>Online Managment System</p>
+        <form onSubmit={this.handleConfirmationSubmit}>
+          <FormGroup controlId="confirmationCode" bsSize="large">
+            <ControlLabel>Confirmation Code</ControlLabel>
+            <FormControl
+              autoFocus
+              type="tel"
+              value={this.state.confirmationCode}
+              onChange={this.handleChange}
+            />
+            <HelpBlock>Please check your email for the code.</HelpBlock>
+          </FormGroup>
+          <LoaderButton
+            block
+            bsSize="large"
+            disabled={!this.validateConfirmationForm()}
+            type="submit"
+            isLoading={this.state.isLoading}
+            text="Verify"
+            loadingText="Verifying…"
           />
-          <HelpBlock>Please check your email for the code.</HelpBlock>
-        </FormGroup>
-        <LoaderButton
-          block
-          bsSize="large"
-          disabled={!this.validateConfirmationForm()}
-          type="submit"
-          isLoading={this.state.isLoading}
-          text="Verify"
-          loadingText="Verifying…"
-        />
-      </form>
+        </form>
+      </div>
     );
   }
 
   renderForm() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <FormGroup controlId="email" bsSize="large">
-          <ControlLabel>Email</ControlLabel>
-          <FormControl
-            autoFocus
-            type="email"
-            value={this.state.email}
-            onChange={this.handleChange}
+      <div className="SignUp">
+        <h1>Target Conferences Ltd</h1>
+        <p>Online Managment System</p>
+        <form onSubmit={this.handleSubmit}>
+          <FormGroup controlId="email" bsSize="large">
+            <ControlLabel>Email</ControlLabel>
+            <FormControl
+              autoFocus
+              type="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <HelpBlock>Please use a valid email address.</HelpBlock>
+          </FormGroup>
+          <FormGroup controlId="password" bsSize="large">
+            <ControlLabel>Password</ControlLabel>
+            <FormControl
+              value={this.state.password}
+              onChange={this.handleChange}
+              type="password"
+            />
+            <HelpBlock>Your password must be at least 8 characters long and must include at least 1 number, 1 special character and 1 upper case letter.</HelpBlock>
+          </FormGroup>
+          <FormGroup controlId="confirmPassword" bsSize="large">
+            <ControlLabel>Confirm Password</ControlLabel>
+            <FormControl
+              value={this.state.confirmPassword}
+              onChange={this.handleChange}
+              type="password"
+            />
+          </FormGroup>
+          <LoaderButton
+            block
+            bsSize="large"
+            disabled={!this.validateForm()}
+            type="submit"
+            isLoading={this.state.isLoading}
+            text="Signup"
+            loadingText="Signing up…"
           />
-        </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
-          <ControlLabel>Password</ControlLabel>
-          <FormControl
-            value={this.state.password}
-            onChange={this.handleChange}
-            type="password"
-          />
-        </FormGroup>
-        <FormGroup controlId="confirmPassword" bsSize="large">
-          <ControlLabel>Confirm Password</ControlLabel>
-          <FormControl
-            value={this.state.confirmPassword}
-            onChange={this.handleChange}
-            type="password"
-          />
-        </FormGroup>
-        <LoaderButton
-          block
-          bsSize="large"
-          disabled={!this.validateForm()}
-          type="submit"
-          isLoading={this.state.isLoading}
-          text="Signup"
-          loadingText="Signing up…"
-        />
-      </form>
+        </form>
+      </div>
     );
   }
 

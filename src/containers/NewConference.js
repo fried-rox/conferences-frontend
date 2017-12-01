@@ -216,8 +216,8 @@ export default class NewConference extends Component {
             <FormControl onChange={this.handleFileChange} type="file" />
           </FormGroup>
           <LoaderButton
+            className="create-button"
             block
-            bsStyle="primary"
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"

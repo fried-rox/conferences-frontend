@@ -131,7 +131,7 @@ export default class ConferencesUpdate extends Component {
         notes: this.state.notes,
         confGraphic: uploadedFilename || this.state.conference.confGraphic
       });
-      this.props.history.push("/");
+      this.props.history.push(`/conferences/${this.props.match.params.id}`);
     } catch (e) {
       alert(e);
       this.setState({ isLoading: false });
@@ -169,8 +169,10 @@ export default class ConferencesUpdate extends Component {
 
   render() {
     return (
-      <div className="ConferencesUpdate">
+      <div>
         <ConfNavbar {...this.props} />
+        <h2 id="heading"> {this.state.confTitle} </h2>
+        <div className="ConferencesUpdate">
         {this.state.conference &&
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="confTitle">
@@ -286,8 +288,6 @@ export default class ConferencesUpdate extends Component {
             <div className="button-panel">
               <LoaderButton
                 className="save-button"
-
-                bsStyle="primary"
                 bsSize="large"
                 disabled={!this.validateForm()}
                 type="submit"
@@ -297,7 +297,6 @@ export default class ConferencesUpdate extends Component {
               />
               <LoaderButton
                 className="delete-button"
-                bsStyle="danger"
                 bsSize="large"
                 isLoading={this.state.isDeleting}
                 onClick={this.handleDelete}
@@ -306,6 +305,7 @@ export default class ConferencesUpdate extends Component {
               />
             </div>
           </form>}
+        </div>
       </div>
     );
   }

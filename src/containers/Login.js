@@ -61,7 +61,9 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="LogIn">
+        <h1>Target Conferences Ltd</h1>
+        <p>Online Managment System</p>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>

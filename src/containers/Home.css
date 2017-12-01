@@ -1,15 +1,18 @@
 .Home .lander {
-  padding: 80px 0;
+  padding: 50px 0;
   text-align: center;
 }
 
 .Home .lander h1 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
+  font-size: 40px;
 }
 
 .Home .lander p {
   color: #999;
+  font-size: 20px;
+  font-weight: 250;
 }
 
 .Home .lander div {
@@ -20,7 +23,6 @@
   margin-right: 20px;
 }
 
-
 .Home .newconf {
   float: right;
 }
@@ -29,9 +31,87 @@
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: 50px;
-  margin-right: 200px;
+  margin-right: 50px;
 }
 
 .conference-list {
-  margin-top:3%;
+  margin-top: 30px;
+}
+
+.Home #signupbtn {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  min-width: 50px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 10px 6px 0 0 #f2f2f2;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 24px;
+  background-color: #a6a6a6;
+  border-color: #fff;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.Home #signupbtn:hover {
+  text-decoration: none;
+  color: #fbb031;
+  box-shadow: 1.5px 1.5px 0 0 #fbb031;
+}
+
+.Home #loginbtn:hover {
+  text-decoration: none;
+  color: #fbb031;
+  box-shadow: 1.5px 1.5px 0 0 #fbb031;
+}
+
+.Home #loginbtn {
+  margin-top: 10px;
+  margin-bottom: 2px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 2px 2px 0 0 #f2f2f2;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 24px;
+  background-color: #3f99a1;
+  border-color: #999;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.Home .conferences {
+  margin: 0 100px 0 50px;
+}
+
+.Home .conferences #confsearch {
+  display: block;
+  float: right;
+  margin-right: 10px;
+  margin-top: 0;
+  padding: 4px 10px;
+  font-size: 14px;
+  /*line-height: 1.5;*/
+  width: 275px;
+  border-radius: 4px;
+  color: #000000;
+  box-shadow: 1px 1px 0 0 #3f99a1;
+  background-color: #fff;
+  border-color: #3f99a1;
+  border-width: thin;
+}
+
+.Home .conferences .newconf {
+  margin-bottom: 2px;
+  min-width: 50px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1px 1px 0 0 #999;
+  letter-spacing: 0.5px;
+  color: #fff;
+  height: 30px;
+  font-size: 14px;
+  background-color: #3f99a1;
+  border-color: #3f99a1;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.Home .conferences #conflist {
+  border-color: #3f99a1;
 }

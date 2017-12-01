@@ -71,8 +71,8 @@ export default class Conferences extends Component {
   render() {
     return (
       <div>
-        <ConfNavbar {...this.props} />
-        <div className="Conferences">
+        <ConfNavbar id="confnavbar" {...this.props} />
+        <div className="conferences">
           <h2> {this.state.confTitle} </h2>
           <Button
             className="update"

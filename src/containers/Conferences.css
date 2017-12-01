@@ -1,18 +1,39 @@
-.Conferences {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 50px;
-  margin-right: 200px;
+.conferences {
+  margin: 0 150px 0 100px;
+  padding: 0 0 0 0;
 }
 
-.Conferences h2 {
+.conferences h2 {
   font-size: 50px;
 }
 
-.Conferences .update {
+.conferences .update {
   float: right;
+  margin-bottom: 2px;
+  width: 100px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1px 1px 0 0 #999;
+  letter-spacing: 0.5px;
+  color: #fff;
+  height: 30px;
+  font-size: 14px;
+  background-color: #3f99a1;
+  border-color: #3f99a1;
+  border-radius: 4px 4px 4px 4px;
 }
 
-.Conferences .settings {
+.conferences .settings {
   float: right;
+  margin-right: 10px;
+  margin-bottom: 2px;
+  width: 100px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1px 1px 0 0 #999;
+  letter-spacing: 0.5px;
+  color: #fff;
+  height: 30px;
+  font-size: 14px;
+  background-color: #a6a6a6;
+  border-color: #999;
+  border-radius: 4px 4px 4px 4px;
 }

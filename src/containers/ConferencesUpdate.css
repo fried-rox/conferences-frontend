@@ -7,11 +7,13 @@
   font-size: 24px;
 }
 
+#heading {
+  margin: 10px 150px 20px 100px;
+  font-size: 50px;
+}
+
 .ConferencesUpdate {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 50px;
-  margin-right: 200px;
+  margin: 0 150px 0 100px;
 }
 
 .button-panel {
@@ -22,15 +24,43 @@
 }
 
 .delete-button {
+  float: right;
   flex-basis: 0;
   flex-grow: 2;
+  border-color: #fbb031;
+}
+
+.delete-button:hover {
+  background-color: #fbb031;
+  border-color: #fbb031;
 }
 
 .save-button {
+  float: right;
   flex-grow: 4;
   flex-basis: 0;
 }
 
+.save-button:hover {
+  background-color: #3f99a1;
+  border-color: #3f99a1;
+}
+
 .button-panel * {
   margin:1%;
+}
+
+.ConferencesUpdate #confTitle, #confAbbr, #projectManager, #accountClient, #confVenue, #confLanguage, #confCurrency, #confExRate, #notes {
+  display: block;
+  margin-top: 0;
+  padding: 4px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  /*width: 600px;*/
+  border-radius: 4px;
+  color: #000000;
+  box-shadow: 0.5px 0.5px 0 0 #3f99a1;
+  background-color: #fff;
+  border-color: #3f99a1;
+  border-width: thin;
 }

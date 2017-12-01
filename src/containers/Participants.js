@@ -70,23 +70,26 @@ export default class Participants extends Component {
 
   render() {
     return (
-      <div className="participants">
+      <div>
         <ConfNavbar {...this.props} />
-        <PageHeader>Participants</PageHeader>
-        <Button
-          className="newpar"
-          key="new"
-          href="/participants/new"
-          onClick={this.handleParticipantClick} >
-            <b>{"\uFF0B"}</b> Create a new participant
-        </Button>
-        <input type="text"
-          placeholder="Search list by name..."
-          value={this.state.search}
-          onChange={this.searchList.bind(this)} />
-        <ListGroup className="participant-list">
-          {!this.state.isLoading && this.renderParticipantsList}
-        </ListGroup>
+        <div className="participants">
+          <PageHeader>Participants</PageHeader>
+          <Button
+            className="newpar"
+            key="new"
+            href="/participants/new"
+            onClick={this.handleParticipantClick} >
+              <b>{"\uFF0B"}</b> Create a new participant
+          </Button>
+          <input id="parsearch"
+            type="text"
+            placeholder="Search list by name..."
+            value={this.state.search}
+            onChange={this.searchList.bind(this)} />
+          <ListGroup className="participant-list">
+            {!this.state.isLoading && this.renderParticipantsList}
+          </ListGroup>
+        </div>
       </div>
     );
   }

@@ -51,8 +51,8 @@ class App extends Component {
 
     return (
       !this.state.isAuthenticating &&
-      <div className="App-container">
-        <Navbar collapseOnSelect className="Navbar-container">
+      <div>
+        <Navbar collapseOnSelect className="App-container">
           <Navbar.Header>
             <Navbar.Brand>
               <Link to="/">
@@ -64,19 +64,19 @@ class App extends Component {
           <Navbar.Collapse>
             <Nav pullRight>
               {this.state.isAuthenticated
-                ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
+                ? <NavItem id="logoutlink" onClick={this.handleLogout}>Logout</NavItem>
                 : [
-                    <RouteNavItem key={1} href="/signup">
+                    <RouteNavItem id="signuplink" key={1} href="/signup">
                       Signup
                     </RouteNavItem>,
-                    <RouteNavItem key={2} href="/login">
+                    <RouteNavItem id="loginlink" key={2} href="/login">
                       Login
                     </RouteNavItem>
                   ]}
             </Nav>
-            <Nav pullLeft>
+            <Nav pullRight>
               {this.state.isAuthenticated
-                ? <RouteNavItem key={3} href="/">
+                ? <RouteNavItem id="conflistlink" key={3} href="/">
                     Conference List
                   </RouteNavItem>
                 : []

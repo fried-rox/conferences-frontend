@@ -1,9 +1,102 @@
-.App .Navbar-container {
+.App {
+  padding-top: 0;
+  padding-bottom: 20px;
+  background-color: #fff;
   font-weight: bold;
-  display:flex;
-  flex-direction:row;
+  display: block;
+  flex-direction: row;
+  width: auto;
 }
 
-.App-container #logo {
-  height:150%;
+.App-container {
+  margin: 0 0px 0px 0px;
+  padding: 0 0 0 0;
+  width: inherit;
+}
+
+.App-container .navbar-collapse {
+  padding: 0 0 0 0;
+  width: inherit;
+}
+
+.App-container .navbar-brand, #logo {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: -100px;
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 0px;
+  background-repeat: no-repeat;
+}
+
+.App-container link {
+  color: #0091ad;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.App-container #signuplink {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  min-width: 50px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1.5px 1.5px 0 0 #fbb031;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 18px;
+  background-color: #a6a6a6;
+  border-color: #fff;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.App-container #loginlink {
+  margin-top: 10px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  min-width: 50px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1.5px 1.5px 0 0 #fbb031;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #3f99a1;
+  border-color: #999;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.App-container #logoutlink {
+  margin-top: 10px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  min-width: 50px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1.5px 1.5px 0 0 #fbb031;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #3f99a1;
+  border-color: #999;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.App-container #conflistlink {
+  letter-spacing: 0.5px;
+  box-shadow: 1px 1px 0 0 #999;
+  display: inline-block !important;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 2px 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 4px;
+  color: #000000;
+  font-weight: 500;
+  background-color: #fff;
+  border-color: #3f99a1;
+  text-align: center;
+  vertical-align: middle;
+  border-width: thin;
+  border-style: solid;
 }

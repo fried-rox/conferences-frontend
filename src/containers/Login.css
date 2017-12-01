@@ -1,10 +1,53 @@
-@media all and (min-width: 480px) {
-  .Login {
-    padding: 60px 0;
-  }
+.Login {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 50px;
+  margin-right: 200px;
+}
 
-  .Login form {
-    margin: 0 auto;
-    max-width: 320px;
-  }
+.LogIn form {
+  margin: 0 auto;
+  max-width: 360px;
+  text-align: left;
+}
+
+.LogIn form span.help-block {
+  font-size: 14px;
+  padding-bottom: 10px;
+  color: #999;
+}
+
+.LogIn {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.LogIn h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.LogIn p {
+  color: #999;
+  font-size: 20px;
+  font-weight: 250;
+}
+
+.LogIn div {
+  padding-top: 10px;
+}
+
+.LogIn #email, #password {
+  display: block;
+  margin-top: 5px;
+  padding: 4px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 4px;
+  color: #000000;
+  font-weight: 400;
+  background-color: #fff;
+  border-color: #3f99a1;
+  border-width: thin;
 }

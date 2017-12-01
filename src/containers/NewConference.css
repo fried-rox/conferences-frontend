@@ -1,15 +1,33 @@
 .NewConf {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 50px;
-  margin-right: 200px;
+  margin: 0 150px 0 100px;
+  padding: 0 0 0 0;
 }
 
-.NewConference form {
+.NewConf form {
   padding-bottom: 15px;
 }
 
-.NewConference form textarea {
+.NewConf form textarea {
   height: 300px;
   font-size: 24px;
+}
+
+.NewConf #confTitle, #confAbbr, #projectManager, #accountClient, #confVenue, #confLanguage, #confCurrency, #confExRate, #notes {
+  display: block;
+  margin-top: 0;
+  padding: 4px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  /*width: 600px;*/
+  border-radius: 4px;
+  color: #000000;
+  box-shadow: 0.5px 0.5px 0 0 #3f99a1;
+  background-color: #fff;
+  border-color: #3f99a1;
+  border-width: thin;
+}
+
+.create-button:hover {
+  background-color: #3f99a1;
+  border-color: #3f99a1;
 }

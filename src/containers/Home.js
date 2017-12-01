@@ -48,6 +48,7 @@ export default class Home extends Component {
       (conference, i) =>
         i !== 0
           ? <ListGroupItem
+              id="conflist"
               key={conference.conferenceId}
               href={`/conferences/${conference.conferenceId}`}
               onClick={this.handleConferenceClick}
@@ -69,11 +70,11 @@ export default class Home extends Component {
         <h1>Target Conferences Ltd</h1>
         <p>Online Managment System</p>
         <div>
-          <Link to="/login" className="btn btn-info btn-lg">
-            Login
-          </Link>
-          <Link to="/signup" className="btn btn-success btn-lg">
+          <Link to="/signup" id="signupbtn">
             Signup
+          </Link>
+          <Link to="/login" id="loginbtn">
+            Login
           </Link>
         </div>
       </div>
@@ -96,11 +97,12 @@ export default class Home extends Component {
           onClick={this.handleConferenceClick} >
             <b>{"\uFF0B"}</b> Create a new conference
         </Button>
-        <input type="text"
+        <input id="confsearch"
+          type="text"
           placeholder="Search list by name..."
           value={this.state.search}
           onChange={this.searchList.bind(this)} />
-
+        <br />
         <ListGroup className="conference-list">
           {!this.state.isLoading && this.renderConferencesList(filteredConferences)}
         </ListGroup>
