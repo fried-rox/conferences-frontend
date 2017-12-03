@@ -47,10 +47,10 @@ export default class Registration extends Component {
             </FormGroup>
             <FormGroup controlId="regIncludes">
               <ControlLabel>Include</ControlLabel>
-              <Checkbox>Scientific</Checkbox>
-              <Checkbox>Tourism</Checkbox>
-              <Checkbox>Accomodation</Checkbox>
-              <Checkbox>Accompanying person</Checkbox>
+              <Checkbox controlId="addScience">Scientific</Checkbox>
+              <Checkbox controlId="addTours">Tourism</Checkbox>
+              <Checkbox controlId="addHotel">Accomodation</Checkbox>
+              <Checkbox controlId="addAP">Accompanying person</Checkbox>
             </FormGroup>
             <FormGroup controlId="regFee">
               <ControlLabel>Registration Fee</ControlLabel>
@@ -59,11 +59,11 @@ export default class Registration extends Component {
             </FormGroup>
             <FormGroup controlId="regPayment">
               <ControlLabel>Payment Method</ControlLabel>
-              <Checkbox>Cash</Checkbox>
-              <Checkbox>Cheque</Checkbox>
-              <Checkbox>Credit Card</Checkbox>
-              <Checkbox>Credit Guard</Checkbox>
-              <Checkbox>Bank Transfer</Checkbox>
+              <Checkbox controlId="payCash">Cash</Checkbox>
+              <Checkbox controlId="payCheque">Cheque</Checkbox>
+              <Checkbox controlId="payCard">Credit Card</Checkbox>
+              <Checkbox controlId="payGuard">Credit Guard</Checkbox>
+              <Checkbox controlId="payEFT">Bank Transfer</Checkbox>
             </FormGroup>
             <FormGroup controlId="regNotes">
               <ControlLabel>Notes</ControlLabel>
