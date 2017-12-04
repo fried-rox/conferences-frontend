@@ -1,6 +1,11 @@
+#regCatHeader {
+  margin: 0 0 5px 400px;
+}
+
 .regcategories {
-  margin: 0 150px 30px 100px;
+  margin: 0 60px 30px 50px;
   padding: 0 0 0 0;
+  float: left;
 }
 
 .regcategories #regFullName, #regAbbrName, #regCurrency, #regLanguage, #regIncludes, #regFee, #regPayment, #regNotes {
@@ -9,7 +14,7 @@
   padding: 4px 10px;
   font-size: 14px;
   line-height: 1.5;
-  width: 600px;
+  width: 460px;
   border-radius: 4px;
   color: #000000;
   box-shadow: 0.5px 0.5px 0 0 #3f99a1;
@@ -20,5 +25,10 @@
 
 .regcategories .reg-create-button {
   margin-left: 10px;
-  width: 580px;
+  width: 480px;
+}
+
+.regcategoriesview {
+  margin-right: 50px;
+  padding: 0 0 0 0;
 }
