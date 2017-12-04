@@ -35,7 +35,6 @@ export default class Conferences extends Component {
   async componentDidMount() {
     try {
       const results = await this.getConference();
-      debugger;
       this.setState({
         conference: results,
         confTitle: results.confTitle,

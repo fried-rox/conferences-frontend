@@ -45,17 +45,15 @@ export default class Home extends Component {
 
   renderConferencesList(conferences) {
     return conferences.map(
-      (conference, i) =>
-        i !== 0
-          ? <ListGroupItem
-              id="conflist"
-              key={conference.conferenceId}
-              href={`/conferences/${conference.conferenceId}`}
-              onClick={this.handleConferenceClick}
-              header={conference.confTitle}>
-                {"Created: " + new Date(conference.createdAt).toLocaleString()}
-            </ListGroupItem>
-          : null
+      (conference) =>
+         <ListGroupItem
+            id="conflist"
+            key={conference.conferenceId}
+            href={`/conferences/${conference.conferenceId}`}
+            onClick={this.handleConferenceClick}
+            header={conference.confTitle}>
+              {"Created: " + new Date(conference.createdAt).toLocaleString()}
+          </ListGroupItem>
     );
   }
 
