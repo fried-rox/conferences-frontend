@@ -20,6 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "aws s3 sync build/ s3://target-app-uploads",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E1VK9UQTGF3U73 --paths /* && aws cloudfront create-invalidation --distribution-id EQTBFSKREHH6D --paths /*",
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PageHeader, Button, ListGroupItem, ListGroup } from "react-bootstrap";
+import { PageHeader, Button, ListGroupItem, ListGroup, Table } from "react-bootstrap";
 
 // import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from "./ConfNavbar";
@@ -8,7 +8,7 @@ import { invokeApig } from "../libs/awsLib";
 
 import './Registration.css';
 
-export default class RegistrationNew extends Component {
+export default class Registration extends Component {
   constructor(props) {
     super(props);
 
@@ -31,6 +31,11 @@ export default class RegistrationNew extends Component {
     return invokeApig({ path: "/regcategories" })
   }
 
+  createURL() {
+    const path1 = window.location.href;
+    return path1;
+  }
+
   regCategoryList(regcategories) {
     return regcategories.map(
       (regcategory, i) =>
@@ -38,11 +43,18 @@ export default class RegistrationNew extends Component {
           // i !== 0
           ? <ListGroupItem
               id="regcatlist"
-              key={regcategory.regCategoryId}
-              href={`/regcategories/${regcategory.regCategoryId}`}
-              onClick={this.handleRegCatClick}
-              header={regcategory.regFullName}>
-                {"Created: " + new Date(regcategory.createdAt).toLocaleString()}
+              key={regcategory.regCategoryId}>
+              <Table>
+                <tbody>
+                  <tr>
+                    <td>{regcategory.regFullName}</td>
+                    <td>{regcategory.regFee}</td>
+                    <td>{regcategory.regCurrency}</td>
+                    <td>{new Date(regcategory.createdAt).toLocaleString()}</td>
+                    <td> {this.createURL()} </td>
+                  </tr>
+                </tbody>
+              </Table>
             </ListGroupItem>
           : null
     );
@@ -61,8 +73,7 @@ export default class RegistrationNew extends Component {
 
         <PageHeader id="regCatHeader">Registration Categories</PageHeader>
 
-        <div className="regcategories">
-          <h3>Registration Category Details</h3>
+        <div className="regcategoriesview">
           <Button
             className="newregcat"
             key="newregcat"

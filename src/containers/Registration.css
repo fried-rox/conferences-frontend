@@ -3,14 +3,16 @@
   padding: 0 0 0 0;
 }
 
-.regcategories {
+.regcategoriesview {
   margin: 0 150px 0 100px;
   padding: 0 0 0 0;
 }
 
-.regcategories #regFullName, #regAbbrName, #regCurrency, #regLanguage, #regIncludes, #regFee, #regPayment, #regNotes {
+.regcategoriesview #regcatsearch {
   display: block;
+  float: right;
   margin-top: 0;
+  margin-right: 10px;
   padding: 4px 10px;
   font-size: 14px;
   line-height: 1.5;
@@ -22,11 +24,22 @@
   border-width: thin;
 }
 
-.regcategories .reg-create-button {
-  margin-left: 10px;
+.regcategoriesview .newregcat {
+  float: right;
+  margin-bottom: 2px;
+  min-width: 50px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1px 1px 0 0 #999;
+  letter-spacing: 0.5px;
+  color: #fff;
+  height: 30px;
+  font-size: 14px;
+  background-color: #3f99a1;
+  border-color: #3f99a1;
+  border-radius: 4px 4px 4px 4px;
 }
 
-.regcategoriesview {
-  margin: 0 150px 0 100px;
-  padding: 0 0 0 0;
+.regcategoriesview .regcategory-list {
+  margin-top: 30px;
+  border-color: #3f99a1;
 }

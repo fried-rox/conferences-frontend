@@ -23,9 +23,6 @@
   margin-right: 20px;
 }
 
-.Home .newconf {
-  float: right;
-}
 
 .Home {
   margin-top: 15px;
@@ -100,6 +97,7 @@
 
 .Home .conferences .newconf {
   margin-bottom: 2px;
+  float: right;
   min-width: 50px;
   padding: 4px 10px 6px 10px;
   box-shadow: 1px 1px 0 0 #999;

@@ -6,7 +6,7 @@ import ConfNavbar from "./ConfNavbar";
 // import config from "../config";
 import { invokeApig } from "../libs/awsLib";
 
-import './Registration.css';
+import './RegistrationNew.css';
 
 export default class RegistrationNew extends Component {
   constructor(props) {
@@ -44,6 +44,19 @@ export default class RegistrationNew extends Component {
       [event.target.id]: event.target.value
     });
   }
+
+  // regIncludes(event) {
+  //   debugger;
+  //   const box = document.getElementById(event.target.id);
+  //   const boxChecked = box.checked;
+  //   debugger;
+  //   if (boxChecked === "true") {
+  //     this.setState({
+  //       [box.id]: boxChecked
+  //     });
+  //   } else return;
+  // }
+
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -97,7 +110,6 @@ export default class RegistrationNew extends Component {
         <PageHeader id="regCatHeader">Registration Categories</PageHeader>
 
         <div className="regcategories">
-          <h3>Registration Category Details</h3>
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="regFullName">
               <ControlLabel>Full Name</ControlLabel>
@@ -134,13 +146,25 @@ export default class RegistrationNew extends Component {
                   <option value="Hebrew">Hebrew</option>
               </FormControl>
             </FormGroup>
-            <FormGroup controlId="regIncludes">
-              <ControlLabel>Include</ControlLabel>
-              <Checkbox controlid="addScience">Scientific</Checkbox>
-              <Checkbox controlid="addTours">Tourism</Checkbox>
-              <Checkbox controlid="addHotel">Accomodation</Checkbox>
-              <Checkbox controlid="addAP">Accompanying person</Checkbox>
-            </FormGroup>
+            <div id="regIncludes">
+              <ControlLabel>Form to include:</ControlLabel>
+              <div>
+                <input type="checkbox" id="addScience" value=""/>
+                <label id="addScience"> Scientific</label>
+              </div>
+              <div>
+                <input type="checkbox" id="addTours" value="Tourism" />
+                <label id="addTours"> Tourism</label>
+              </div>
+              <div>
+                <input type="checkbox" id="addHotel" value="Accommodation" />
+                <label id="addHotel"> Accommodation</label>
+              </div>
+              <div>
+                <input type="checkbox" id="addAP" value="Accompanyingperson" />
+                <label id="addAP"> Accompanying person</label>
+              </div>
+            </div>
             <FormGroup controlId="regFee">
               <ControlLabel>Registration Fee</ControlLabel>
               <FormControl
@@ -150,7 +174,7 @@ export default class RegistrationNew extends Component {
             </FormGroup>
             <FormGroup controlId="regPayment">
               <ControlLabel>Payment Method</ControlLabel>
-              <Checkbox controlid="payCash">Cash</Checkbox>
+              <Checkbox controlid="payCash" >Cash</Checkbox>
               <Checkbox controlid="payCheque">Cheque</Checkbox>
               <Checkbox controlid="payCard">Credit Card</Checkbox>
               <Checkbox controlid="payGuard">Credit Guard</Checkbox>
