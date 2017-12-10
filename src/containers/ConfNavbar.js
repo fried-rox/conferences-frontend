@@ -7,6 +7,11 @@ import './ConfNavbar.css';
 
 export default class ConfNavbar extends Component {
 
+  handleDetailsClick = event => {
+    event.preventDefault();
+    this.props.history.push(`/conferences/${this.props.match.params.id}`);
+  }
+
   handleParticipantsClick = event => {
     event.preventDefault();
     this.props.history.push(`/conferences/${this.props.match.params.id}/participants`);
@@ -42,6 +47,7 @@ export default class ConfNavbar extends Component {
       <div>
         <Navbar>
           <Nav>
+            <RouteNavItem key={10} onClick={this.handleDetailsClick}>Details</RouteNavItem>
             <RouteNavItem key={4} onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
             <RouteNavItem key={5} onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
             <RouteNavItem key={6} onClick={this.handleScientificClick}>Scientific</RouteNavItem>
