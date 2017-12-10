@@ -66,6 +66,7 @@ export default class Registration extends Component {
   }
 
   render() {
+    debugger;
     return (
       <div>
 
