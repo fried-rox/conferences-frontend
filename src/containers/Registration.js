@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { PageHeader, Button, ListGroupItem, ListGroup, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 // import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from "./ConfNavbar";
@@ -32,8 +33,11 @@ export default class Registration extends Component {
   }
 
   createURL() {
-    const path1 = window.location.href;
-    return path1;
+    const path1 = window.location.pathname;
+    const path2 = window.location.href;
+    window.sessionStorage.setItem("conferenceId", path1.split("/")[2]);
+    window.localStorage.setItem("conferenceId", path1.split("/")[2]);
+    return path1 && path2;
   }
 
   regCategoryList(regcategories) {
@@ -50,8 +54,7 @@ export default class Registration extends Component {
                     <td>{regcategory.regFullName}</td>
                     <td>{regcategory.regFee}</td>
                     <td>{regcategory.regCurrency}</td>
-                    <td>{new Date(regcategory.createdAt).toLocaleString()}</td>
-                    <td> {this.createURL()} </td>
+                    <td> <Link to={`http://` + window.location.pathname.split("/")[1] + `.${regcategory.regAbbrName}.targetknasim.com`} target="_blank"> {this.createURL()} </Link></td>
                   </tr>
                 </tbody>
               </Table>
