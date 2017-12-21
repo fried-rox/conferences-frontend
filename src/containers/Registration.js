@@ -34,10 +34,7 @@ export default class Registration extends Component {
 
   createURL() {
     const path1 = window.location.pathname;
-    const path2 = window.location.href;
-    window.sessionStorage.setItem("conferenceId", path1.split("/")[2]);
-    window.localStorage.setItem("conferenceId", path1.split("/")[2]);
-    return path1 && path2;
+    return path1;
   }
 
   regCategoryList(regcategories) {
@@ -49,12 +46,16 @@ export default class Registration extends Component {
               id="regcatlist"
               key={regcategory.regCategoryId}>
               <Table>
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Webiste Link</th>
+                  </tr>
+                </thead>
                 <tbody>
                   <tr>
                     <td>{regcategory.regFullName}</td>
-                    <td>{regcategory.regFee}</td>
-                    <td>{regcategory.regCurrency}</td>
-                    <td> <Link to={`http://` + window.location.pathname.split("/")[1] + `.${regcategory.regAbbrName}.targetknasim.com`} target="_blank"> {this.createURL()} </Link></td>
+                    <td> <Link to={"localhost:3001/"} target="_blank"> {this.createURL()} </Link></td>
                   </tr>
                 </tbody>
               </Table>
@@ -69,7 +70,6 @@ export default class Registration extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
 
