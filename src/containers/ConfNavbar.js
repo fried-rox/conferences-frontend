@@ -47,13 +47,13 @@ export default class ConfNavbar extends Component {
       <div>
         <Navbar>
           <Nav>
-            <RouteNavItem key={10} onClick={this.handleDetailsClick}>Details</RouteNavItem>
-            <RouteNavItem key={4} onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
-            <RouteNavItem key={5} onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
-            <RouteNavItem key={6} onClick={this.handleScientificClick}>Scientific</RouteNavItem>
-            <RouteNavItem key={7} onClick={this.handleTourismClick}>Tourism</RouteNavItem>
-            <RouteNavItem key={8} onClick={this.handleReportsClick}>Reports</RouteNavItem>
-            <RouteNavItem key={9} onClick={this.handleProgramPlanningClick}>Program Planning</RouteNavItem>
+            <RouteNavItem key={4} onClick={this.handleDetailsClick}>Details</RouteNavItem>
+            <RouteNavItem key={5} onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
+            <RouteNavItem key={6} onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
+            <RouteNavItem key={7} onClick={this.handleScientificClick}>Scientific</RouteNavItem>
+            <RouteNavItem key={8} onClick={this.handleTourismClick}>Tourism</RouteNavItem>
+            <RouteNavItem key={9} onClick={this.handleReportsClick}>Reports</RouteNavItem>
+            <RouteNavItem key={10} onClick={this.handleProgramPlanningClick}>Program Planning</RouteNavItem>
           </Nav>
         </Navbar>
       </div>
