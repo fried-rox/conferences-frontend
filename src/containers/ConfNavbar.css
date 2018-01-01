@@ -2,6 +2,12 @@
   color: #999;
 }*/
 
-.ConfNavbar .navbar .navbar-default {
-  color: #999;
+.ConfNavbar {
+  width: 100%;
+  background-color: #fff;
+}
+
+#detailsnav {
+  width: 150px;
+  text-align: center;
 }

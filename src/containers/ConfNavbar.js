@@ -32,28 +32,16 @@ export default class ConfNavbar extends Component {
     this.props.history.push(`/conferences/${this.props.match.params.id}/tourism`);
   }
 
-  handleReportsClick = event => {
-    event.preventDefault();
-    this.props.history.push(`/conferences/${this.props.match.params.id}/reports`);
-  }
-
-  handleProgramPlanningClick = event => {
-    event.preventDefault();
-    this.props.history.push(`/conferences/${this.props.match.params.id}/programplanning`);
-  }
-
   render() {
     return (
       <div>
         <Navbar>
-          <Nav>
-            <RouteNavItem key={4} onClick={this.handleDetailsClick}>Details</RouteNavItem>
-            <RouteNavItem key={5} onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
-            <RouteNavItem key={6} onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
-            <RouteNavItem key={7} onClick={this.handleScientificClick}>Scientific</RouteNavItem>
-            <RouteNavItem key={8} onClick={this.handleTourismClick}>Tourism</RouteNavItem>
-            <RouteNavItem key={9} onClick={this.handleReportsClick}>Reports</RouteNavItem>
-            <RouteNavItem key={10} onClick={this.handleProgramPlanningClick}>Program Planning</RouteNavItem>
+          <Nav pullLeft>
+            <RouteNavItem key={4} id="detailsnav" onClick={this.handleDetailsClick}>Details</RouteNavItem>
+            <RouteNavItem key={5} id="detailsnav" onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
+            <RouteNavItem key={6} id="detailsnav" onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
+            <RouteNavItem key={7} id="detailsnav" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
+            <RouteNavItem key={8} id="detailsnav" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
           </Nav>
         </Navbar>
       </div>
