@@ -3,18 +3,21 @@ import { PageHeader, Button, ListGroup } from "react-bootstrap";
 
 import ConfNavbar from "./ConfNavbar";
 
+import "./Tourism.css";
+
 export default class Tourism extends Component {
 
   render() {
     return (
       <div>
         <ConfNavbar {...this.props} />
+
+        <PageHeader id="tourHeader">Tourism</PageHeader>
+
         <div className="tourism">
-          <PageHeader>Tourism</PageHeader>
           <Button
             className="newtour"
-            key="new"
-            href={`/conferences/${this.props.match.params.id}/tourism`} >
+            key="new" >
               <b>{"\uFF0B"}</b> Create a new tour
           </Button>
           <input id="toursearch"

@@ -34,8 +34,8 @@ export default class ConfNavbar extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar>
+      <div className="confnavbar">
+        <Navbar collapseOnSelect>
           <Nav pullLeft>
             <RouteNavItem key={4} id="detailsnav" onClick={this.handleDetailsClick}>Details</RouteNavItem>
             <RouteNavItem key={5} id="detailsnav" onClick={this.handleParticipantsClick}>Participants</RouteNavItem>

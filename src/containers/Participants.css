@@ -1,3 +1,8 @@
+#parHeader {
+  margin: 0 150px 0 100px;
+  padding: 0 0 0 0;
+}
+
 .participants {
   margin: 0 150px 0 100px;
   padding: 0 0 0 0;
@@ -11,7 +16,7 @@
   padding: 4px 10px;
   font-size: 14px;
   /*line-height: 1.5;*/
-  width: 275px;
+  width: 200px;
   border-radius: 4px;
   color: #000000;
   box-shadow: 1px 1px 0 0 #3f99a1;

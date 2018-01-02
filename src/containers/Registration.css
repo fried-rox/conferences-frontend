@@ -9,6 +9,7 @@
 }
 
 .regcategoriesview #regcatsearch {
+  width: 200px;
   display: block;
   float: right;
   margin-top: 0;

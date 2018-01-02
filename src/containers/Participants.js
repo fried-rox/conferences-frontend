@@ -72,8 +72,10 @@ export default class Participants extends Component {
     return (
       <div>
         <ConfNavbar {...this.props} />
+
+        <PageHeader id="parHeader">Participants</PageHeader>
+
         <div className="participants">
-          <PageHeader>Participants</PageHeader>
           <Button
             className="newpar"
             key="new"
