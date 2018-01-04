@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { PageHeader, ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { PageHeader, ListGroup, ListGroupItem, Navbar, Nav } from "react-bootstrap";
 
 import ConfNavbar from "./ConfNavbar";
 import { invokeApig } from '../libs/awsLib';
+import RouteNavItem from "../components/RouteNavItem";
 
 import './Participants.css';
 
@@ -57,7 +58,7 @@ export default class Participants extends Component {
 
   handleParticipantClick = event => {
     event.preventDefault();
-    this.props.history.push(event.currentTarget.getAttribute("href"));
+    this.props.history.push("/participants/new");
   }
 
   // renderParticipants(participants) {
@@ -73,16 +74,17 @@ export default class Participants extends Component {
       <div>
         <ConfNavbar {...this.props} />
 
+        <div>
+          <Navbar>
+            <Nav>
+              <RouteNavItem key={this.state.conferenceId} id="pardetailsnav" onClick={this.handleParticipantClick}>Create new</RouteNavItem>
+            </Nav>
+          </Navbar>
+        </div>
+
         <PageHeader id="parHeader">Participants</PageHeader>
 
         <div className="participants">
-          <Button
-            className="newpar"
-            key="new"
-            href="/participants/new"
-            onClick={this.handleParticipantClick} >
-              <b>{"\uFF0B"}</b> Create a new participant
-          </Button>
           <input id="parsearch"
             type="text"
             placeholder="Search list by name..."

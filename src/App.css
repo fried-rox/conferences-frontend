@@ -11,18 +11,22 @@
 .App-container {
   margin-bottom: 0px;
   padding: 0px;
+  border: 0;
+  border-radius: 0;
   width: inherit;
   background-color: #fff;
 }
 
 .App-container .navbar-collapse {
   padding: 0;
+  border: 0;
   width: inherit;
 }
 
 .App-container .navbar-brand {
   margin: 0;
   padding: 0;
+  border: 0;
 }
 
 .App-container #logo {

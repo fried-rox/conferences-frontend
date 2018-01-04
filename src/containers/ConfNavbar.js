@@ -12,6 +12,12 @@ export default class ConfNavbar extends Component {
     this.props.history.push(`/conferences/${this.props.match.params.id}`);
   }
 
+
+  // twoFunctions() {
+  //   this.changeHover();
+  //   this.handleDetailsClick();
+  // }
+
   handleParticipantsClick = event => {
     event.preventDefault();
     this.props.history.push(`/conferences/${this.props.match.params.id}/participants`);
@@ -38,10 +44,10 @@ export default class ConfNavbar extends Component {
         <Navbar collapseOnSelect>
           <Nav pullLeft>
             <RouteNavItem key={4} id="detailsnav" onClick={this.handleDetailsClick}>Details</RouteNavItem>
-            <RouteNavItem key={5} id="detailsnav" onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
-            <RouteNavItem key={6} id="detailsnav" onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
-            <RouteNavItem key={7} id="detailsnav" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
-            <RouteNavItem key={8} id="detailsnav" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
+            <RouteNavItem key={5} id="detailsnav2" onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
+            <RouteNavItem key={6} id="detailsnav3" onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
+            <RouteNavItem key={7} id="detailsnav4" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
+            <RouteNavItem key={8} id="detailsnav5" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
           </Nav>
         </Navbar>
       </div>

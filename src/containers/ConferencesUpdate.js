@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel, Checkbox } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel, Checkbox, Nav, Navbar } from "react-bootstrap";
 import DayPicker from "react-day-picker";
 
 import ConfNavbar from "./ConfNavbar";
 import { invokeApig, s3Upload } from "../libs/awsLib";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
+import RouteNavItem from "../components/RouteNavItem";
 
 import "./ConferencesUpdate.css";
 
@@ -167,10 +168,23 @@ export default class ConferencesUpdate extends Component {
     }
   }
 
+  handleConferenceClick = event => {
+    event.preventDefault();
+    this.props.history.push(`/conferences/${this.props.match.params.id}/update`);
+  }
+
   render() {
     return (
       <div>
         <ConfNavbar {...this.props} />
+        <div>
+          <Navbar>
+            <Nav>
+              <RouteNavItem id="confdetailsnav">Settings</RouteNavItem>
+              <RouteNavItem key={this.state.conferenceId} id="confdetailsnav" onClick={this.handleConferenceClick}>Edit Details</RouteNavItem>
+            </Nav>
+          </Navbar>
+        </div>
         <h2 id="heading"> {this.state.confTitle} </h2>
         <div className="ConferencesUpdate">
         {this.state.conference &&

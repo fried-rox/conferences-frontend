@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Table, Nav, Navbar } from "react-bootstrap";
 
 import { invokeApig } from "../libs/awsLib";
 import ConfNavbar from './ConfNavbar';
+import RouteNavItem from "../components/RouteNavItem";
 
 import "./Conferences.css";
 
@@ -71,17 +72,19 @@ export default class Conferences extends Component {
     return (
       <div>
         <ConfNavbar id="confnavbar" {...this.props} />
+
+        <div>
+          <Navbar flex-column>
+            <Nav>
+              <RouteNavItem id="confdetailsnav">Settings</RouteNavItem>
+              <br />
+              <RouteNavItem key={this.state.conferenceId} id="confdetailsnav" onClick={this.handleConferenceClick}>Edit Details</RouteNavItem>
+            </Nav>
+          </Navbar>
+        </div>
+
         <div className="conferences">
           <h2> {this.state.confTitle} </h2>
-          <Button
-            className="update"
-            key={this.state.conferenceId}
-            onClick={this.handleConferenceClick} >
-              <b>{"\uFF0B"}</b> Edit
-          </Button>
-          <Button className="settings">
-              Settings
-          </Button>
           <h3> Conference Details </h3>
           <div>
             <Table responsive>
