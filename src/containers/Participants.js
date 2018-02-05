@@ -13,7 +13,7 @@ export default class Participants extends Component {
 
     this.state = {
       isLoading: true,
-      participants: [],
+      // participants: [],
       search: '',
     };
   }
@@ -24,8 +24,8 @@ export default class Participants extends Component {
     }
 
     try {
-      const results = await this.participants();
-      this.setState({ participants: results });
+      // const results = await this.participants();
+      // this.setState({ participants: results });
     } catch (e) {
       alert(e);
     }

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Table, Nav, Navbar } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 import { invokeApig } from "../libs/awsLib";
 import ConfNavbar from './ConfNavbar';
-import RouteNavItem from "../components/RouteNavItem";
+// import RouteNavItem from "../components/RouteNavItem";
 
 import "./Conferences.css";
 
@@ -74,13 +74,7 @@ export default class Conferences extends Component {
         <ConfNavbar id="confnavbar" {...this.props} />
 
         <div>
-          <Navbar flex-column>
-            <Nav>
-              <RouteNavItem id="confdetailsnav">Settings</RouteNavItem>
-              <br />
-              <RouteNavItem key={this.state.conferenceId} id="confdetailsnav" onClick={this.handleConferenceClick}>Edit Details</RouteNavItem>
-            </Nav>
-          </Navbar>
+
         </div>
 
         <div className="conferences">

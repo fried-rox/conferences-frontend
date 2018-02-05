@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
+// import { IndexLinkContainer } from "react-router-bootstrap";
 
 import RouteNavItem from "../components/RouteNavItem";
 
@@ -7,16 +8,15 @@ import './ConfNavbar.css';
 
 export default class ConfNavbar extends Component {
 
+  // handleClickColorChange = event => {
+  //   const details = document.getElementById("detailsnav");
+  //   details.style.backgroundColor = "#fbb031";
+  // }
+
   handleDetailsClick = event => {
     event.preventDefault();
     this.props.history.push(`/conferences/${this.props.match.params.id}`);
   }
-
-
-  // twoFunctions() {
-  //   this.changeHover();
-  //   this.handleDetailsClick();
-  // }
 
   handleParticipantsClick = event => {
     event.preventDefault();
@@ -42,13 +42,15 @@ export default class ConfNavbar extends Component {
     return (
       <div className="confnavbar">
         <Navbar collapseOnSelect>
-          <Nav pullLeft>
-            <RouteNavItem key={4} id="detailsnav" onClick={this.handleDetailsClick}>Details</RouteNavItem>
-            <RouteNavItem key={5} id="detailsnav2" onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
-            <RouteNavItem key={6} id="detailsnav3" onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
-            <RouteNavItem key={7} id="detailsnav4" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
-            <RouteNavItem key={8} id="detailsnav5" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
-          </Nav>
+          <div id="navbar">
+            <Nav pullLeft>
+              <RouteNavItem key={4} id="detailsnav" onClick={this.handleDetailsClick}>Details</RouteNavItem>
+              <RouteNavItem key={5} id="detailsnav2" onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
+              <RouteNavItem key={6} id="detailsnav3" onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
+              <RouteNavItem key={7} id="detailsnav4" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
+              <RouteNavItem key={8} id="detailsnav5" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
+            </Nav>
+          </div>
         </Navbar>
       </div>
     );

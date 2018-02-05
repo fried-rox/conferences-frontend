@@ -1,12 +1,13 @@
-/*.navbar-default {
-  color: #999;
-}*/
 .confnavbar .navbar {
   width: 100%;
   background-color: #fff;
-  margin-bottom: 0px;
-  border: 0;
+  margin-bottom: 0;
   border-radius: 0;
+}
+
+.navbar .navbar-default {
+  border-bottom: 20px;
+  border-color: #fbb031;
 }
 
 #detailsnav, #detailsnav2, #detailsnav3, #detailsnav4, #detailsnav5 {

@@ -43,6 +43,7 @@ export default class RegistrationNew extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
+    debugger;
   }
 
   // regIncludes(event) {
@@ -84,6 +85,7 @@ export default class RegistrationNew extends Component {
       }
 
       console.log(createRegCategoryObject);
+      debugger;
 
       await this.createRegCategory(createRegCategoryObject);
       this.props.history.push(`/conferences/${this.props.match.params.id}/registration`);
