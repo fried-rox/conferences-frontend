@@ -33,8 +33,8 @@ export default class Registration extends Component {
       confCurrency: "",
       confExRate: "",
       notes: "",
-      regCategories: "",
-      participantList: ""
+      regCategories: [],
+      participantList: []
     };
   }
 
@@ -131,7 +131,14 @@ export default class Registration extends Component {
     console.log(this.state.regCatIds);
   }
 
-  //   componentDidUpdate() {
+  // componentDidUpdate(prevProps, prevState) {
+  //   if prevState.regCategories === undefined ?
+  //   return prevState.regCategories !== this.state.regCatIds;
+  //   debugger;
+  // }
+
+  // updateRegCats() {
+  //   try {
   //     this.saveConference({
   //       ...this.state.conference,
   //       confTitle: this.state.confTitle,
@@ -152,7 +159,8 @@ export default class Registration extends Component {
   //       regCategories: this.state.regCatIds,
   //       participantList: this.state.participantList
   //     });
-  //     debugger;
+  //   } catch (e) {
+  //     alert(e);
   //   }
   // }
 

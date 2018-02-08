@@ -43,7 +43,6 @@ export default class RegistrationNew extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
-    debugger;
   }
 
   // regIncludes(event) {
