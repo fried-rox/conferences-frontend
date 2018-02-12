@@ -32,9 +32,7 @@ export default class Registration extends Component {
       confLanguage: "",
       confCurrency: "",
       confExRate: "",
-      notes: "",
-      regCategories: [],
-      participantList: []
+      notes: ""
     };
   }
 
@@ -59,11 +57,8 @@ export default class Registration extends Component {
         confLanguage: confreg.confLanguage,
         confCurrency: confreg.confCurrency,
         confExRate: confreg.confExRate,
-        notes: confreg.notes,
-        regCategories: confreg.regCategories,
-        participantList: confreg.participantList
+        notes: confreg.notes
       });
-      debugger;
     } catch (e) {
       alert(e);
     }
@@ -128,41 +123,7 @@ export default class Registration extends Component {
           ? this.state.regCatIds.push(regcategory.regCategoryId)
           : null
     );
-    console.log(this.state.regCatIds);
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if prevState.regCategories === undefined ?
-  //   return prevState.regCategories !== this.state.regCatIds;
-  //   debugger;
-  // }
-
-  // updateRegCats() {
-  //   try {
-  //     this.saveConference({
-  //       ...this.state.conference,
-  //       confTitle: this.state.confTitle,
-  //       confAbbr: this.state.confAbbr,
-  //       projectManager: this.state.projectManager,
-  //       accountClient: this.state.accountClient,
-  //       confVenue: this.state.confVenue,
-  //       confStartDate: this.state.confStartDate,
-  //       confEndDate: this.state.confEndDate,
-  //       regAccess: this.state.regAccess,
-  //       regEarlyStart: this.state.regEarlyStart,
-  //       regNormalStart: this.state.regNormalStart,
-  //       regNormalEnd: this.state.regNormalEnd,
-  //       confLanguage: this.state.confLanguage,
-  //       confCurrency: this.state.confCurrency,
-  //       confExRate: this.state.confExRate,
-  //       notes: this.state.notes,
-  //       regCategories: this.state.regCatIds,
-  //       participantList: this.state.participantList
-  //     });
-  //   } catch (e) {
-  //     alert(e);
-  //   }
-  // }
 
   render() {
     return (

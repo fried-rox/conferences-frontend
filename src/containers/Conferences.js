@@ -52,7 +52,7 @@ export default class Conferences extends Component {
         confLanguage: results.confLanguage,
         confCurrency: results.confCurrency,
         confExRate: results.confExRate,
-        notes: results.notes,
+        notes: results.notes
       });
     } catch (e) {
       alert(e);
