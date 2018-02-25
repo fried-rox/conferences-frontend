@@ -5,7 +5,7 @@ import { PageHeader, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 
 import { invokeApig } from '../libs/awsLib';
 
-import "./Home.css";
+import "../css/Home.css";
 
 //import SearchNotes from "../components/SearchNotes";
 
@@ -68,11 +68,8 @@ export default class Home extends Component {
         <h1>Target Conferences Ltd</h1>
         <p>Online Managment System</p>
         <div>
-          <Link to="/signup" id="signupbtn">
-            Signup
-          </Link>
           <Link to="/login" id="loginbtn">
-            Login
+            Click to Login
           </Link>
         </div>
       </div>
@@ -88,18 +85,20 @@ export default class Home extends Component {
     return (
       <div className="conferences">
         <PageHeader>Conferences and Groups</PageHeader>
-        <Button
-          className="newconf"
-          key="new"
-          href="/conferences/new"
-          onClick={this.handleConferenceClick} >
-            <b>{"\uFF0B"}</b> Create a new conference
-        </Button>
-        <input id="confsearch"
-          type="text"
-          placeholder="Search list by name..."
-          value={this.state.search}
-          onChange={this.searchList.bind(this)} />
+        <div className="confbuttonandsearch">
+          <Button
+            className="newconf"
+            key="new"
+            href="/conferences/new"
+            onClick={this.handleConferenceClick} >
+              <b>{"\uFF0B"}</b> Create a new conference
+          </Button>
+          <input id="confsearch"
+            type="text"
+            placeholder="Search list by name..."
+            value={this.state.search}
+            onChange={this.searchList.bind(this)} />
+        </div>
         <br />
         <ListGroup className="conference-list">
           {!this.state.isLoading && this.renderConferencesList(filteredConferences)}

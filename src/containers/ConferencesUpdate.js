@@ -8,7 +8,7 @@ import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import RouteNavItem from "../components/RouteNavItem";
 
-import "./ConferencesUpdate.css";
+import "../css/ConferencesUpdate.css";
 
 export default class ConferencesUpdate extends Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import { invokeApig } from "../libs/awsLib";
 import ConfNavbar from './ConfNavbar';
 // import RouteNavItem from "../components/RouteNavItem";
 
-import "./Conferences.css";
+import "../css/Conferences.css";
 
 export default class Conferences extends Component {
   constructor(props) {
@@ -52,7 +52,7 @@ export default class Conferences extends Component {
         confLanguage: results.confLanguage,
         confCurrency: results.confCurrency,
         confExRate: results.confExRate,
-        notes: results.notes
+        notes: results.notes,
       });
     } catch (e) {
       alert(e);
@@ -71,13 +71,10 @@ export default class Conferences extends Component {
   render() {
     return (
       <div>
-        <ConfNavbar id="confnavbar" {...this.props} />
 
-        <div>
+        <ConfNavbar {...this.props} />
 
-        </div>
-
-        <div className="conferences">
+        <div className="conferenceDetails">
           <h2> {this.state.confTitle} </h2>
           <h3> Conference Details </h3>
           <div>
@@ -142,6 +139,6 @@ export default class Conferences extends Component {
           </div>
         </div>
       </div>
-    );
+  );
   }
 }

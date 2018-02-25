@@ -5,7 +5,7 @@ import { CognitoUserPool, AuthenticationDetails, CognitoUser } from "amazon-cogn
 import config from "../config";
 import LoaderButton from "../components/LoaderButton";
 
-import "./Login.css";
+import "../css/Login.css";
 
 export default class Login extends Component {
   constructor(props) {
@@ -65,7 +65,7 @@ export default class Login extends Component {
         <h1>Target Conferences Ltd</h1>
         <p>Online Managment System</p>
         <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="email" bsSize="large">
+          <FormGroup controlId="email">
             <ControlLabel>Email</ControlLabel>
             <FormControl
               autoFocus
@@ -74,7 +74,7 @@ export default class Login extends Component {
               onChange={this.handleChange}
             />
           </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
+          <FormGroup controlId="password">
             <ControlLabel>Password</ControlLabel>
             <FormControl
               value={this.state.password}
@@ -84,7 +84,6 @@ export default class Login extends Component {
           </FormGroup>
           <LoaderButton
             block
-            bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}

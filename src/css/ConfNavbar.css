@@ -1,22 +1,19 @@
-.confnavbar .navbar {
-  width: 100%;
+.confnavbarsecond {
+  list-style-type: none;
   background-color: #fff;
-  margin-bottom: 0;
+  padding: 0;
   border-radius: 0;
+  display: inline;
+  margin: 20px 0 0 200px;
 }
 
-.navbar .navbar-default {
-  border-bottom: 20px;
-  border-color: #fbb031;
-}
-
-#detailsnav, #detailsnav2, #detailsnav3, #detailsnav4, #detailsnav5 {
+/* #detailsnav, #detailsnav2, #detailsnav3, #detailsnav4, #detailsnav5 {
   text-align: center;
   width: 125px;
   letter-spacing: 0.5px;
   box-shadow: 1px 1px 0 0 #999;
-  display: inline-block !important;
-  margin: 8px 10px 0 0;
+  float: left;
+  margin: 8px 10px;
   padding: 2px 10px;
   font-size: 16px;
   line-height: 1.5;
@@ -28,7 +25,7 @@
   vertical-align: middle;
   border-width: thin;
   border-style: solid;
-}
+} */
 
 #detailsnav:hover, #detailsnav2:hover, #detailsnav3:hover, #detailsnav4:hover, #detailsnav5:hover {
   text-decoration: none;

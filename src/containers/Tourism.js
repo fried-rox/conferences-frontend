@@ -3,7 +3,7 @@ import { PageHeader, Button, ListGroup } from "react-bootstrap";
 
 import ConfNavbar from "./ConfNavbar";
 
-import "./Tourism.css";
+import "../css/Tourism.css";
 
 export default class Tourism extends Component {
 

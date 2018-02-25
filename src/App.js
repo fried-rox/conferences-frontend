@@ -6,7 +6,7 @@ import { authUser, signOutUser } from "./libs/awsLib";
 import Routes from "./Routes";
 import RouteNavItem from "./components/RouteNavItem";
 
-import "./App.css";
+import "./css/App.css";
 
 class App extends Component {
   constructor(props) {
@@ -51,32 +51,25 @@ class App extends Component {
 
     return (
       !this.state.isAuthenticating &&
-      <div>
-        <Navbar collapseOnSelect className="App-container">
+      <div className="App-container">
+        <Navbar collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">
-                <img id="logo" src={require('./images/android.png')} alt="Target conference logo"/>
-              </Link>
+              <Link to="/"> TARGET CONFERENCES LTD </Link>
             </Navbar.Brand>
-            <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
               {this.state.isAuthenticated
                 ? <NavItem id="logoutlink" onClick={this.handleLogout}>Logout</NavItem>
-                : [
-                    <RouteNavItem id="signuplink" key={1} href="/signup">
-                      Signup
-                    </RouteNavItem>,
-                    <RouteNavItem id="loginlink" key={2} href="/login">
+                : <RouteNavItem id="loginlink" key={1} href="/login">
                       Login
                     </RouteNavItem>
-                  ]}
+                  }
             </Nav>
-            <Nav pullLeft>
+            <Nav>
               {this.state.isAuthenticated
-                ? <RouteNavItem id="conflistlink" key={3} href="/">
+                ? <RouteNavItem id="conflistlink" key={2} href="/">
                     Conferences
                   </RouteNavItem>
                 : []

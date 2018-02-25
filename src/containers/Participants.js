@@ -5,7 +5,7 @@ import ConfNavbar from "./ConfNavbar";
 import { invokeApig } from '../libs/awsLib';
 import RouteNavItem from "../components/RouteNavItem";
 
-import './Participants.css';
+import '../css/Participants.css';
 
 export default class Participants extends Component {
   constructor(props) {

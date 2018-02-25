@@ -3,7 +3,7 @@ import { PageHeader, Button } from "react-bootstrap";
 
 import ConfNavbar from "./ConfNavbar";
 
-import './Scientific.css';
+import '../css/Scientific.css';
 
 export default class Scientific extends Component {
 

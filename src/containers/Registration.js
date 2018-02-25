@@ -7,7 +7,7 @@ import ConfNavbar from "./ConfNavbar";
 // import config from "../config";
 import { invokeApig } from "../libs/awsLib";
 
-import './Registration.css';
+import '../css/Registration.css';
 
 export default class Registration extends Component {
   constructor(props) {

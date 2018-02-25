@@ -5,7 +5,7 @@ import { AuthenticationDetails, CognitoUserPool } from "amazon-cognito-identity-
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 
-import "./Signup.css";
+import "../css/Signup.css";
 
 export default class Signup extends Component {
   constructor(props) {
