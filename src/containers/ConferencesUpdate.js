@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel, Checkbox, Nav, Navbar } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Checkbox } from "react-bootstrap";
 import DayPicker from "react-day-picker";
 
 import ConfNavbar from "./ConfNavbar";
 import { invokeApig, s3Upload } from "../libs/awsLib";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
-import RouteNavItem from "../components/RouteNavItem";
+// import RouteNavItem from "../components/RouteNavItem";
 
 import "../css/ConferencesUpdate.css";
 
@@ -175,151 +175,168 @@ export default class ConferencesUpdate extends Component {
 
   render() {
     return (
-      <div>
+      <div className="conferenceupdatedetails">
+
         <ConfNavbar {...this.props} />
-        <div>
-          <Navbar>
-            <Nav>
-              <RouteNavItem id="confdetailsnav">Settings</RouteNavItem>
-              <RouteNavItem key={this.state.conferenceId} id="confdetailsnav" onClick={this.handleConferenceClick}>Edit Details</RouteNavItem>
-            </Nav>
-          </Navbar>
+
+        <div className="Updates">
+
+          <div className="ConferencesUpdate">
+
+            <h2> {this.state.confTitle} </h2>
+
+            {this.state.conference &&
+              <form onSubmit={this.handleSubmit}>
+                <FormGroup controlId="confTitle">
+                  <ControlLabel>Conference Title</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.confTitle}
+                    type="text"/>
+                </FormGroup>
+                <FormGroup controlId="confAbbr">
+                  <ControlLabel>Conference Abbreviated Name</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.confAbbr}
+                    type="text"/>
+                </FormGroup>
+                <FormGroup controlId="projectManager">
+                  <ControlLabel>Project Manager</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.projectManager}
+                    componentClass="select">
+                      <option value="John Smith">John Smith</option>
+                      <option value="Mary Murphy">Mary Murphy</option>
+                  </FormControl>
+                </FormGroup>
+                <FormGroup controlId="accountClient">
+                  <ControlLabel>Account Client</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.accountClient}
+                    type="text"/>
+                </FormGroup>
+                <FormGroup controlId="confVenue">
+                  <ControlLabel>Conference Venue</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.confVenue}
+                    type="text"/>
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Conference dates</ControlLabel>
+                  <br />
+                  <DayPicker
+                    onDayClick={this.handleDayClick}
+                    selectedDays={this.state.selectedDay} />
+                </FormGroup>
+                <FormGroup controlId="regAccess">
+                  <Checkbox>Allow Registration</Checkbox>
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Registration Early Bird Dates</ControlLabel>
+                  <br />
+                  <ControlLabel>Registration Normal Dates</ControlLabel>
+                  <br />
+                </FormGroup>
+                <FormGroup controlId="confLanguage">
+                  <ControlLabel>Language</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.confLanguage}
+                    componentClass="select">
+                      <option value="English">English</option>
+                      <option value="Hebrew">Hebrew</option>
+                  </FormControl>
+                </FormGroup>
+                <FormGroup controlId="confCurrency">
+                  <ControlLabel>Currency</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.confCurrency}
+                    componentClass="select">
+                      <option value="dollar">Dollar</option>
+                      <option value="shekel">Shekel</option>
+                      <option value="euro">Euro</option>
+                  </FormControl>
+                </FormGroup>
+                <FormGroup controlId="confExRate">
+                  <ControlLabel>Exchange Rate</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.confExRate}
+                    type="text" />
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Mailing</ControlLabel>
+                </FormGroup>
+                <FormGroup controlId="notes">
+                  <ControlLabel>Notes</ControlLabel>
+                  <FormControl
+                    onChange={this.handleChange}
+                    value={this.state.notes}
+                    componentClass="textarea" />
+                </FormGroup>
+                {this.state.conference.confGraphic &&
+                  <FormGroup >
+                    <ControlLabel>Conference Banner</ControlLabel>
+                    <FormControl.Static>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={this.state.conference.confGraphic}
+                      >
+                        {this.formatFilename(this.state.conference.confGraphic)}
+                      </a>
+                    </FormControl.Static>
+                  </FormGroup>}
+                <FormGroup controlId="file">
+                  {!this.state.conference.confGraphic &&
+                    <ControlLabel>Conference Banner</ControlLabel>}
+                  <FormControl onChange={this.handleFileChange} type="file" />
+                </FormGroup>
+
+                <div className="button-panel">
+                  <LoaderButton
+                    className="save-button"
+                    bsSize="large"
+                    disabled={!this.validateForm()}
+                    type="submit"
+                    isLoading={this.state.isLoading}
+                    text="Save"
+                    loadingText="Saving…"
+                  />
+                  <LoaderButton
+                    className="delete-button"
+                    bsSize="large"
+                    isLoading={this.state.isDeleting}
+                    onClick={this.handleDelete}
+                    text="Delete"
+                    loadingText="Deleting…"
+                  />
+                </div>
+
+              </form>}
+          </div>
+
+          <div className="buttonsformore">
+            <Button
+              id="settings">
+                Settings
+            </Button>
+            <Button
+              id="newconf"
+              key="new"
+              href="/conferences/new"
+              onClick={this.handleConferenceClick2} >
+                <b>{"\uFF0B"}</b> New
+            </Button>
+          </div>
+
         </div>
-        <h2 id="heading"> {this.state.confTitle} </h2>
-        <div className="ConferencesUpdate">
-        {this.state.conference &&
-          <form onSubmit={this.handleSubmit}>
-            <FormGroup controlId="confTitle">
-              <ControlLabel>Conference Title</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.confTitle}
-                type="text"/>
-            </FormGroup>
-            <FormGroup controlId="confAbbr">
-              <ControlLabel>Conference Abbreviated Name</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.confAbbr}
-                type="text"/>
-            </FormGroup>
-            <FormGroup controlId="projectManager">
-              <ControlLabel>Project Manager</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.projectManager}
-                componentClass="select">
-                  <option value="John Smith">John Smith</option>
-                  <option value="Mary Murphy">Mary Murphy</option>
-              </FormControl>
-            </FormGroup>
-            <FormGroup controlId="accountClient">
-              <ControlLabel>Account Client</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.accountClient}
-                type="text"/>
-            </FormGroup>
-            <FormGroup controlId="confVenue">
-              <ControlLabel>Conference Venue</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.confVenue}
-                type="text"/>
-            </FormGroup>
-            <FormGroup>
-              <ControlLabel>Conference dates</ControlLabel>
-              <br />
-              <DayPicker
-                onDayClick={this.handleDayClick}
-                selectedDays={this.state.selectedDay} />
-            </FormGroup>
-            <FormGroup controlId="regAccess">
-              <Checkbox>Allow Registration</Checkbox>
-            </FormGroup>
-            <FormGroup>
-              <ControlLabel>Registration Early Bird Dates</ControlLabel>
-              <br />
-              <ControlLabel>Registration Normal Dates</ControlLabel>
-              <br />
-            </FormGroup>
-            <FormGroup controlId="confLanguage">
-              <ControlLabel>Language</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.confLanguage}
-                componentClass="select">
-                  <option value="English">English</option>
-                  <option value="Hebrew">Hebrew</option>
-              </FormControl>
-            </FormGroup>
-            <FormGroup controlId="confCurrency">
-              <ControlLabel>Currency</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.confCurrency}
-                componentClass="select">
-                  <option value="dollar">Dollar</option>
-                  <option value="shekel">Shekel</option>
-                  <option value="euro">Euro</option>
-              </FormControl>
-            </FormGroup>
-            <FormGroup controlId="confExRate">
-              <ControlLabel>Exchange Rate</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.confExRate}
-                type="text" />
-            </FormGroup>
-            <FormGroup>
-              <ControlLabel>Mailing</ControlLabel>
-            </FormGroup>
-            <FormGroup controlId="notes">
-              <ControlLabel>Notes</ControlLabel>
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.notes}
-                componentClass="textarea" />
-            </FormGroup>
-            {this.state.conference.confGraphic &&
-              <FormGroup >
-                <ControlLabel>Conference Banner</ControlLabel>
-                <FormControl.Static>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={this.state.conference.confGraphic}
-                  >
-                    {this.formatFilename(this.state.conference.confGraphic)}
-                  </a>
-                </FormControl.Static>
-              </FormGroup>}
-            <FormGroup controlId="file">
-              {!this.state.conference.confGraphic &&
-                <ControlLabel>Conference Banner</ControlLabel>}
-              <FormControl onChange={this.handleFileChange} type="file" />
-            </FormGroup>
-            <div className="button-panel">
-              <LoaderButton
-                className="save-button"
-                bsSize="large"
-                disabled={!this.validateForm()}
-                type="submit"
-                isLoading={this.state.isLoading}
-                text="Save"
-                loadingText="Saving…"
-              />
-              <LoaderButton
-                className="delete-button"
-                bsSize="large"
-                isLoading={this.state.isDeleting}
-                onClick={this.handleDelete}
-                text="Delete"
-                loadingText="Deleting…"
-              />
-            </div>
-          </form>}
-        </div>
+
       </div>
     );
   }

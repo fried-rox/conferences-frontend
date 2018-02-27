@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { PageHeader, ListGroup, ListGroupItem, Navbar, Nav } from "react-bootstrap";
+import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
 
 import ConfNavbar from "./ConfNavbar";
 import { invokeApig } from '../libs/awsLib';
-import RouteNavItem from "../components/RouteNavItem";
+// import RouteNavItem from "../components/RouteNavItem";
 
 import '../css/Participants.css';
 
@@ -71,29 +71,25 @@ export default class Participants extends Component {
 
   render() {
     return (
-      <div>
+      <div className="participantsdetails">
+
         <ConfNavbar {...this.props} />
 
-        <div>
-          <Navbar>
-            <Nav>
-              <RouteNavItem key={this.state.conferenceId} id="pardetailsnav" onClick={this.handleParticipantClick}>Create new</RouteNavItem>
-            </Nav>
-          </Navbar>
+        <div className="participants">
+          <PageHeader>Participants</PageHeader>
+          <ListGroup className="participant-list">
+            {!this.state.isLoading && this.renderParticipantsList}
+          </ListGroup>
         </div>
 
-        <PageHeader id="parHeader">Participants</PageHeader>
-
-        <div className="participants">
+        <div>
           <input id="parsearch"
             type="text"
             placeholder="Search list by name..."
             value={this.state.search}
             onChange={this.searchList.bind(this)} />
-          <ListGroup className="participant-list">
-            {!this.state.isLoading && this.renderParticipantsList}
-          </ListGroup>
         </div>
+
       </div>
     );
   }

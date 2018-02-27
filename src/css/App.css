@@ -34,7 +34,7 @@
   flex-grow: 100;
   justify-content: flex-start;
   overflow: hidden;
-  /* position: fixed; */
+  position: fixed;
   top: 0;
   width: 100%;
   /* border-bottom: 0.5px solid #999; */
@@ -59,6 +59,14 @@
   text-shadow: 1px 1px #fbb031;
   font-size: 20px;
   overflow: hidden;
+}
+
+.App-container .navbar-brand:hover {
+  color: #3f99a1;
+}
+
+.App-container .navbar-brand:visited {
+  color: #3f99a1;
 }
 
 .App-container #loginlink {
@@ -91,6 +99,10 @@
   border-radius: 4px;
 }
 
+.App-container #logoutlink:hover {
+  color: #fff;
+}
+
 .App-container #conflistlink {
   letter-spacing: 0.5px;
   box-shadow: 1px 1px 0 0 #999;
@@ -110,4 +122,10 @@
   vertical-align: middle;
   border-width: thin;
   border-style: solid;
+}
+
+.App-container #conflistlink:hover {
+  text-decoration: none;
+  background-color: #3f99a1;
+  color: #fff;
 }

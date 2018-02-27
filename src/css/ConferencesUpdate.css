@@ -1,66 +1,130 @@
-.ConferencesUpdate form {
-  padding-bottom: 15px;
+.conferenceupdatedetails {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: 100%;
 }
 
-.ConferencesUpdate form textarea {
+.Updates {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  margin: 140px 50px 10px 180px;
+}
+
+.Updates .ConferencesUpdate {
+  padding: 0;
+  width: 75%;
+}
+
+.Updates .ConferencesUpdate form textarea {
   height: 300px;
   font-size: 24px;
 }
 
-#heading {
-  margin: 10px 150px 20px 100px;
+.Updates .ConferencesUpdate h2 {
+  order: 1;
   font-size: 50px;
+  margin: 0 0 30px 0;
 }
 
-.ConferencesUpdate {
-  margin: 0 150px 0 100px;
+/* .Updates .ConferencesUpdate form {
+  order: 3;
+} */
+
+.Updates .ConferencesUpdate #confTitle, #confAbbr, #projectManager, #accountClient, #confVenue, #confLanguage, #confCurrency, #confExRate, #notes {
+  order: 2;
+  margin-bottom: 15px;
+  padding: 4px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  /* width: 600px; */
+  border-radius: 4px;
+  color: #000000;
+  background-color: #fff;
+  border-color: #3f99a1;
+  border-width: thin;
+}
+
+.Updates .buttonsformore {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 25%;
+}
+
+.Updates .buttonsformore #newconf {
+  margin: 20px 0 2px 0;
+  align-self: center;
+  width: 75px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1px 1px 0 0 #999;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  background-color: #fff;
+  border-color: #3f99a1;
+  border-radius: 4px;
+}
+
+.Updates .buttonsformore #newconf:hover {
+  outline: none;
+  background-color: #3f99a1;
+  color: #fff;
+}
+
+.Updates .buttonsformore #settings {
+  margin: 70px 0 2px 0;
+  align-self: center;
+  width: 75px;
+  padding: 4px 10px 6px 10px;
+  box-shadow: 1px 1px 0 0 #999;
+  letter-spacing: 0.5px;
+  color: #000;
+  text-align: center;
+  height: 30px;
+  font-size: 14px;
+  background-color: #fff;
+  border-color: #999;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.Updates .buttonsformore #settings:hover {
+  outline: none;
+  background-color: #a6a6a6;
+  color: #fff;
 }
 
 .button-panel {
-  /*Put the safari flex in*/
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-flow: row nowrap;
   justify-content: space-around;
 }
 
-.delete-button {
+.button-panel * {
+  margin: 1%;
+}
+
+.button-panel .delete-button {
   float: right;
   flex-basis: 0;
   flex-grow: 2;
   border-color: #fbb031;
 }
 
-.delete-button:hover {
+.button-panel .delete-button:hover {
   background-color: #fbb031;
   border-color: #fbb031;
 }
 
-.save-button {
+.button-panel .save-button {
   float: right;
   flex-grow: 4;
   flex-basis: 0;
 }
 
-.save-button:hover {
+.button-panel .save-button:hover {
   background-color: #3f99a1;
   border-color: #3f99a1;
-}
-
-.button-panel * {
-  margin:1%;
-}
-
-.ConferencesUpdate #confTitle, #confAbbr, #projectManager, #accountClient, #confVenue, #confLanguage, #confCurrency, #confExRate, #notes {
-  display: block;
-  margin-top: 0;
-  padding: 4px 10px;
-  font-size: 14px;
-  line-height: 1.5;
-  /*width: 600px;*/
-  border-radius: 4px;
-  color: #000000;
-  box-shadow: 0.5px 0.5px 0 0 #3f99a1;
-  background-color: #fff;
-  border-color: #3f99a1;
-  border-width: thin;
 }
