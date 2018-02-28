@@ -69,20 +69,16 @@
 }
 
 .conferences .page-header {
-  order: 0;
+  order: 2;
   align-self: stretch;
-  margin: 50px 0 20px 0;
-}
-
-.conferences .page-header h1 {
-  margin: 0;
+  margin: 10px 0 20px 0;
 }
 
 .confbuttonandsearch #confsearch {
   order: 0;
   align-self: flex-end;
   margin-right: 10px;
-  margin-top: 0;
+  margin-top: 25px;
   padding: 4px 10px;
   font-size: 14px;
   line-height: 1.5;
@@ -102,6 +98,7 @@
 .confbuttonandsearch .newconf {
   order: 0;
   align-self: flex-end;
+  margin-top: 25px;
   margin-bottom: 2px;
   float: right;
   min-width: 50px;

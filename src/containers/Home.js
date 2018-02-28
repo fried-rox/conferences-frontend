@@ -84,7 +84,7 @@ export default class Home extends Component {
     );
     return (
       <div className="conferences">
-        <PageHeader>Conferences and Groups</PageHeader>
+
         <div className="confbuttonandsearch">
           <Button
             className="newconf"
@@ -99,10 +99,11 @@ export default class Home extends Component {
             value={this.state.search}
             onChange={this.searchList.bind(this)} />
         </div>
-        <br />
+        <PageHeader>Conferences and Groups</PageHeader>
         <ListGroup className="conference-list">
           {!this.state.isLoading && this.renderConferencesList(filteredConferences)}
         </ListGroup>
+
       </div>
 
     );
