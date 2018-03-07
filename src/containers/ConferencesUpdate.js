@@ -324,14 +324,14 @@ export default class ConferencesUpdate extends Component {
           <div className="buttonsformore">
             <Button
               id="settings">
-                Settings
+                <span className="glyphicon glyphicon-cog"></span> Settings
             </Button>
             <Button
               id="newconf"
               key="new"
               href="/conferences/new"
               onClick={this.handleConferenceClick2} >
-                <b>{"\uFF0B"}</b> New
+                <span className="glyphicon glyphicon-plus"></span> New Conference
             </Button>
           </div>
 

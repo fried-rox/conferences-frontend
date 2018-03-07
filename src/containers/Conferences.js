@@ -151,18 +151,18 @@ export default class Conferences extends Component {
               id="update"
               key={this.state.conferenceId}
               onClick={this.handleConferenceClick} >
-                <b>{"\uFF0B"}</b> Edit
+              <span className="glyphicon glyphicon-pencil"></span> Edit Conference
             </Button>
             <Button
               id="settings">
-                Settings
+                <span className="glyphicon glyphicon-cog"></span> Settings
             </Button>
             <Button
               id="newconf"
               key="new"
               href="/conferences/new"
               onClick={this.handleConferenceClick2} >
-                <b>{"\uFF0B"}</b> New
+              <span className="glyphicon glyphicon-plus"></span> New Conference
             </Button>
           </div>
 

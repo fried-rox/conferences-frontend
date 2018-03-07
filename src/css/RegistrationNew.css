@@ -1,36 +1,46 @@
-#regCatHeader {
-  margin: 0 150px 0 100px;
-  padding: 0 0 0 0;
-}
-
 .regcategories {
-  margin: 0 150px 20px 100px;
-  padding: 0 0 0 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 140px 200px 20px 200px;
+  width: 100%;
+  height: 100%;
 }
 
-.regcategories #regFullName, #regAbbrName, #regCurrency, #regLanguage, #regFee, #regPayment, #regNotes {
-  display: block;
-  margin-top: 0;
+.regcategories h2 {
+  order: 0;
+  font-size: 50px;
+  margin: 0 0 30px 0;
+}
+
+.regcategories h3 {
+  order: 1;
+  margin: 5px 0 10px 0;
+  color: #3f99a1;
+  font-size: 30px;
+}
+
+.regcategories form {
+  order: 5;
+  margin: 10px 0;
+}
+
+.regcategories #regFullName, #regAbbrName, #regCurrency, #regLanguage, #regIncludes, #regFee, #regPayment, #regNotes {
+  margin-bottom: 15px;
   padding: 4px 10px;
   font-size: 14px;
   line-height: 1.5;
+  width: 600px;
   border-radius: 4px;
   color: #000000;
-  box-shadow: 0.5px 0.5px 0 0 #3f99a1;
   background-color: #fff;
   border-color: #3f99a1;
   border-width: thin;
 }
 
-.regcategories #regIncludes {
-  display: block;
-  margin-top: 0;
-  padding: 4px 10px;
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: normal;
-}
 
-.regcategories .reg-create-button {
-  margin-left: 10px;
+.reg-create-button:hover {
+  background-color: #3f99a1;
+  border-color: #3f99a1;
 }

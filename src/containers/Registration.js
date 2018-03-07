@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PageHeader, Button, ListGroupItem, ListGroup, Table } from "react-bootstrap";
+import { Button, ListGroupItem, ListGroup, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // import LoaderButton from "../components/LoaderButton";
@@ -43,21 +43,7 @@ export default class Registration extends Component {
       this.setState({
         regcategories: results,
         conference: confreg,
-        confTitle: confreg.confTitle,
-        confAbbr: confreg.confAbbr,
-        projectManager: confreg.projectManager,
-        accountClient: confreg.accountClient,
-        confVenue: confreg.confVenue,
-        confStartDate: confreg.confStartDate,
-        confEndDate: confreg.confEndDate,
-        regAccess: confreg.regAccess,
-        regEarlyStart: confreg.regEarlyStart,
-        regNormalStart: confreg.regNormalStart,
-        regNormalEnd: confreg.regNormalEnd,
-        confLanguage: confreg.confLanguage,
-        confCurrency: confreg.confCurrency,
-        confExRate: confreg.confExRate,
-        notes: confreg.notes
+        confTitle: confreg.confTitle
       });
     } catch (e) {
       alert(e);
@@ -127,34 +113,40 @@ export default class Registration extends Component {
 
   render() {
     return (
-      <div>
+      <div className="registrationdetailsall">
 
         <ConfNavbar {...this.props} />
 
-        <PageHeader id="regCatHeader">Registration Categories</PageHeader>
+        <div className="RegistrationDetails">
 
-        <div className="regcategoriesview">
-          <Button
-            className="newregcat"
-            key="newregcat"
-            href={`/conferences/${this.props.match.params.id}/registration_new`}
-            onClick={this.handleRegCatClick} >
-              <b>{"\uFF0B"}</b> New reg category
-          </Button>
-          <input id="regcatsearch"
-            type="text"
-            placeholder="Search..."
-            // value={this.state.search}
-            // onChange={this.searchList.bind(this)}
-            />
-          <br />
-          <ListGroup className="regcategory-list">
-            {this.regCategoryList(this.state.regcategories)}
-          </ListGroup>
-          <div>
-            {this.regCategoriesIds(this.state.regcategories)}
+          <div className="regcategoriesview">
+            <h2> {this.state.confTitle} </h2>
+            <h3>Registration Categories</h3>
+
+            <ListGroup id="regcategory-list">
+              {this.regCategoryList(this.state.regcategories)}
+            </ListGroup>
+            <div>
+              {this.regCategoriesIds(this.state.regcategories)}
+            </div>
           </div>
+
+          <div className="buttonsformore">
+            <Button
+              id="settings">
+                <span className="glyphicon glyphicon-cog"></span> Settings
+            </Button>
+            <Button
+              id="newregcat"
+              key="newregcat"
+              href={`/conferences/${this.props.match.params.id}/registration_new`}
+              onClick={this.handleRegCatClick} >
+                <span className="glyphicon glyphicon-plus"></span> New Reg Cat
+            </Button>
+          </div>
+
         </div>
+
       </div>
     );
   }

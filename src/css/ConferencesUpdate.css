@@ -52,48 +52,54 @@
   width: 25%;
 }
 
-.Updates .buttonsformore #newconf {
-  margin: 20px 0 2px 0;
-  align-self: center;
-  width: 75px;
-  padding: 4px 10px 6px 10px;
-  box-shadow: 1px 1px 0 0 #999;
-  letter-spacing: 0.5px;
-  text-align: center;
-  color: #000;
-  height: 30px;
-  font-size: 14px;
-  background-color: #fff;
-  border-color: #3f99a1;
-  border-radius: 4px;
-}
-
-.Updates .buttonsformore #newconf:hover {
-  outline: none;
-  background-color: #3f99a1;
-  color: #fff;
-}
-
 .Updates .buttonsformore #settings {
-  margin: 70px 0 2px 0;
+  margin: 60px 0 2px 0;
   align-self: center;
-  width: 75px;
+  width: 125px;
   padding: 4px 10px 6px 10px;
-  box-shadow: 1px 1px 0 0 #999;
+  /* box-shadow: 1px 1px 0 0 #999; */
   letter-spacing: 0.5px;
   color: #000;
-  text-align: center;
+  text-align: left;
   height: 30px;
   font-size: 14px;
-  background-color: #fff;
+  border: 0;
+  position: fixed;
+  font-weight: 600;
+  /* background-color: #fff;
   border-color: #999;
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px; */
 }
 
 .Updates .buttonsformore #settings:hover {
   outline: none;
-  background-color: #a6a6a6;
-  color: #fff;
+  background: none;
+  color: #fbb031;
+}
+
+.Updates .buttonsformore #newconf {
+  margin: 20px 0 2px 0;
+  align-self: center;
+  width: 125px;
+  padding: 4px 10px 6px 10px;
+  /* box-shadow: 1px 1px 0 0 #999; */
+  letter-spacing: 0.5px;
+  text-align: center;
+  position: fixed;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  border: 0;
+  font-weight: 600;
+  /* background-color: #fff;
+  border-color: #3f99a1;
+  border-radius: 4px; */
+}
+
+.Updates .buttonsformore #newconf:hover {
+  outline: none;
+  background: none;
+  color: #3f99a1;
 }
 
 .button-panel {

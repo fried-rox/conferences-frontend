@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FormGroup, Checkbox, FormControl, ControlLabel, PageHeader } from "react-bootstrap";
+import { FormGroup, Checkbox, FormControl, ControlLabel } from "react-bootstrap";
 
 import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from "./ConfNavbar";
@@ -14,6 +14,8 @@ export default class RegistrationNew extends Component {
 
     this.state= {
       isLoading: false,
+      conference: [],
+      confTitle: "",
       conferenceId: "",
       regFullName: "",
       regAbbrName: "",
@@ -35,8 +37,24 @@ export default class RegistrationNew extends Component {
     };
   }
 
+  async componentDidMount() {
+    try {
+      const confreg = await this.getConference();
+      this.setState({
+        conference: confreg,
+        confTitle: confreg.confTitle
+      });
+    } catch (e) {
+      alert(e);
+    }
+  }
+
   validateForm(){
     return this.state.regFullName.length > 0 && this.state.regAbbrName.length > 0;
+  }
+
+  getConference() {
+    return invokeApig({ path: `/conferences/${this.props.match.params.id}` });
   }
 
   handleChange = event => {
@@ -104,13 +122,13 @@ export default class RegistrationNew extends Component {
 
   render() {
     return (
-      <div>
+      <div className="NewRegCat">
 
         <ConfNavbar {...this.props} />
 
-        <PageHeader id="regCatHeader">Registration Categories</PageHeader>
-
         <div className="regcategories">
+          <h2> {this.state.confTitle} </h2>
+          <h3>Registration Categories</h3>
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="regFullName">
               <ControlLabel>Full Name</ControlLabel>
@@ -200,6 +218,7 @@ export default class RegistrationNew extends Component {
             />
           </form>
         </div>
+
       </div>
     );
   }

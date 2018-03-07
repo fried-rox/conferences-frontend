@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
+import { ListGroup, ListGroupItem, Button } from "react-bootstrap";
 
 import ConfNavbar from "./ConfNavbar";
 import { invokeApig } from '../libs/awsLib';
@@ -13,8 +13,9 @@ export default class Participants extends Component {
 
     this.state = {
       isLoading: true,
-      // participants: [],
       search: '',
+      conference: null,
+      confTitle: ""
     };
   }
 
@@ -24,13 +25,20 @@ export default class Participants extends Component {
     }
 
     try {
-      // const results = await this.participants();
-      // this.setState({ participants: results });
+      const results = await this.getConference();
+      this.setState({
+        conference: results,
+        confTitle: results.confTitle
+      });
     } catch (e) {
       alert(e);
     }
 
     this.setState({ isLoading: false });
+  }
+
+  getConference() {
+    return invokeApig({ path: `/conferences/${this.props.match.params.id}` });
   }
 
   participants() {
@@ -58,16 +66,8 @@ export default class Participants extends Component {
 
   handleParticipantClick = event => {
     event.preventDefault();
-    this.props.history.push("/participants/new");
+    this.props.history.push("href");
   }
-
-  // renderParticipants(participants) {
-  //   let filteredParticipants = this.state.participants.filter(
-  //     (participant) => {
-  //       return participant.parLastName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-  //     }
-  //   );
-  // }
 
   render() {
     return (
@@ -75,19 +75,39 @@ export default class Participants extends Component {
 
         <ConfNavbar {...this.props} />
 
-        <div className="participants">
-          <PageHeader>Participants</PageHeader>
-          <ListGroup className="participant-list">
-            {!this.state.isLoading && this.renderParticipantsList}
-          </ListGroup>
-        </div>
+        <div className="ParticipantsDetails">
 
-        <div>
-          <input id="parsearch"
-            type="text"
-            placeholder="Search list by name..."
-            value={this.state.search}
-            onChange={this.searchList.bind(this)} />
+          <div className="participants">
+
+          <h2> {this.state.confTitle} </h2>
+
+            <div className="parsearching">
+              <h3>Participants</h3>
+              <input id="parsearch"
+                type="text"
+                placeholder="Search list by name..."
+                value={this.state.search}
+                onChange={this.searchList.bind(this)} />
+              <ListGroup className="participant-list">
+                {!this.state.isLoading && this.renderParticipantsList}
+              </ListGroup>
+            </div>
+
+          </div>
+
+          <div className="buttonsformore">
+            <Button
+              id="settings">
+                <span className="glyphicon glyphicon-cog"></span> Settings
+            </Button>
+            <Button
+              id="newpar"
+              key="new"
+              href="/participants/new" >
+              <span className="glyphicon glyphicon-plus"></span> New Participant
+            </Button>
+          </div>
+
         </div>
 
       </div>
