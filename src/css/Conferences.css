@@ -13,9 +13,8 @@
 }
 
 .Details .conferenceDetails {
-  /* margin: 140px 150px 20px 190px; */
   padding: 0;
-  width: 70%;
+  width: 76%;
 }
 
 .Details .conferenceDetails h2 {
@@ -33,13 +32,16 @@
 .Details .buttonsformore {
   display: flex;
   flex-flow: column nowrap;
-  width: 25%;
+  width: 24%;
+  margin-left: 50px;
+  border-left: 5px;
+  padding-left: 25px;
+  border-left-style: ridge;
 }
 
 .Details .buttonsformore #settings {
   margin: 60px 0 2px 0;
-  align-self: center;
-  width: 125px;
+  align-self: left;
   padding: 4px 10px 6px 10px;
   /* box-shadow: 1px 1px 0 0 #999; */
   letter-spacing: 0.5px;
@@ -61,10 +63,15 @@
   color: #fbb031;
 }
 
+.Details .buttonsformore #setting:active {
+  border-style: outset;
+  outline: none;
+  background: none;
+}
+
 .Details .buttonsformore #newconf {
   margin: 100px 0 2px 0;
-  align-self: center;
-  width: 125px;
+  align-self: left;
   padding: 4px 10px 6px 10px;
   /* box-shadow: 1px 1px 0 0 #999; */
   letter-spacing: 0.5px;
@@ -86,10 +93,15 @@
   color: #3f99a1;
 }
 
+.Details .buttonsformore #newconf:active {
+  outline: none;
+  background: none;
+  border: none;
+}
+
 .Details .buttonsformore #update {
   margin: 20px 0 2px 0;
-  align-self: center;
-  width: 145px;
+  align-self: left;
   padding: 4px 10px 6px 10px;
   /* box-shadow: 0.5px 0.5px 0 0 #999; */
   letter-spacing: 0.5px;
