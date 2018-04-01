@@ -29,7 +29,7 @@ export default class Scientific extends Component {
   }
 
   getConference() {
-    return invokeApig({ path: `/conferences/${this.props.match.params.id}` });
+    return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
   }
 
   render() {

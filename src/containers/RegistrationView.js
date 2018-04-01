@@ -61,12 +61,12 @@ export default class RegistrationView extends Component {
   }
 
   getRegCategories() {
-    return invokeApig({ path: `/regcategories/${this.props.match.params.id}` })
+    return invokeApig({ path: `/regcategories/${localStorage.getItem('confIdKey')}` })
   }
 
   handleRegCatViewClick = event => {
     event.preventDefault();
-    this.props.history.push(event.currentTarget.getAttribute(`/regcategories/${this.props.match.params.id}/update`));
+    this.props.history.push(event.currentTarget.getAttribute(`/regcategories/${localStorage.getItem('confIdKey')}/update`));
   }
 
   render() {

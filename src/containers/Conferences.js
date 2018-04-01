@@ -29,7 +29,7 @@ export default class Conferences extends Component {
       confLanguage: "",
       confCurrency: "",
       confExRate: "",
-      notes: "",
+      notes: ""
     };
   }
 
@@ -60,12 +60,12 @@ export default class Conferences extends Component {
   }
 
   getConference() {
-    return invokeApig({ path: `/conferences/${this.props.match.params.id}` });
+    return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
   }
 
   handleConferenceClick = event => {
     event.preventDefault();
-    this.props.history.push(`/conferences/${this.props.match.params.id}/update`);
+    this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}/update`);
   }
 
   handleConferenceClick2 = event => {

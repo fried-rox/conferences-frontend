@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, ListGroupItem, ListGroup, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from "./ConfNavbar";
@@ -55,7 +55,7 @@ export default class Registration extends Component {
   }
 
   getConference() {
-    return invokeApig({ path: `/conferences/${this.props.match.params.id}` });
+    return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
   }
 
   createURL() {
@@ -66,7 +66,7 @@ export default class Registration extends Component {
   regCategoryList(regcategories) {
     return regcategories.map(
       (regcategory) =>
-        regcategory.conferenceId === this.props.match.params.id
+        regcategory.conferenceId === localStorage.getItem('confIdKey')
           ? <ListGroupItem
               id="regcatlist"
               key={regcategory.regCategoryId}>
@@ -80,7 +80,7 @@ export default class Registration extends Component {
                 <tbody>
                   <tr>
                     <td>{regcategory.regFullName}</td>
-                    <td> <Link to={"localhost:3001/"} target="_blank"> {this.createURL()} </Link></td>
+                    <td><a href={`https://${this.props.match.params.id}.targetknasim.com`} target="_parent"> {this.createURL()} </a></td>
                   </tr>
                 </tbody>
               </Table>
@@ -91,12 +91,13 @@ export default class Registration extends Component {
 
   handleRegCatClick = event => {
     event.preventDefault();
+    debugger;
     this.props.history.push(event.currentTarget.getAttribute("href"));
   }
 
   saveConference(conference) {
     return invokeApig({
-      path: `/conferences/${this.props.match.params.id}`,
+      path: `/conferences/${localStorage.getItem('confIdKey')}`,
       method: "PUT",
       body: conference
     });
@@ -105,7 +106,7 @@ export default class Registration extends Component {
   regCategoriesIds(regcategories) {
     regcategories.map(
       (regcategory) =>
-        regcategory.conferenceId === this.props.match.params.id
+        regcategory.conferenceId === localStorage.getItem('confIdKey')
           ? this.state.regCatIds.push(regcategory.regCategoryId)
           : null
     );
@@ -139,7 +140,7 @@ export default class Registration extends Component {
             <Button
               id="newregcat"
               key="newregcat"
-              href={`/conferences/${this.props.match.params.id}/registration_new`}
+              href={`/conferences/${localStorage.getItem('confIdKey')}/registration_new`}
               onClick={this.handleRegCatClick} >
                 <span className="glyphicon glyphicon-plus"></span> New Reg Cat
             </Button>

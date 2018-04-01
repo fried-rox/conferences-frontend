@@ -43,13 +43,17 @@ export default class Home extends Component {
     this.setState({search: event.target.value});
   }
 
+  // storeConfId() {
+  //   localStorage.setItem('confId', conference.conferenceId);
+  // }
+
   renderConferencesList(conferences) {
     return conferences.map(
       (conference) =>
          <ListGroupItem
-            id="conflist"
+            id={conference.conferenceId}
             key={conference.conferenceId}
-            href={`/conferences/${conference.conferenceId}`}
+            href={`/conferences/${conference.confAbbr}`}
             onClick={this.handleConferenceClick}
             header={conference.confTitle}>
               {"Created: " + new Date(conference.createdAt).toLocaleString()}
@@ -59,6 +63,7 @@ export default class Home extends Component {
 
   handleConferenceClick = event => {
     event.preventDefault();
+    localStorage.setItem("confIdKey", event.currentTarget.id);
     this.props.history.push(event.currentTarget.getAttribute("href"));
   }
 

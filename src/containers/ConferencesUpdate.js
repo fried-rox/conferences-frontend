@@ -64,7 +64,7 @@ export default class ConferencesUpdate extends Component {
   }
 
   getConference() {
-    return invokeApig({ path: `/conferences/${this.props.match.params.id}` });
+    return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
   }
 
   validateForm() {
@@ -89,7 +89,7 @@ export default class ConferencesUpdate extends Component {
 
   saveConference(conference) {
     return invokeApig({
-      path: `/conferences/${this.props.match.params.id}`,
+      path: `/conferences/${localStorage.getItem('confIdKey')}`,
       method: "PUT",
       body: conference
     });
@@ -132,7 +132,7 @@ export default class ConferencesUpdate extends Component {
         notes: this.state.notes,
         confGraphic: uploadedFilename || this.state.conference.confGraphic
       });
-      this.props.history.push(`/conferences/${this.props.match.params.id}`);
+      this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}`);
     } catch (e) {
       alert(e);
       this.setState({ isLoading: false });
@@ -141,7 +141,7 @@ export default class ConferencesUpdate extends Component {
 
   deleteConference() {
     return invokeApig({
-      path: `/conferences/${this.props.match.params.id}`,
+      path: `/conferences/${localStorage.getItem('confIdKey')}`,
       method: "DELETE"
     });
   }
@@ -170,7 +170,7 @@ export default class ConferencesUpdate extends Component {
 
   handleConferenceClick = event => {
     event.preventDefault();
-    this.props.history.push(`/conferences/${this.props.match.params.id}/update`);
+    this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}/update`);
   }
 
   render() {

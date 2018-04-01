@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
-    "deploy": "aws s3 sync build/ s3://target-app-uploads",
+    "deploy": "aws s3 sync build/ s3://target-app-uploads --delete",
     "postdeploy": "aws cloudfront create-invalidation --distribution-id E1VK9UQTGF3U73 --paths /* && aws cloudfront create-invalidation --distribution-id EQTBFSKREHH6D --paths /*",
     "eject": "react-scripts eject"
   },

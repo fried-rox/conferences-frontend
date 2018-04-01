@@ -16,7 +16,7 @@
   display: flex;
   flex-flow: column nowrap;
   padding: 0;
-  width: 75%;
+  width: 76%;
 }
 
 .ParticipantsDetails .participants h2 {
@@ -63,14 +63,18 @@
 .ParticipantsDetails .buttonsformore {
   display: flex;
   flex-flow: column nowrap;
-  width: 25%;
+  width: 24%;
+  margin-left: 50px;
+  border-left: 5px;
+  padding-left: 25px;
+  border-left-style: ridge;
 }
 
 .ParticipantsDetails .buttonsformore #settings {
   margin: 60px 0 2px 0;
-  align-self: center;
+  align-self: left;
   width: 125px;
-  padding: 4px 10px 6px 10px;
+  padding: 4px 10px 6px 1px0;
   /* box-shadow: 1px 1px 0 0 #999; */
   letter-spacing: 0.5px;
   color: #000;
@@ -93,7 +97,7 @@
 
 .ParticipantsDetails .buttonsformore #newpar {
   margin: 20px 0 2px 0;
-  align-self: center;
+  align-self: left;
   width: 125px;
   padding: 4px 10px 6px 10px;
   /* box-shadow: 1px 1px 0 0 #999; */

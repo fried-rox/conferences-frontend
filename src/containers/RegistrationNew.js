@@ -54,7 +54,7 @@ export default class RegistrationNew extends Component {
   }
 
   getConference() {
-    return invokeApig({ path: `/conferences/${this.props.match.params.id}` });
+    return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
   }
 
   handleChange = event => {
@@ -105,7 +105,7 @@ export default class RegistrationNew extends Component {
       debugger;
 
       await this.createRegCategory(createRegCategoryObject);
-      this.props.history.push(`/conferences/${this.props.match.params.id}/registration`);
+      this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}/registration`);
     } catch (e) {
       alert(e);
       this.setState({ isLoading: false });
