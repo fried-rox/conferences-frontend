@@ -80,7 +80,7 @@ export default class Registration extends Component {
                 <tbody>
                   <tr>
                     <td>{regcategory.regFullName}</td>
-                    <td><a href={`https://${this.props.match.params.id}.targetknasim.com`} target="_parent"> {this.createURL()} </a></td>
+                    <td><a href={`https://${this.props.match.params.id}.targetknasim.com/${localStorage.getItem('confIdKey')}/signup`} target="_parent"> {this.createURL()} </a></td>
                   </tr>
                 </tbody>
               </Table>

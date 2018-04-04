@@ -46,6 +46,7 @@ export default class ConfNavbar extends Component {
         <RouteNavItem key={6} id="detailsnav3" onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
         <RouteNavItem key={7} id="detailsnav4" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
         <RouteNavItem key={8} id="detailsnav5" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
+        <RouteNavItem key={9} id="detailsnav6">Finances</RouteNavItem>
       </div>
     );
   }
