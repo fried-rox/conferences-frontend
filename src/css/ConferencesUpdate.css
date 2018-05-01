@@ -9,7 +9,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  margin: 140px 50px 10px 180px;
+  margin: 140px 50px 10px 50px;
 }
 
 .Updates .ConferencesUpdate {

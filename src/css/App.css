@@ -37,7 +37,6 @@
   position: fixed;
   top: 0;
   width: 100%;
-  /* border-bottom: 0.5px solid #999; */
 }
 
 .App-container .navbar-collapse {
@@ -54,6 +53,13 @@
 }
 
 .App-container .navbar-brand {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0;
+  height: 65px;
+}
+
+/* .App-container .navbar-brand {
   font-weight: 900;
   color: #3f99a1;
   text-shadow: 1px 1px #fbb031;
@@ -67,7 +73,7 @@
 
 .App-container .navbar-brand:visited {
   color: #3f99a1;
-}
+} */
 
 .App-container #loginlink {
   order: 0;
@@ -85,47 +91,39 @@
 }
 
 .App-container #logoutlink {
-  order: 0;
-  margin: 10px 0 2px 0;
-  min-width: 50px;
-  padding: 2px 8px;
-  /* padding: 4px 10px 6px 10px; */
-  box-shadow: 1.5px 1.5px 0 0 #3f99a1;
   letter-spacing: 0.5px;
+  margin: 18px 40px 0 0;
+  padding: 0;
+  /* min-width: 50px; */
+  /* padding: 2px 8px; */
   color: #000;
-  font-size: 16px;
-  background-color: #a6a6a6;
-  border-color: #999;
-  border-radius: 4px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.5;
+  /* text-shadow: 1px 1px #fbb031; */
 }
 
 .App-container #logoutlink:hover {
-  color: #fff;
+  text-decoration: none;
+  color: #999;
+  /* text-shadow: 1px 1px #fbb031; */
 }
 
 .App-container #conflistlink {
   letter-spacing: 0.5px;
-  box-shadow: 1px 1px 0 0 #999;
-  order: 0;
-  align-self: flex-start;
-  display: inline-block !important;
-  margin: 10px 0 2px 0;
-  padding: 1px 8px;
-  font-size: 16px;
+  margin: 18px 0 0 40px;
+  padding: 0;
+  font-size: 22px;
   line-height: 1.5;
-  border-radius: 4px;
-  color: #000000;
-  font-weight: 500;
+  color: #3f99a1;
   background-color: #fff;
-  border-color: #3f99a1;
-  text-align: center;
-  vertical-align: middle;
-  border-width: thin;
-  border-style: solid;
+  /* text-shadow: 1px 1px #999; */
+  font-weight: 700;
+  text-shadow: 1px 1px #fbb031;
 }
 
 .App-container #conflistlink:hover {
   text-decoration: none;
-  background-color: #3f99a1;
-  color: #fff;
+  color: #999;
+  text-shadow: 1px 1px #fbb031;
 }

@@ -43,7 +43,8 @@ export default class Registration extends Component {
       this.setState({
         regcategories: results,
         conference: confreg,
-        confTitle: confreg.confTitle
+        confTitle: confreg.confTitle,
+        confTitleAbr: confreg.confAbbr
       });
     } catch (e) {
       alert(e);
@@ -63,6 +64,11 @@ export default class Registration extends Component {
     return path1;
   }
 
+  conferenceGoersLink() {
+    const domain = `http://localhost:3001/login/${localStorage.getItem('confIdKey')}`;
+    window.open(domain);
+  }
+
   regCategoryList(regcategories) {
     return regcategories.map(
       (regcategory) =>
@@ -80,7 +86,7 @@ export default class Registration extends Component {
                 <tbody>
                   <tr>
                     <td>{regcategory.regFullName}</td>
-                    <td><a href={`https://${this.props.match.params.id}.targetknasim.com/${localStorage.getItem('confIdKey')}/signup`} target="_parent"> {this.createURL()} </a></td>
+                    <td><a onClick={this.conferenceGoersLink}> {this.createURL()} </a></td>
                   </tr>
                 </tbody>
               </Table>
@@ -152,3 +158,6 @@ export default class Registration extends Component {
     );
   }
 }
+
+
+// href={`https://${this.state.confTitleAbr}.targetknasim.com/${localStorage.getItem('confIdKey')}/welcome`} target="_parent"

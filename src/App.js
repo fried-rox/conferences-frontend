@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap"; //adding a navigation bar from bootstrap
 
 import { authUser, signOutUser } from "./libs/awsLib";
@@ -27,6 +27,8 @@ class App extends Component {
 
     this.userHasAuthenticated(false);
 
+    localStorage.clear();
+
     this.props.history.push("/login");
   }
 
@@ -52,11 +54,12 @@ class App extends Component {
     return (
       !this.state.isAuthenticating &&
       <div className="App-container">
-        <Navbar collapseOnSelect>
+        <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/"> TARGET CONFERENCES LTD </Link>
+              <img id="logo" src="/target_logo.png" alt="TARGET CONFERENCES LTD" />
             </Navbar.Brand>
+            <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
@@ -70,7 +73,7 @@ class App extends Component {
             <Nav>
               {this.state.isAuthenticated
                 ? <RouteNavItem id="conflistlink" key={2} href="/">
-                    Conferences
+                    Conferences & Groups
                   </RouteNavItem>
                 : []
               }

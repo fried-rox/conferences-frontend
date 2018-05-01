@@ -1,10 +1,9 @@
 .Home {
-  padding: 10px;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 100%;
+  width: 100%;
 }
 
 .lander {
@@ -58,20 +57,25 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 50px 100px 0 500px;
-  width: 100%;
-  height: 100%;
+  margin: 80px 50px;
+  width: 90%;
 }
 
 .confbuttonandsearch {
-  order: 0;
+  order: 2;
   align-self: flex-end;
 }
 
 .conferences .page-header {
-  order: 2;
+  order: 0;
+  padding: 0;
   align-self: stretch;
   margin: 10px 0 20px 0;
+}
+
+.conferences h1 {
+  font-size: 50px;
+  font-weight: 500;
 }
 
 .confbuttonandsearch #confsearch {
