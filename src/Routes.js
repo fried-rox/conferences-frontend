@@ -21,7 +21,6 @@ import Tourism from "./containers/Tourism";
 import Reports from "./containers/Reports";
 import ProgramPlanning from "./containers/ProgramPlanning";
 
-
 export default ({ childProps }) =>
   <Switch>
     <AppliedRoute path="/" exact component={Home} props={childProps} />

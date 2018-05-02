@@ -17,21 +17,19 @@ export default class RegistrationNew extends Component {
       conference: [],
       confTitle: "",
       conferenceId: "",
-      regFullName: "",
-      regAbbrName: "",
-      regCurrency: "",
-      regLanguage: "",
-      addScience: "",
-      addTours: "",
-      addHotel: "",
-      addAP: "",
-      regFee: "",
-      payCash: "",
-      payCheque: "",
-      payCard: "",
-      payGuard: "",
-      payEFT: "",
-      regNotes: "",
+      regTypeFullName: "",
+      regTypeAbbrName: "",
+      regTypeCurrency: "",
+      regTypeLanguage: "",
+      regTypeUsePackage: "",
+      regTypeAddScience: "",
+      regTypeAddTours: "",
+      regTypeAddAccommodation: "",
+      regTypeAddAP: "",
+      regTypePaymentMethod: "",
+      regTypeQuestions: "",
+      regTypeNotes: "",
+      regTypeMailing: "",
       value: null,
       regcategory: null
     };
@@ -102,7 +100,6 @@ export default class RegistrationNew extends Component {
       }
 
       console.log(createRegCategoryObject);
-      debugger;
 
       await this.createRegCategory(createRegCategoryObject);
       this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}/registration`);
@@ -127,11 +124,23 @@ export default class RegistrationNew extends Component {
         <ConfNavbar {...this.props} />
 
         <div className="regcategories">
+
           <h2> {this.state.confTitle} </h2>
+
           <h3>Registration Categories</h3>
+
           <form onSubmit={this.handleSubmit}>
+            <FormGroup controlId="regType">
+              <ControlLabel>Registration Type</ControlLabel>
+              <FormControl
+                onChange={this.handleChange}
+                value={this.state.regType}
+                type="select">
+                  <option value="default">Default</option>
+              </FormControl>
+            </FormGroup>
             <FormGroup controlId="regFullName">
-              <ControlLabel>Full Name</ControlLabel>
+              <ControlLabel>Categroy Name</ControlLabel>
               <FormControl
                 onChange={this.handleChange}
                 value={this.state.regFullName}

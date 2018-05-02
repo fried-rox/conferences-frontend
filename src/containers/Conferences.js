@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, ListGroupItem, ListGroup } from "react-bootstrap";
 
 import { invokeApig } from "../libs/awsLib";
 import ConfNavbar from './ConfNavbar';
@@ -14,7 +14,9 @@ export default class Conferences extends Component {
     this.file = null;
 
     this.state = {
-      conference: null,
+      conference: [],
+      regcategories: [],
+      regCatIds: [],
       confTitle: "",
       confAbbr: "",
       projectManager: "",
@@ -36,8 +38,9 @@ export default class Conferences extends Component {
   async componentDidMount() {
     try {
       const results = await this.getConference();
-      debugger;
+      const regresults = await this.regCategories();
       this.setState({
+        regcategories: regresults,
         conference: results,
         confTitle: results.confTitle,
         confAbbr: results.confAbbr,
@@ -60,6 +63,10 @@ export default class Conferences extends Component {
     }
   }
 
+  regCategories() {
+    return invokeApig({ path: "/regcategories" })
+  }
+
   getConference() {
     return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
   }
@@ -72,6 +79,57 @@ export default class Conferences extends Component {
   handleConferenceClick2 = event => {
     event.preventDefault();
     this.props.history.push(event.currentTarget.getAttribute("href"));
+  }
+
+  createURL() {
+    const path1 = window.location.pathname;
+    return path1;
+  }
+
+  conferenceGoersLink() {
+    const domain = `http://localhost:3001/login/${localStorage.getItem('confIdKey')}`;
+    window.open(domain);
+  }
+
+  regCategoryList(regcategories) {
+    return regcategories.map(
+      (regcategory) =>
+        regcategory.conferenceId === localStorage.getItem('confIdKey')
+          ? <ListGroupItem
+              id="regcatlist"
+              key={regcategory.regCategoryId}>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Website Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{regcategory.regFullName}</td>
+                    <td><a onClick={this.conferenceGoersLink}> {this.createURL()} </a></td>
+                  </tr>
+                </tbody>
+              </Table>
+            </ListGroupItem>
+          : null
+    );
+  }
+
+  handleRegCatClick = event => {
+    event.preventDefault();
+    debugger;
+    this.props.history.push(event.currentTarget.getAttribute("href"));
+  }
+
+  regCategoriesIds(regcategories) {
+    regcategories.map(
+      (regcategory) =>
+        regcategory.conferenceId === localStorage.getItem('confIdKey')
+          ? this.state.regCatIds.push(regcategory.regCategoryId)
+          : null
+    );
   }
 
   render() {
@@ -143,7 +201,13 @@ export default class Conferences extends Component {
               </Table>
             </div>
             <h3>Registration Categories</h3>
-            <div>
+            <div className="regcategoriesview">
+              <ListGroup id="regcategory-list">
+                {this.regCategoryList(this.state.regcategories)}
+              </ListGroup>
+              <div>
+                {this.regCategoriesIds(this.state.regcategories)}
+              </div>
             </div>
           </div>
 

@@ -12,14 +12,19 @@
   margin: 140px 50px 10px 50px;
 }
 
-.RegistrationDetails .regcategoriesview {
+.RegistrationDetails #RegistrationControl {
   display: flex;
   flex-flow: column nowrap;
   padding: 0;
   width: 88%;
 }
 
-.RegistrationDetails .regcategoriesview h2 {
+.RegistrationDetails #RegistrationControl-tab-1, #RegistrationControl-tab-2 {
+  width: 100%;
+  font-size: 30px;
+}
+
+.RegistrationDetails #RegistrationControl h2 {
   order: 0;
   font-size: 50px;
   margin: 0 0 30px 0;
