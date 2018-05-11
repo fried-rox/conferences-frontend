@@ -7,11 +7,12 @@ import config from "../config";
 import { invokeApig, s3Upload } from "../libs/awsLib";
 
 import "react-day-picker/lib/style.css";
+
 import "../css/NewConference.css";
 
 export default class NewConference extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.file = null;
 
@@ -22,8 +23,7 @@ export default class NewConference extends Component {
       projectManager: "",
       accountClient: "",
       confVenue: "",
-      confStartDate: "",
-      confEndDate: "",
+      confDates: "",
       regAccess: "",
       regEarlyStart: "",
       regNormalStart: "",
@@ -72,8 +72,7 @@ export default class NewConference extends Component {
           projectManager: this.state.projectManager === "" ? undefined : this.state.projectManager,
           accountClient: this.state.accountClient === "" ? undefined : this.state.accountClient,
           confVenue: this.state.confVenue === "" ? undefined : this.state.confVenue,
-          confStartDate: this.state.confStartDate === "" ? undefined : this.state.confStartDate,
-          confEndDate: this.state.confEndDate === "" ? undefined : this.state.confEndDate,
+          confDates: this.state.confDates === "" ? undefined : this.state.confDates,
           regAccess: this.state.regAccess === "" ? undefined : this.state.regAccess,
           regEarlyStart: this.state.regEarlyStart === "" ? undefined : this.state.regEarlyStart,
           regNormalStart: this.state.regNormalStart === "" ? undefined : this.state.regNormalStart,
@@ -111,29 +110,31 @@ export default class NewConference extends Component {
 
   render() {
     return (
-      <div className="NewConf">
+      <div className="NewConferenceDetails">
+
         <PageHeader>
           <FormGroup>
             <Radio name="newconforgroup" inline>New Conference</Radio>
             <Radio name="newconforgroup" inline>New Group</Radio>
           </FormGroup>
         </PageHeader>
+
         <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="confTitle">
             <ControlLabel>Conference Title</ControlLabel>
             <FormControl
               onChange={this.handleChange}
               value={this.state.confTitle}
               type="text"/>
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="confAbbr">
             <ControlLabel>Conference Abreviated Name</ControlLabel>
             <FormControl
               onChange={this.handleChange}
               value={this.state.confAbbr}
               type="text"/>
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="projectManager">
             <ControlLabel>Project Manager</ControlLabel>
             <FormControl
               onChange={this.handleChange}
@@ -143,28 +144,28 @@ export default class NewConference extends Component {
                 <option value="Mary Murphy">Mary Murphy</option>
             </FormControl>
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="accountClient">
             <ControlLabel>Account Client</ControlLabel>
             <FormControl
               onChange={this.handleChange}
               value={this.state.accountClient}
               type="text"/>
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="confVenue">
             <ControlLabel>Conference Venue</ControlLabel>
             <FormControl
               onChange={this.handleChange}
               value={this.state.confVenue}
               type="text"/>
           </FormGroup>
-          <FormGroup>
+          <FormGroup controlId="confDates">
             <ControlLabel>Conference dates</ControlLabel>
             <br />
             <CalendarPick
               onDayClick={this.handleDayClick}
               selectedDays={this.state.selectedDay} />
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="regAccess">
             <Checkbox>Allow Registration</Checkbox>
           </FormGroup>
           <FormGroup>
@@ -173,7 +174,7 @@ export default class NewConference extends Component {
             <ControlLabel>Registration Normal Dates</ControlLabel>
             <br />
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="confLanguage">
             <ControlLabel>Language</ControlLabel>
             <FormControl
               onChange={this.handleChange}
@@ -183,7 +184,7 @@ export default class NewConference extends Component {
                 <option value="Hebrew">Hebrew</option>
             </FormControl>
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="confCurrency">
             <ControlLabel>Currency</ControlLabel>
             <FormControl
               onChange={this.handleChange}
@@ -194,7 +195,7 @@ export default class NewConference extends Component {
                 <option value="euro">Euro</option>
             </FormControl>
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="confExRate">
             <ControlLabel>Exchange Rate</ControlLabel>
             <FormControl
               onChange={this.handleChange}
@@ -204,14 +205,14 @@ export default class NewConference extends Component {
           <FormGroup>
             <ControlLabel>Mailing</ControlLabel>
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="notes">
             <ControlLabel>Notes</ControlLabel>
             <FormControl
               onChange={this.handleChange}
               value={this.state.notes}
               componentClass="textarea" />
           </FormGroup>
-          <FormGroup controlId="NewConfEntry">
+          <FormGroup controlId="confGraphic">
             <ControlLabel>Conference Banner</ControlLabel>
             <FormControl onChange={this.handleFileChange} type="file" />
           </FormGroup>
@@ -226,6 +227,7 @@ export default class NewConference extends Component {
             loadingText="Creating…"
           />
         </form>
+
       </div>
     );
   }

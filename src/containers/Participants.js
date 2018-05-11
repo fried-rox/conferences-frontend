@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { ListGroup, ListGroupItem, Button, Table } from "react-bootstrap";
 
 import ConfNavbar from "./ConfNavbar";
 import { invokeApig } from '../libs/awsLib';
@@ -15,7 +15,8 @@ export default class Participants extends Component {
       isLoading: true,
       search: '',
       conference: null,
-      confTitle: ""
+      confTitle: "",
+      participants: []
     };
   }
 
@@ -26,10 +27,14 @@ export default class Participants extends Component {
 
     try {
       const results = await this.getConference();
+      const parresults = await this.participants();
+      debugger;
       this.setState({
         conference: results,
-        confTitle: results.confTitle
+        confTitle: results.confTitle,
+        participants: parresults
       });
+      debugger;
     } catch (e) {
       alert(e);
     }
@@ -49,25 +54,34 @@ export default class Participants extends Component {
     this.setState({search: event.target.value});
   }
 
-  renderParticipantsList(participants) {
+  participantsList(participants) {
     return participants.map(
-      (participant, i) =>
-        i !== 0
+      (participant) =>
+        participant.conferenceId === localStorage.getItem('confIdKey')
           ? <ListGroupItem
-              key={participant.participantId}
-              href={`/participants/${participant.participantId}`}
-              onClick={this.handleParticipantClick}
-              header={participant.parLastName}>
-                {"Created: " + new Date(participant.createdAt).toLocaleString()}
+              id="parConfList"
+              key={participant.participantId}>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>{participant.parTitle} {participant.parFirstName} {participant.parMiddleName} {participant.parLastName}</th>
+                  </tr>
+                </tbody>
+              </Table>
             </ListGroupItem>
           : null
     );
   }
 
-  handleParticipantClick = event => {
-    event.preventDefault();
-    this.props.history.push("href");
-  }
+  // handleParticipantClick = event => {
+  //   event.preventDefault();
+  //   this.props.history.push(`/participants/${participant.participantId}`);
+  // }
 
   render() {
     return (
@@ -79,7 +93,7 @@ export default class Participants extends Component {
 
           <div className="participants">
 
-          <h2> {this.state.confTitle} </h2>
+            <h2> {this.state.confTitle} </h2>
 
             <div className="parsearching">
               <h3>Participants</h3>
@@ -88,8 +102,11 @@ export default class Participants extends Component {
                 placeholder="Search list by name..."
                 value={this.state.search}
                 onChange={this.searchList.bind(this)} />
-              <ListGroup className="participant-list">
-                {!this.state.isLoading && this.renderParticipantsList}
+            </div>
+
+            <div className="ParticipantsFullList">
+              <ListGroup id="participant-list">
+                {this.participantsList(this.state.participants)}
               </ListGroup>
             </div>
 
@@ -111,6 +128,6 @@ export default class Participants extends Component {
         </div>
 
       </div>
-    );
+  );
   }
 }

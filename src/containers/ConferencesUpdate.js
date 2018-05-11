@@ -17,8 +17,8 @@ export default class ConferencesUpdate extends Component {
     this.file = null;
 
     this.state = {
-      isLoading: null,
-      isDeleting: null,
+      isLoading: false,
+      isDeleting: false,
       conference: null,
       confTitle: "",
       confAbbr: "",
@@ -190,8 +190,8 @@ export default class ConferencesUpdate extends Component {
                 <FormGroup controlId="confTitle">
                   <ControlLabel>Conference Title</ControlLabel>
                   <FormControl
-                    onChange={this.handleChange}
                     value={this.state.confTitle}
+                    onChange={this.handleChange}
                     type="text"/>
                 </FormGroup>
                 <FormGroup controlId="confAbbr">

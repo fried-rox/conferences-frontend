@@ -16,7 +16,7 @@ import RegistrationNew from "./containers/RegistrationNew";
 import Registration from "./containers/Registration";
 import RegistrationView from "./containers/RegistrationView";
 import Scientific from "./containers/Scientific";
-import Accommodation from "./containers/Accommodation"
+import Accommodation from "./containers/Accommodation";
 import Tourism from "./containers/Tourism";
 import Reports from "./containers/Reports";
 import ProgramPlanning from "./containers/ProgramPlanning";

@@ -39,6 +39,7 @@ export default class Conferences extends Component {
     try {
       const results = await this.getConference();
       const regresults = await this.regCategories();
+      debugger;
       this.setState({
         regcategories: regresults,
         conference: results,

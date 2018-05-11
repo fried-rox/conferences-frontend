@@ -26,6 +26,7 @@ export default class Registration extends Component {
     try {
       const confreg = await this.getConference();
       const results = await this.regCategories();
+      debugger;
       this.setState({
         regcategories: results,
         conference: confreg,

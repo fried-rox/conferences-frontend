@@ -27,6 +27,7 @@ export default class Home extends Component {
 
     try {
       const results = await this.conferences();
+      debugger;
       this.setState({ conferences: results });
     } catch (e) {
       alert(e);
