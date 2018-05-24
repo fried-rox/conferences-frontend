@@ -47,9 +47,9 @@ export default class RegistrationNew extends Component {
     }
   }
 
-  validateForm(){
-    return this.state.regFullName.length > 0 && this.state.regAbbrName.length > 0;
-  }
+  // validateForm(){
+  //   return this.state.regFullName.length > 0 && this.state.regAbbrName.length > 0
+  // }
 
   getConference() {
     return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
@@ -74,48 +74,48 @@ export default class RegistrationNew extends Component {
   // }
 
 
-  handleSubmit = async event => {
-    event.preventDefault();
-
-    this.setState({ isLoading: true });
-
-    try {
-      const createRegCategoryObject = {
-        conferenceId: this.props.match.params.id,
-        regFullName: this.state.regFullName === "" ? undefined : this.state.regFullName,
-        regAbbrName: this.state.regAbbrName === "" ? undefined : this.state.regAbbrName,
-        regCurrency: this.state.regCurrency === "" ? undefined : this.state.regCurrency,
-        regLanguage: this.state.regLanguage === "" ? undefined : this.state.regLanguage,
-        addScience: this.state.addScience === "" ? undefined : this.state.addScience,
-        addTours: this.state.addTours === "" ? undefined : this.state.addTours,
-        addHotel: this.state.addHotel === "" ? undefined : this.state.addHotel,
-        addAP: this.state.addAP === "" ? undefined : this.state.addAP,
-        regFee: this.state.regFee === "" ? undefined : this.state.regFee,
-        payCash: this.state.payCash === "" ? undefined : this.state.payCash,
-        payCheque: this.state.payCheque === "" ? undefined : this.state.payCheque,
-        payCard: this.state.payCard === "" ? undefined : this.state.payCard,
-        payGuard: this.state.payGuard === "" ? undefined : this.state.payGuard,
-        payEFT: this.state.payEFT === "" ? undefined : this.state.payEFT,
-        regNotes: this.state.regNotes === "" ? undefined : this.state.regNotes,
-      }
-
-      console.log(createRegCategoryObject);
-
-      await this.createRegCategory(createRegCategoryObject);
-      this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}/registration`);
-    } catch (e) {
-      alert(e);
-      this.setState({ isLoading: false });
-    }
-  }
-
-  createRegCategory(regcategory) {
-    return invokeApig({
-      path: "/regcategories",
-      method: "POST",
-      body: regcategory
-    });
-  }
+  // handleSubmit = async event => {
+  //   event.preventDefault();
+  //
+  //   this.setState({ isLoading: true });
+  //
+  //   try {
+  //     const createRegCategoryObject = {
+  //       conferenceId: this.props.match.params.id,
+  //       regFullName: this.state.regFullName === "" ? undefined : this.state.regFullName,
+  //       regAbbrName: this.state.regAbbrName === "" ? undefined : this.state.regAbbrName,
+  //       regCurrency: this.state.regCurrency === "" ? undefined : this.state.regCurrency,
+  //       regLanguage: this.state.regLanguage === "" ? undefined : this.state.regLanguage,
+  //       addScience: this.state.addScience === "" ? undefined : this.state.addScience,
+  //       addTours: this.state.addTours === "" ? undefined : this.state.addTours,
+  //       addHotel: this.state.addHotel === "" ? undefined : this.state.addHotel,
+  //       addAP: this.state.addAP === "" ? undefined : this.state.addAP,
+  //       regFee: this.state.regFee === "" ? undefined : this.state.regFee,
+  //       payCash: this.state.payCash === "" ? undefined : this.state.payCash,
+  //       payCheque: this.state.payCheque === "" ? undefined : this.state.payCheque,
+  //       payCard: this.state.payCard === "" ? undefined : this.state.payCard,
+  //       payGuard: this.state.payGuard === "" ? undefined : this.state.payGuard,
+  //       payEFT: this.state.payEFT === "" ? undefined : this.state.payEFT,
+  //       regNotes: this.state.regNotes === "" ? undefined : this.state.regNotes,
+  //     }
+  //
+  //     console.log(createRegCategoryObject);
+  //
+  //     await this.createRegCategory(createRegCategoryObject);
+  //     this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}/registration`);
+  //   } catch (e) {
+  //     alert(e);
+  //     this.setState({ isLoading: false });
+  //   }
+  // }
+  //
+  // createRegCategory(regcategory) {
+  //   return invokeApig({
+  //     path: "/regcategories",
+  //     method: "POST",
+  //     body: regcategory
+  //   });
+  // }
 
   render() {
     return (
@@ -129,7 +129,7 @@ export default class RegistrationNew extends Component {
 
           <h3>Registration Categories</h3>
 
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <FormGroup controlId="regType">
               <ControlLabel>Registration Type</ControlLabel>
               <FormControl
@@ -219,7 +219,7 @@ export default class RegistrationNew extends Component {
               className="reg-create-button"
               block
               bsSize="large"
-              disabled={!this.validateForm()}
+              // disabled={!this.validateForm()}
               type="submit"
               isLoading={this.state.isLoading}
               text="Save"
