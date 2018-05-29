@@ -74,7 +74,7 @@ export default class Conferences extends Component {
 
   handleConferenceClick = event => {
     event.preventDefault();
-    this.props.history.push(`/conferences/${localStorage.getItem('confIdKey')}/update`);
+    this.props.history.push(`/conferences/${this.state.confAbbr}/update`);
   }
 
   handleConferenceClick2 = event => {

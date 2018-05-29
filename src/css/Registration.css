@@ -12,34 +12,27 @@
   margin: 140px 50px 10px 50px;
 }
 
-.RegistrationDetails #RegistrationControl {
+.RegandTitle {
   display: flex;
   flex-flow: column nowrap;
-  padding: 0;
   width: 88%;
 }
 
-.RegistrationDetails #RegistrationControl-tab-1, #RegistrationControl-tab-2 {
-  width: 100%;
-  font-size: 30px;
-}
-
-.RegistrationDetails #RegistrationControl h2 {
+.RegandTitle h2 {
   order: 0;
   font-size: 50px;
   margin: 0 0 30px 0;
 }
 
-.RegistrationDetails .regcategoriesview h3 {
-  order: 1;
-  margin: 5px 0 10px 0;
-  color: #3f99a1;
-  font-size: 30px;
+.RegistrationDetails #RegistrationControl {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0;
 }
 
-.RegistrationDetails .regcategoriesview #regcategory-list {
-  order: 5;
-  margin: 10px 0;
+.RegistrationDetails #RegistrationControl-tab-1, #RegistrationControl-tab-2 {
+  width: 100%;
+  font-size: 30px;
 }
 
 .RegistrationDetails .buttonsformore {
