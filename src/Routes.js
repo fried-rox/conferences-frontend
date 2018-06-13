@@ -20,6 +20,7 @@ import Accommodation from "./containers/Accommodation";
 import Tourism from "./containers/Tourism";
 import Reports from "./containers/Reports";
 import ProgramPlanning from "./containers/ProgramPlanning";
+import Context from "./containers/Context";
 
 export default ({ childProps }) =>
   <Switch>
@@ -29,6 +30,7 @@ export default ({ childProps }) =>
     <AuthenticatedRoute path="/conferences/new" exact component={NewConference} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id" exact component={Conferences} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/update" exact component={ConferencesUpdate} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/reg_context" exact component={Context} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/participants" exact component={Participants} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/registration" exact component={Registration} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/registration/regcategories" exact component={RegistrationView} props={childProps} />

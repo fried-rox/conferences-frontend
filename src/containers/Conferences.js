@@ -82,6 +82,11 @@ export default class Conferences extends Component {
     this.props.history.push(event.currentTarget.getAttribute("href"));
   }
 
+  handleConferenceContext = event => {
+    event.preventDefault();
+    this.props.history.push(`/conferences/${this.state.confAbbr}/reg_context`);
+  }
+
   createURL() {
     const path1 = window.location.pathname;
     return path1;
@@ -116,12 +121,6 @@ export default class Conferences extends Component {
             </ListGroupItem>
           : null
     );
-  }
-
-  handleRegCatClick = event => {
-    event.preventDefault();
-    debugger;
-    this.props.history.push(event.currentTarget.getAttribute("href"));
   }
 
   regCategoriesIds(regcategories) {
@@ -229,6 +228,12 @@ export default class Conferences extends Component {
               href="/conferences/new"
               onClick={this.handleConferenceClick2} >
               <span className="glyphicon glyphicon-plus"></span> New Conference
+            </Button>
+            <Button
+              id="newcontext"
+              key="newcontext"
+              onClick={this.handleConferenceContext}>
+                <span className="glyphicon glyphicon-plus"></span> New Reg Type
             </Button>
           </div>
 
