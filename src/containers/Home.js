@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { PageHeader, ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { PageHeader, Button, Table } from "react-bootstrap";
 //import Search from 'react-search'
 
 import { invokeApig } from '../libs/awsLib';
@@ -51,14 +51,21 @@ export default class Home extends Component {
   renderConferencesList(conferences) {
     return conferences.map(
       (conference) =>
-         <ListGroupItem
-            id={conference.conferenceId}
-            key={conference.conferenceId}
-            href={`/conferences/${conference.confAbbr}`}
-            onClick={this.handleConferenceClick}
-            header={conference.confTitle}>
-              {"Created: " + new Date(conference.createdAt).toLocaleString()}
-          </ListGroupItem>
+        <tbody>
+          <tr>
+            <td>
+              <a
+                id={conference.conferenceId}
+                key={conference.conferenceId}
+                href={`/conferences/${conference.confAbbr}`}
+                onClick={this.handleConferenceClick}>
+                  {conference.confTitle}
+              </a>
+            </td>
+            <td>{"Created: " + new Date(conference.createdAt).toLocaleString()}</td>
+            <td>{conference.confVenue}</td>
+          </tr>
+        </tbody>
     );
   }
 
@@ -90,6 +97,7 @@ export default class Home extends Component {
     );
     return (
       <div className="conferences">
+        <PageHeader>Conferences and Groups</PageHeader>
 
         <div className="confbuttonandsearch">
           <Button
@@ -105,10 +113,17 @@ export default class Home extends Component {
             value={this.state.search}
             onChange={this.searchList.bind(this)} />
         </div>
-        <PageHeader>Conferences and Groups</PageHeader>
-        <ListGroup className="conference-list">
-          {!this.state.isLoading && this.renderConferencesList(filteredConferences)}
-        </ListGroup>
+
+        <Table className="ConferenceList" hover>
+          <thead>
+            <tr>
+              <th>Conference Title</th>
+              <th>Created at</th>
+              <th>Venue</th>
+            </tr>
+          </thead>
+            {!this.state.isLoading && this.renderConferencesList(filteredConferences)}
+        </Table>
 
       </div>
 

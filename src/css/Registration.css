@@ -15,7 +15,7 @@
 .RegandTitle {
   display: flex;
   flex-flow: column nowrap;
-  width: 88%;
+  width: 85%;
 }
 
 .RegandTitle h2 {
@@ -24,50 +24,14 @@
   margin: 0 0 30px 0;
 }
 
-.RegistrationDetails #RegistrationControl {
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 0;
-}
-
-.RegistrationDetails #RegistrationControl-tab-1, #RegistrationControl-tab-2 {
-  width: 100%;
-  font-size: 30px;
-}
-
 .RegistrationDetails .buttonsformore {
   display: flex;
   flex-flow: column nowrap;
-  width: 12%;
+  width: 15%;
   margin-left: 50px;
   border-left: 5px;
   padding-left: 25px;
   border-left-style: ridge;
-}
-
-.RegistrationDetails .buttonsformore #settings {
-  margin: 60px 0 2px 0;
-  align-self: left;
-  width: 125px;
-  padding: 4px 10px 6px 10px;
-  /* box-shadow: 1px 1px 0 0 #999; */
-  letter-spacing: 0.5px;
-  color: #000;
-  text-align: left;
-  height: 30px;
-  font-size: 14px;
-  border: 0;
-  position: fixed;
-  font-weight: 600;
-  /* background-color: #fff;
-  border-color: #999;
-  border-radius: 4px 4px 4px 4px; */
-}
-
-.RegistrationDetails .buttonsformore #settings:hover {
-  outline: none;
-  background: none;
-  color: #fbb031;
 }
 
 .RegistrationDetails .buttonsformore #newregcat {
@@ -93,4 +57,52 @@
   outline: none;
   background: none;
   color: #3f99a1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  /* transition: opacity 500ms; */
+  visibility: hidden;
+  opacity: 0;
+}
+
+#regCatNewPopup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+#regCatNewPopup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+#regCatNewPopup .close:hover {
+  color: #3f99a1;
+}
+
+.header-container h1 {
+  text-align: center;
+}
+
+#regCatNewPopup .container {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  margin: 20px;
+  padding: 20px;
 }

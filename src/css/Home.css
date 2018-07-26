@@ -62,7 +62,7 @@
 }
 
 .confbuttonandsearch {
-  order: 2;
+  order: 0;
   align-self: flex-end;
 }
 
@@ -70,28 +70,22 @@
   order: 0;
   padding: 0;
   align-self: stretch;
-  margin: 10px 0 20px 0;
-}
-
-.conferences h1 {
-  font-size: 50px;
-  font-weight: 500;
+  margin: 10px 0;
 }
 
 .confbuttonandsearch #confsearch {
   order: 0;
   align-self: flex-end;
-  margin-right: 10px;
-  margin-top: 25px;
   padding: 4px 10px;
+  margin: 5px;
   font-size: 14px;
   line-height: 1.5;
   width: 275px;
   border-radius: 4px;
   color: #000000;
-  box-shadow: 1px 1px 0 0 #999;
+  border-style: solid;
   background-color: #fff;
-  border-color: #3f99a1;
+  border-color: #a6a6a6;
   border-width: thin;
 }
 
@@ -102,31 +96,31 @@
 .confbuttonandsearch .newconf {
   order: 0;
   align-self: flex-end;
-  margin-top: 25px;
-  margin-bottom: 2px;
   float: right;
   min-width: 50px;
-  padding: 4px 10px 6px 10px;
-  box-shadow: 1px 1px 0 0 #999;
+  padding: 4px 10px;
+  margin: 4px 10px;
+  border: 0;
+  /* box-shadow: 1px 1px 0 0 #a6a6a6; */
   letter-spacing: 0.5px;
-  color: #fff;
+  color: #000;
   height: 30px;
-  font-size: 14px;
-  background-color: #3f99a1;
-  border-color: #3f99a1;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  border-color: #f2f2f2;
   border-radius: 4px;
 }
 
-.confbuttonandsearch .newconf:active {
-  background-color: #3f99a1;
-  color: #fff;
-  border-color: #3f99a1;
+.confbuttonandsearch .newconf:hover {
+  background-color: #f2f2f2;
+  color: #3f99a1;
+  border-color: #f2f2f2;
   border-radius: 4px;
 }
 
-.conference-list {
+.ConferenceList {
   order: 3;
-  margin-top: 30px;
+  margin-top: 20px;
   align-self: stretch;
 }
 
