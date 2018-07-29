@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 // import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from "./ConfNavbar";
@@ -70,7 +70,7 @@ export default class Registration extends Component {
   handleRegCatClick = event => {
     event.preventDefault();
     debugger;
-    this.props.history.push(event.currentTarget.getAttribute("href"));
+    this.props.history.push(`/conferences/${this.state.confAbbr}/registration_new`);
   }
 
   render() {
@@ -89,6 +89,14 @@ export default class Registration extends Component {
 
           </div>
 
+        </div>
+
+        <div className="buttonsformore">
+          <Button
+            id="newregcat"
+            onClick={this.handleRegCatClick}>
+            <span className="glyphicon glyphicon-plus"></span> New Reg Categroy
+          </Button>
         </div>
 
       </div>
