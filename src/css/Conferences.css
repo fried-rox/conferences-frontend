@@ -9,12 +9,13 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  margin: 140px 50px 10px 50px;
+  margin: 135px 30px 10px 30px;
 }
 
 .Details .conferenceDetails {
-  padding: 0;
-  width: 88%;
+  padding: 20px;
+  width: 90%;
+  background-color: #f2f2f2;
 }
 
 .Details .conferenceDetails h2 {
@@ -32,93 +33,74 @@
 .Details .buttonsformore {
   display: flex;
   flex-flow: column nowrap;
-  width: 12%;
-  margin-left: 50px;
-  border-left: 5px;
-  padding-left: 25px;
-  border-left-style: ridge;
-}
-
-.Details .buttonsformore #settings {
-  margin: 60px 0 2px 0;
-  align-self: left;
-  padding: 4px 10px 6px 10px;
-  /* box-shadow: 1px 1px 0 0 #999; */
-  letter-spacing: 0.5px;
-  color: #000;
-  text-align: left;
-  height: 30px;
-  font-size: 14px;
-  border: 0;
-  position: fixed;
-  font-weight: 600;
-  /* background-color: #fff;
-  border-color: #999;
-  border-radius: 4px 4px 4px 4px; */
-}
-
-.Details .buttonsformore #settings:hover {
-  outline: none;
-  background: none;
-  color: #fbb031;
-}
-
-.Details .buttonsformore #setting:active {
-  border-style: outset;
-  outline: none;
-  background: none;
+  width: 10%;
+  margin-left: 25px;
+  /* border-left-style: solid;
+  border-width: thin;
+  border-color: #999; */
 }
 
 .Details .buttonsformore #newconf {
-  margin: 100px 0 2px 0;
-  align-self: left;
-  padding: 4px 10px 6px 10px;
-  /* box-shadow: 1px 1px 0 0 #999; */
+  order: 0;
+  width: 155px;
+  text-align: left;
+  padding: 5px 10px;
+  border: 0;
+  margin-bottom: 30px;
   letter-spacing: 0.5px;
-  text-align: center;
   position: fixed;
   color: #000;
   height: 30px;
   font-size: 14px;
+  background-color: #f2f2f2;
+}
+
+.Details .buttonsformore #settings {
+  order: 1;
+  text-align: left;
+  width: 155px;
+  padding: 5px 10px;
   border: 0;
-  font-weight: 600;
-  /* background-color: #fff;
-  border-color: #3f99a1;
-  border-radius: 4px; */
-}
-
-.Details .buttonsformore #newconf:hover {
-  outline: none;
-  background: none;
-  color: #3f99a1;
-}
-
-.Details .buttonsformore #newconf:active {
-  outline: none;
-  background: none;
-  border: none;
+  margin-top: 40px;
+  letter-spacing: 0.5px;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  position: fixed;
+  background-color: #f2f2f2;
 }
 
 .Details .buttonsformore #update {
-  margin: 20px 0 2px 0;
-  align-self: left;
-  padding: 4px 10px 6px 10px;
-  /* box-shadow: 0.5px 0.5px 0 0 #999; */
+  order: 3;
+  text-align: left;
+  width: 155px;
+  padding: 5px 10px;
+  border: 0;
+  margin-top: 80px;
   letter-spacing: 0.5px;
-  text-align: center;
   position: fixed;
   color: #000;
   height: 30px;
   font-size: 14px;
-  font-weight: 600;
-  border: 0;
-  /* background-color: #fff;
-  border-color: #3f99a1;
-  border-radius: 4px; */
+  background-color: #f2f2f2;
 }
 
-.Details .buttonsformore #update:hover {
+.Details .buttonsformore #newcontext {
+  order: 4;
+  text-align: left;
+  width: 155px;
+  padding: 5px 10px;
+  border: 0;
+  margin-top: 120px;
+  letter-spacing: 0.5px;
+  position: fixed;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  background-color: #f2f2f2;
+}
+
+.Details .buttonsformore #newconf:hover, .Details .buttonsformore #settings:hover, .Details .buttonsformore #update:hover, .Details .buttonsformore #newcontext:hover {
   outline: none;
-  background: none;
   color: #3f99a1;
 }

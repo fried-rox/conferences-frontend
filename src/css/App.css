@@ -48,8 +48,6 @@
   align-self: flex-start;
   justify-content: flex-start;
   overflow: hidden;
-  /* width: 100%;
-  display: block!important; */
 }
 
 .App-container .navbar-brand {
@@ -59,28 +57,11 @@
   height: 65px;
 }
 
-/* .App-container .navbar-brand {
-  font-weight: 900;
-  color: #3f99a1;
-  text-shadow: 1px 1px #fbb031;
-  font-size: 20px;
-  overflow: hidden;
-}
-
-.App-container .navbar-brand:hover {
-  color: #3f99a1;
-}
-
-.App-container .navbar-brand:visited {
-  color: #3f99a1;
-} */
-
 .App-container #loginlink {
   order: 0;
   margin: 10px 0 2px 0;
   min-width: 50px;
   padding: 2px 8px;
-  /* padding: 4px 10px 6px 10px; */
   box-shadow: 1.5px 1.5px 0 0 #fbb031;
   letter-spacing: 0.5px;
   color: #fff;
@@ -92,38 +73,28 @@
 
 .App-container #logoutlink {
   letter-spacing: 0.5px;
-  margin: 18px 40px 0 0;
+  margin: 15px 40px 0 0;
   padding: 0;
-  /* min-width: 50px; */
-  /* padding: 2px 8px; */
-  color: #000;
-  font-weight: 700;
-  font-size: 22px;
+  color: #3f99a1;
+  font-weight: 500;
+  font-size: 28px;
   line-height: 1.5;
-  /* text-shadow: 1px 1px #fbb031; */
+  /* text-shadow: 1px 1px #999; */
 }
 
-.App-container #logoutlink:hover {
+.App-container #logoutlink:hover, .App-container #conflistlink:hover {
   text-decoration: none;
   color: #999;
-  /* text-shadow: 1px 1px #fbb031; */
 }
 
 .App-container #conflistlink {
   letter-spacing: 0.5px;
-  margin: 18px 0 0 40px;
+  margin: 15px 0 0 20px;
   padding: 0;
-  font-size: 22px;
+  font-size: 28px;
   line-height: 1.5;
   color: #3f99a1;
   background-color: #fff;
+  font-weight: 500;
   /* text-shadow: 1px 1px #999; */
-  font-weight: 700;
-  text-shadow: 1px 1px #fbb031;
-}
-
-.App-container #conflistlink:hover {
-  text-decoration: none;
-  color: #999;
-  text-shadow: 1px 1px #fbb031;
 }

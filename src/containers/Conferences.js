@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Button, ListGroupItem, ListGroup } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 import { invokeApig } from "../libs/awsLib";
 import ConfNavbar from './ConfNavbar';
@@ -101,24 +101,19 @@ export default class Conferences extends Component {
     return regcategories.map(
       (regcategory) =>
         regcategory.conferenceId === localStorage.getItem('confIdKey')
-          ? <ListGroupItem
-              id="regcatlist"
-              key={regcategory.regCategoryId}>
-              <Table>
-                <thead>
-                  <tr>
-                    <th>Full Name</th>
-                    <th>Website Link</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{regcategory.regFullName}</td>
-                    <td><a onClick={this.conferenceGoersLink}> {this.createURL()} </a></td>
-                  </tr>
-                </tbody>
-              </Table>
-            </ListGroupItem>
+          ? <tbody>
+              <tr>
+                <td>{regcategory.regFullName}</td>
+                <td>
+                  <a
+                    id="regcatlist"
+                    key={regcategory.regCategoryId}
+                    onClick={this.conferenceGoersLink}>
+                      {this.createURL()}
+                  </a>
+                </td>
+              </tr>
+            </tbody>
           : null
     );
   }
@@ -202,9 +197,15 @@ export default class Conferences extends Component {
             </div>
             <h3>Registration Categories</h3>
             <div className="regcategoriesview">
-              <ListGroup id="regcategory-list">
-                {this.regCategoryList(this.state.regcategories)}
-              </ListGroup>
+              <Table className="regcategories" hover>
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Website Link</th>
+                  </tr>
+                </thead>
+                  {this.regCategoryList(this.state.regcategories)}
+              </Table>
               <div>
                 {this.regCategoriesIds(this.state.regcategories)}
               </div>

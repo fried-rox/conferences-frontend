@@ -3,23 +3,23 @@
   flex-flow: row nowrap;
   width: 100%;
   list-style-type: none;
-  margin: 65px 0 0 0;
+  margin: 70px 0 0 0;
   background-color: #a6a6a6;
   padding: 0;
   border-radius: 0;
   position: fixed;
   overflow: hidden;
-  border-bottom: 2.5px;
+  /* border-bottom: 2.5px;
   border-bottom-style: solid;
-  border-bottom-color: #fbb031;
-  border-top: 1px;
+  border-bottom-color: #fbb031; */
+  /* border-top: 1px;
   border-top-style: solid;
-  border-top-color: #f2f2f2;
+  border-top-color: #f2f2f2; */
 }
 
 #detailsnav, #detailsnav2, #detailsnav3, #detailsnav4, #detailsnav5, #detailsnav6 {
   text-align: center;
-  width: 130px;
+  width: 150px;
   letter-spacing: 0.5px;
   float: left;
   margin: 8px 5px;
@@ -28,16 +28,10 @@
   line-height: 1.5;
   color: #fff;
   font-weight: 500;
-  /* box-shadow: 1.5px 1.5px #fbb031; */
   vertical-align: middle;
-  /* border-width: thin;
-  border-style: solid; */
 }
 
 #detailsnav:hover, #detailsnav2:hover, #detailsnav3:hover, #detailsnav4:hover, #detailsnav5:hover, #detailsnav6:hover {
   text-decoration: none;
   color: #000;
-  /* border-width: thin;
-  border-style: solid;
-  border-color: #fbb031; */
 }

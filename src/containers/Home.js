@@ -62,7 +62,8 @@ export default class Home extends Component {
                   {conference.confTitle}
               </a>
             </td>
-            <td>{"Created: " + new Date(conference.createdAt).toLocaleString()}</td>
+            <td> {conference.confStartDate} - {conference.confEndDate} </td>
+            <td> {conference.projectManager} </td>
             <td>{conference.confVenue}</td>
           </tr>
         </tbody>
@@ -118,7 +119,8 @@ export default class Home extends Component {
           <thead>
             <tr>
               <th>Conference Title</th>
-              <th>Created at</th>
+              <th>Conference Dates</th>
+              <th>Project Manager</th>
               <th>Venue</th>
             </tr>
           </thead>
