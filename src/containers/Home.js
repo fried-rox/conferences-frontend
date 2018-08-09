@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { PageHeader, Button, Table } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { PageHeader, Button, Table } from 'react-bootstrap';
 //import Search from 'react-search'
 
 import { invokeApig } from '../libs/awsLib';
 
-import "../css/Home.css";
+import '../css/Home.css';
 
 //import SearchNotes from "../components/SearchNotes";
 
@@ -37,7 +37,7 @@ export default class Home extends Component {
   }
 
   conferences() {
-    return invokeApig({ path: "/conferences" });
+    return invokeApig({ path: '/conferences' });
   }
 
   searchList(event) {
@@ -59,7 +59,7 @@ export default class Home extends Component {
                 key={conference.conferenceId}
                 href={`/conferences/${conference.confAbbr}`}
                 onClick={this.handleConferenceClick}>
-                  {conference.confTitle}
+                {conference.confTitle}
               </a>
             </td>
             <td> {conference.confStartDate} - {conference.confEndDate} </td>
@@ -72,8 +72,8 @@ export default class Home extends Component {
 
   handleConferenceClick = event => {
     event.preventDefault();
-    localStorage.setItem("confIdKey", event.currentTarget.id);
-    this.props.history.push(event.currentTarget.getAttribute("href"));
+    localStorage.setItem('confIdKey', event.currentTarget.id);
+    this.props.history.push(event.currentTarget.getAttribute('href'));
   }
 
   renderLander() {
@@ -106,7 +106,7 @@ export default class Home extends Component {
             key="new"
             href="/conferences/new"
             onClick={this.handleConferenceClick} >
-              <b>{"\uFF0B"}</b> Create a new conference
+            <b>{'\uFF0B'}</b> Create a new conference
           </Button>
           <input id="confsearch"
             type="text"
@@ -124,7 +124,7 @@ export default class Home extends Component {
               <th>Venue</th>
             </tr>
           </thead>
-            {!this.state.isLoading && this.renderConferencesList(filteredConferences)}
+          {!this.state.isLoading && this.renderConferencesList(filteredConferences)}
         </Table>
 
       </div>

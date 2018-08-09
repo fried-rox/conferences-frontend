@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { ListGroup, ListGroupItem, Button, Table } from "react-bootstrap";
+import React, { Component } from 'react';
+import { ListGroup, ListGroupItem, Button, Table } from 'react-bootstrap';
 
-import ConfNavbar from "./ConfNavbar";
+import ConfNavbar from './ConfNavbar';
 import { invokeApig } from '../libs/awsLib';
 // import RouteNavItem from "../components/RouteNavItem";
 
@@ -15,7 +15,7 @@ export default class Participants extends Component {
       isLoading: true,
       search: '',
       conference: null,
-      confTitle: "",
+      confTitle: '',
       participants: []
     };
   }
@@ -47,7 +47,7 @@ export default class Participants extends Component {
   }
 
   participants() {
-    return invokeApig({ path: "/participants" });
+    return invokeApig({ path: '/participants' });
   }
 
   searchList(event) {
@@ -61,19 +61,19 @@ export default class Participants extends Component {
           ? <ListGroupItem
               id="parConfList"
               key={participant.participantId}>
-              <Table>
-                <thead>
-                  <tr>
-                    <th>Full Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>{participant.parTitle} {participant.parFirstName} {participant.parMiddleName} {participant.parLastName}</th>
-                  </tr>
-                </tbody>
-              </Table>
-            </ListGroupItem>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>{participant.parTitle} {participant.parFirstName} {participant.parMiddleName} {participant.parLastName}</th>
+                </tr>
+              </tbody>
+            </Table>
+          </ListGroupItem>
           : null
     );
   }
@@ -115,7 +115,7 @@ export default class Participants extends Component {
           <div className="buttonsformore">
             <Button
               id="settings">
-                <span className="glyphicon glyphicon-cog"></span> Settings
+              <span className="glyphicon glyphicon-cog"></span> Settings
             </Button>
             <Button
               id="newpar"

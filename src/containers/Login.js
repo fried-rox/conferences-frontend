@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import { CognitoUserPool, AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
+import React, { Component } from 'react';
+import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { CognitoUserPool, AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
 
-import config from "../config";
-import LoaderButton from "../components/LoaderButton";
+import config from '../config';
+import LoaderButton from '../components/LoaderButton';
 
-import "../css/Login.css";
+import '../css/Login.css';
 
 export default class Login extends Component {
   constructor(props) {
@@ -13,8 +13,8 @@ export default class Login extends Component {
 
     this.state = {
       isLoading: false,
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
   }
 

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Button, ListGroup } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button, ListGroup } from 'react-bootstrap';
 
-import ConfNavbar from "./ConfNavbar";
-import { invokeApig } from "../libs/awsLib";
+import ConfNavbar from './ConfNavbar';
+import { invokeApig } from '../libs/awsLib';
 
-import "../css/Tourism.css";
+import '../css/Tourism.css';
 
 export default class Tourism extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Tourism extends Component {
 
     this.state = {
       conference: [],
-      confTitle: ""
+      confTitle: ''
     };
   }
 
@@ -55,7 +55,7 @@ export default class Tourism extends Component {
           <div className="buttonsformore">
             <Button
               id="settings">
-                <span className="glyphicon glyphicon-cog"></span> Settings
+              <span className="glyphicon glyphicon-cog"></span> Settings
             </Button>
             <Button
               id="newtour"

@@ -1,6 +1,6 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import { NavItem } from "react-bootstrap";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import { NavItem } from 'react-bootstrap';
 
 export default props =>
   <Route
@@ -8,7 +8,7 @@ export default props =>
     exact
     children={({ match, history }) =>
       <NavItem
-        onClick={e => history.push(e.currentTarget.getAttribute("href"))}
+        onClick={e => history.push(e.currentTarget.getAttribute('href'))}
         {...props}
         active={match ? true : false}
       >

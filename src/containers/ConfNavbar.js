@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import { Navbar } from "react-bootstrap";
 // import { IndexLinkContainer } from "react-router-bootstrap";
 
-import RouteNavItem from "../components/RouteNavItem";
+import RouteNavItem from '../components/RouteNavItem';
 
 import '../css/ConfNavbar.css';
 

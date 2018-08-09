@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Table, Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Table, Button } from 'react-bootstrap';
 
-import { invokeApig } from "../libs/awsLib";
+import { invokeApig } from '../libs/awsLib';
 import ConfNavbar from './ConfNavbar';
 // import RouteNavItem from "../components/RouteNavItem";
 
-import "../css/Conferences.css";
+import '../css/Conferences.css';
 
 export default class Conferences extends Component {
   constructor(props) {
@@ -17,21 +17,21 @@ export default class Conferences extends Component {
       conference: [],
       regcategories: [],
       regCatIds: [],
-      confTitle: "",
-      confAbbr: "",
-      projectManager: "",
-      accountClient: "",
-      confVenue: "",
-      confStartDate: "",
-      confEndDate: "",
-      regAccess: "",
-      regEarlyStart: "",
-      regNormalStart: "",
-      regNormalEnd: "",
-      confLanguage: "",
-      confCurrency: "",
-      confExRate: "",
-      notes: ""
+      confTitle: '',
+      confAbbr: '',
+      projectManager: '',
+      accountClient: '',
+      confVenue: '',
+      confStartDate: '',
+      confEndDate: '',
+      regAccess: '',
+      regEarlyStart: '',
+      regNormalStart: '',
+      regNormalEnd: '',
+      confLanguage: '',
+      confCurrency: '',
+      confExRate: '',
+      notes: ''
     };
   }
 
@@ -65,7 +65,7 @@ export default class Conferences extends Component {
   }
 
   regCategories() {
-    return invokeApig({ path: "/regcategories" })
+    return invokeApig({ path: '/regcategories' })
   }
 
   getConference() {
@@ -79,7 +79,7 @@ export default class Conferences extends Component {
 
   handleConferenceClick2 = event => {
     event.preventDefault();
-    this.props.history.push(event.currentTarget.getAttribute("href"));
+    this.props.history.push(event.currentTarget.getAttribute('href'));
   }
 
   handleConferenceContext = event => {
@@ -102,18 +102,18 @@ export default class Conferences extends Component {
       (regcategory) =>
         regcategory.conferenceId === localStorage.getItem('confIdKey')
           ? <tbody>
-              <tr>
-                <td>{regcategory.regFullName}</td>
-                <td>
-                  <a
+            <tr>
+              <td>{regcategory.regFullName}</td>
+              <td>
+                <a
                     id="regcatlist"
                     key={regcategory.regCategoryId}
                     onClick={this.conferenceGoersLink}>
-                      {this.createURL()}
-                  </a>
-                </td>
-              </tr>
-            </tbody>
+                  {this.createURL()}
+                </a>
+              </td>
+            </tr>
+          </tbody>
           : null
     );
   }
@@ -204,7 +204,7 @@ export default class Conferences extends Component {
                     <th>Website Link</th>
                   </tr>
                 </thead>
-                  {this.regCategoryList(this.state.regcategories)}
+                {this.regCategoryList(this.state.regcategories)}
               </Table>
               <div>
                 {this.regCategoriesIds(this.state.regcategories)}
@@ -221,7 +221,7 @@ export default class Conferences extends Component {
             </Button>
             <Button
               id="settings">
-                <span className="glyphicon glyphicon-cog"></span> Settings
+              <span className="glyphicon glyphicon-cog"></span> Settings
             </Button>
             <Button
               id="newconf"
@@ -234,7 +234,7 @@ export default class Conferences extends Component {
               id="newcontext"
               key="newcontext"
               onClick={this.handleConferenceContext}>
-                <span className="glyphicon glyphicon-plus"></span> New Reg Type
+              <span className="glyphicon glyphicon-plus"></span> New Reg Type
             </Button>
           </div>
 

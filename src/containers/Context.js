@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel, Checkbox  } from "react-bootstrap";
+import React, { Component } from 'react';
+import { FormGroup, FormControl, ControlLabel, Checkbox  } from 'react-bootstrap';
 
 // import LoaderButton from "../components/LoaderButton";
 // import config from "../config";
-import { invokeApig } from "../libs/awsLib";
+import { invokeApig } from '../libs/awsLib';
 
 // import "react-day-picker/lib/style.css";
 
@@ -18,22 +18,22 @@ export default class NewConference extends Component {
       regcategories: [],
       conference: [],
       regCatIds: [],
-      confTitle: "",
-      confTitleAbr: "",
-      conferenceId: "",
-      regTypeFullName: "",
-      regTypeAbbrName: "",
-      regTypeCurrency: "",
-      regTypeLanguage: "",
-      regTypeUsePackage: "",
-      regTypeAddScience: "",
-      regTypeAddTours: "",
-      regTypeAddAccommodation: "",
-      regTypeAddAP: "",
-      regTypePaymentMethod: "",
-      regTypeQuestions: "",
-      regTypeNotes: "",
-      regTypeMailing: "",
+      confTitle: '',
+      confTitleAbr: '',
+      conferenceId: '',
+      regTypeFullName: '',
+      regTypeAbbrName: '',
+      regTypeCurrency: '',
+      regTypeLanguage: '',
+      regTypeUsePackage: '',
+      regTypeAddScience: '',
+      regTypeAddTours: '',
+      regTypeAddAccommodation: '',
+      regTypeAddAP: '',
+      regTypePaymentMethod: '',
+      regTypeQuestions: '',
+      regTypeNotes: '',
+      regTypeMailing: '',
       value: null,
     };
   }
@@ -55,7 +55,7 @@ export default class NewConference extends Component {
   }
 
   regCategories() {
-    return invokeApig({ path: "/regcategories" })
+    return invokeApig({ path: '/regcategories' })
   }
 
   getConference() {
@@ -71,7 +71,7 @@ export default class NewConference extends Component {
   handleRegCatClick = event => {
     event.preventDefault();
     debugger;
-    this.props.history.push(event.currentTarget.getAttribute("href"));
+    this.props.history.push(event.currentTarget.getAttribute('href'));
   }
 
   render() {
@@ -107,9 +107,9 @@ export default class NewConference extends Component {
               onChange={this.handleChange}
               value={this.state.regTypeCurrency}
               componentClass="select">
-                <option value="dollar">Dollar</option>
-                <option value="shekel">Shekel</option>
-                <option value="euro">Euro</option>
+              <option value="dollar">Dollar</option>
+              <option value="shekel">Shekel</option>
+              <option value="euro">Euro</option>
             </FormControl>
           </FormGroup>
           <FormGroup controlId="regPayment">

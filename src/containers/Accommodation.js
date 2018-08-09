@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { PageHeader, Button, ListGroup } from "react-bootstrap";
+import React, { Component } from 'react';
+import { PageHeader, Button, ListGroup } from 'react-bootstrap';
 
-import ConfNavbar from "./ConfNavbar";
+import ConfNavbar from './ConfNavbar';
 
 export default class Accommodation extends Component {
 
@@ -15,7 +15,7 @@ export default class Accommodation extends Component {
             className="newroomblock"
             key="new"
             href={`/conferences/${this.props.match.params.id}/accommodation`} >
-              <b>{"\uFF0B"}</b> Create a new room block
+            <b>{'\uFF0B'}</b> Create a new room block
           </Button>
           <input id="roomsearch"
             type="text"

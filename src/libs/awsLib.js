@@ -1,7 +1,7 @@
-import { CognitoUserPool } from "amazon-cognito-identity-js";
-import config from "../config";
-import AWS from "aws-sdk";
-import sigV4Client from "./sigV4Client";
+import { CognitoUserPool } from 'amazon-cognito-identity-js';
+import config from '../config';
+import AWS from 'aws-sdk';
+import sigV4Client from './sigV4Client';
 
 export async function authUser() {
   if (
@@ -75,13 +75,13 @@ function getAwsCredentials(userToken) {
 
 export async function invokeApig({
   path,
-  method = "GET",
+  method = 'GET',
   headers = {},
   queryParams = {},
   body
 }) {
   if (!await authUser()) {
-    throw new Error("User is not logged in");
+    throw new Error('User is not logged in');
   }
 
   const signedRequest = sigV4Client
@@ -118,7 +118,7 @@ export async function invokeApig({
 
 export async function s3Upload(file) {
   if (!await authUser()) {
-    throw new Error("User is not logged in");
+    throw new Error('User is not logged in');
   }
 
   const s3 = new AWS.S3({
@@ -134,7 +134,7 @@ export async function s3Upload(file) {
       Key: filename,
       Body: file,
       ContentType: file.type,
-      ACL: "public-read"
+      ACL: 'public-read'
     })
     .promise();
 }

@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel, Checkbox, PageHeader, Radio  } from "react-bootstrap";
+import React, { Component } from 'react';
+import { FormGroup, FormControl, ControlLabel, Checkbox, PageHeader, Radio  } from 'react-bootstrap';
 
-import CalendarPick from "../components/CalendarPick";
-import LoaderButton from "../components/LoaderButton";
-import config from "../config";
-import { invokeApig, s3Upload } from "../libs/awsLib";
+import CalendarPick from '../components/CalendarPick';
+import LoaderButton from '../components/LoaderButton';
+import config from '../config';
+import { invokeApig, s3Upload } from '../libs/awsLib';
 
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/lib/style.css';
 
-import "../css/NewConference.css";
+import '../css/NewConference.css';
 
 export default class NewConference extends Component {
   constructor(props) {
@@ -18,20 +18,20 @@ export default class NewConference extends Component {
 
     this.state = {
       isLoading: false,
-      confTitle: "",
-      confAbbr: "",
-      projectManager: "",
-      accountClient: "",
-      confVenue: "",
-      confDates: "",
-      regAccess: "",
-      regEarlyStart: "",
-      regNormalStart: "",
-      regNormalEnd: "",
-      confLanguage: "English",
-      confCurrency: "",
-      confExRate: "",
-      notes: "",
+      confTitle: '',
+      confAbbr: '',
+      projectManager: '',
+      accountClient: '',
+      confVenue: '',
+      confDates: '',
+      regAccess: '',
+      regEarlyStart: '',
+      regNormalStart: '',
+      regNormalEnd: '',
+      confLanguage: 'English',
+      confCurrency: '',
+      confExRate: '',
+      notes: '',
       value: null,
       selectedDay: new Date(),
     };
@@ -55,7 +55,7 @@ export default class NewConference extends Component {
     event.preventDefault();
 
     if (this.file && this.file.size > config.MAX_ATTACHMENT_SIZE) {
-      alert("Please pick a file smaller than 5MB");
+      alert('Please pick a file smaller than 5MB');
       return;
     }
 
@@ -68,26 +68,26 @@ export default class NewConference extends Component {
 
         const createConferenceObject = {
           confTitle: this.state.confTitle,
-          confAbbr: this.state.confAbbr === "" ? undefined : this.state.confAbbr,
-          projectManager: this.state.projectManager === "" ? undefined : this.state.projectManager,
-          accountClient: this.state.accountClient === "" ? undefined : this.state.accountClient,
-          confVenue: this.state.confVenue === "" ? undefined : this.state.confVenue,
-          confDates: this.state.confDates === "" ? undefined : this.state.confDates,
-          regAccess: this.state.regAccess === "" ? undefined : this.state.regAccess,
-          regEarlyStart: this.state.regEarlyStart === "" ? undefined : this.state.regEarlyStart,
-          regNormalStart: this.state.regNormalStart === "" ? undefined : this.state.regNormalStart,
-          regNormalEnd: this.state.regNormalEnd === "" ? undefined : this.state.regNormalEnd,
-          confLanguage: this.state.confLanguage === "" ? undefined : this.state.confLanguage,
-          confCurrency: this.state.confCurrency === "" ? undefined : this.state.confCurrency,
-          confExRate: this.state.confExRate === "" ? undefined : this.state.confExRate,
-          notes: this.state.notes === "" ? undefined : this.state.notes,
+          confAbbr: this.state.confAbbr === '' ? undefined : this.state.confAbbr,
+          projectManager: this.state.projectManager === '' ? undefined : this.state.projectManager,
+          accountClient: this.state.accountClient === '' ? undefined : this.state.accountClient,
+          confVenue: this.state.confVenue === '' ? undefined : this.state.confVenue,
+          confDates: this.state.confDates === '' ? undefined : this.state.confDates,
+          regAccess: this.state.regAccess === '' ? undefined : this.state.regAccess,
+          regEarlyStart: this.state.regEarlyStart === '' ? undefined : this.state.regEarlyStart,
+          regNormalStart: this.state.regNormalStart === '' ? undefined : this.state.regNormalStart,
+          regNormalEnd: this.state.regNormalEnd === '' ? undefined : this.state.regNormalEnd,
+          confLanguage: this.state.confLanguage === '' ? undefined : this.state.confLanguage,
+          confCurrency: this.state.confCurrency === '' ? undefined : this.state.confCurrency,
+          confExRate: this.state.confExRate === '' ? undefined : this.state.confExRate,
+          notes: this.state.notes === '' ? undefined : this.state.notes,
           confGraphic: uploadedFilename
         }
 
         console.log(createConferenceObject);
 
       await this.createConference(createConferenceObject);
-      this.props.history.push("/");
+      this.props.history.push('/');
     } catch (e) {
       alert(e);
       this.setState({ isLoading: false });
@@ -96,8 +96,8 @@ export default class NewConference extends Component {
 
   createConference(conference) {
     return invokeApig({
-      path: "/conferences",
-      method: "POST",
+      path: '/conferences',
+      method: 'POST',
       body: conference
     });
   }
@@ -140,8 +140,8 @@ export default class NewConference extends Component {
               onChange={this.handleChange}
               value={this.state.projectManager}
               componentClass="select">
-                <option value="John Smith">John Smith</option>
-                <option value="Mary Murphy">Mary Murphy</option>
+              <option value="John Smith">John Smith</option>
+              <option value="Mary Murphy">Mary Murphy</option>
             </FormControl>
           </FormGroup>
           <FormGroup controlId="accountClient">
@@ -180,8 +180,8 @@ export default class NewConference extends Component {
               onChange={this.handleChange}
               value={this.state.confLanguage}
               componentClass="select">
-                <option value="English">English</option>
-                <option value="Hebrew">Hebrew</option>
+              <option value="English">English</option>
+              <option value="Hebrew">Hebrew</option>
             </FormControl>
           </FormGroup>
           <FormGroup controlId="confCurrency">
@@ -190,9 +190,9 @@ export default class NewConference extends Component {
               onChange={this.handleChange}
               value={this.state.confCurrency}
               componentClass="select">
-                <option value="dollar">Dollar</option>
-                <option value="shekel">Shekel</option>
-                <option value="euro">Euro</option>
+              <option value="dollar">Dollar</option>
+              <option value="shekel">Shekel</option>
+              <option value="euro">Euro</option>
             </FormControl>
           </FormGroup>
           <FormGroup controlId="confExRate">

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { HelpBlock, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import { AuthenticationDetails, CognitoUserPool } from "amazon-cognito-identity-js";
+import React, { Component } from 'react';
+import { HelpBlock, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { AuthenticationDetails, CognitoUserPool } from 'amazon-cognito-identity-js';
 
-import LoaderButton from "../components/LoaderButton";
-import config from "../config";
+import LoaderButton from '../components/LoaderButton';
+import config from '../config';
 
-import "../css/Signup.css";
+import '../css/Signup.css';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -13,10 +13,10 @@ export default class Signup extends Component {
 
     this.state = {
       isLoading: false,
-      email: "",
-      password: "",
-      confirmPassword: "",
-      confirmationCode: "",
+      email: '',
+      password: '',
+      confirmPassword: '',
+      confirmationCode: '',
       newUser: null
     };
   }
@@ -70,7 +70,7 @@ export default class Signup extends Component {
       );
 
       this.props.userHasAuthenticated(true);
-      this.props.history.push("/");
+      this.props.history.push('/');
     } catch (e) {
       alert(e);
       this.setState({ isLoading: false });

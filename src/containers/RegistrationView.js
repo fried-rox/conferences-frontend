@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { PageHeader, Button, Table } from "react-bootstrap";
+import React, { Component } from 'react';
+import { PageHeader, Button, Table } from 'react-bootstrap';
 
 // import LoaderButton from "../components/LoaderButton";
-import ConfNavbar from "./ConfNavbar";
+import ConfNavbar from './ConfNavbar';
 // import config from "../config";
-import { invokeApig } from "../libs/awsLib";
+import { invokeApig } from '../libs/awsLib';
 
 // import './RegistrationView.css';
 
@@ -16,21 +16,21 @@ export default class RegistrationView extends Component {
       isLoading: false,
       regcategory: null,
       // conferenceId: "",
-      regFullName: "",
-      regAbbrName: "",
-      regCurrency: "",
-      regLanguage: "",
-      addScience: "",
-      addTours: "",
-      addHotel: "",
-      addAP: "",
-      regFee: "",
-      payCash: "",
-      payCheque: "",
-      payCard: "",
-      payGuard: "",
-      payEFT: "",
-      regNotes: ""
+      regFullName: '',
+      regAbbrName: '',
+      regCurrency: '',
+      regLanguage: '',
+      addScience: '',
+      addTours: '',
+      addHotel: '',
+      addAP: '',
+      regFee: '',
+      payCash: '',
+      payCheque: '',
+      payCard: '',
+      payGuard: '',
+      payEFT: '',
+      regNotes: ''
     };
   }
 
@@ -82,7 +82,7 @@ export default class RegistrationView extends Component {
             className="regupdate"
             key={this.state.regCategoryId}
             onClick={this.handleRegCatViewClick} >
-              <b>{"\uFF0B"}</b> Edit
+            <b>{'\uFF0B'}</b> Edit
           </Button>
           <div>
             <Table responsive>

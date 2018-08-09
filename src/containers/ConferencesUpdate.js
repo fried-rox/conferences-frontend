@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel, Checkbox } from "react-bootstrap";
-import DayPicker from "react-day-picker";
+import React, { Component } from 'react';
+import { Button, FormGroup, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
+import DayPicker from 'react-day-picker';
 
-import ConfNavbar from "./ConfNavbar";
-import { invokeApig, s3Upload } from "../libs/awsLib";
-import LoaderButton from "../components/LoaderButton";
-import config from "../config";
+import ConfNavbar from './ConfNavbar';
+import { invokeApig, s3Upload } from '../libs/awsLib';
+import LoaderButton from '../components/LoaderButton';
+import config from '../config';
 // import RouteNavItem from "../components/RouteNavItem";
 
-import "../css/ConferencesUpdate.css";
+import '../css/ConferencesUpdate.css';
 
 export default class ConferencesUpdate extends Component {
   constructor(props) {
@@ -20,21 +20,21 @@ export default class ConferencesUpdate extends Component {
       isLoading: false,
       isDeleting: false,
       conference: null,
-      confTitle: "",
-      confAbbr: "",
-      projectManager: "",
-      accountClient: "",
-      confVenue: "",
-      confStartDate: "",
-      confEndDate: "",
-      regAccess: "",
-      regEarlyStart: "",
-      regNormalStart: "",
-      regNormalEnd: "",
-      confLanguage: "",
-      confCurrency: "",
-      confExRate: "",
-      notes: ""
+      confTitle: '',
+      confAbbr: '',
+      projectManager: '',
+      accountClient: '',
+      confVenue: '',
+      confStartDate: '',
+      confEndDate: '',
+      regAccess: '',
+      regEarlyStart: '',
+      regNormalStart: '',
+      regNormalEnd: '',
+      confLanguage: '',
+      confCurrency: '',
+      confExRate: '',
+      notes: ''
     };
   }
   async componentDidMount() {
@@ -74,7 +74,7 @@ export default class ConferencesUpdate extends Component {
   formatFilename(str) {
     return str.length < 50
       ? str
-      : str.substr(0, 20) + "..." + str.substr(str.length - 20, str.length);
+      : str.substr(0, 20) + '...' + str.substr(str.length - 20, str.length);
   }
 
   handleChange = event => {
@@ -90,7 +90,7 @@ export default class ConferencesUpdate extends Component {
   saveConference(conference) {
     return invokeApig({
       path: `/conferences/${localStorage.getItem('confIdKey')}`,
-      method: "PUT",
+      method: 'PUT',
       body: conference
     });
   }
@@ -101,7 +101,7 @@ export default class ConferencesUpdate extends Component {
     event.preventDefault();
 
     if (this.file && this.file.size > config.MAX_ATTACHMENT_SIZE) {
-      alert("Please pick a file smaller than 5MB");
+      alert('Please pick a file smaller than 5MB');
       return;
     }
 
@@ -145,7 +145,7 @@ export default class ConferencesUpdate extends Component {
   deleteConference() {
     return invokeApig({
       path: `/conferences/${localStorage.getItem('confIdKey')}`,
-      method: "DELETE"
+      method: 'DELETE'
     });
   }
 
@@ -153,7 +153,7 @@ export default class ConferencesUpdate extends Component {
     event.preventDefault();
 
     const confirmed = window.confirm(
-      "Are you sure you want to delete this note?"
+      'Are you sure you want to delete this note?'
     );
 
     if (!confirmed) {
@@ -164,7 +164,7 @@ export default class ConferencesUpdate extends Component {
 
     try {
       await this.deleteConference();
-      this.props.history.push("/");
+      this.props.history.push('/');
     } catch (e) {
       alert(e);
       this.setState({ isDeleting: false });
@@ -210,8 +210,8 @@ export default class ConferencesUpdate extends Component {
                     onChange={this.handleChange}
                     value={this.state.projectManager}
                     componentClass="select">
-                      <option value="John Smith">John Smith</option>
-                      <option value="Mary Murphy">Mary Murphy</option>
+                    <option value="John Smith">John Smith</option>
+                    <option value="Mary Murphy">Mary Murphy</option>
                   </FormControl>
                 </FormGroup>
                 <FormGroup controlId="accountClient">
@@ -250,8 +250,8 @@ export default class ConferencesUpdate extends Component {
                     onChange={this.handleChange}
                     value={this.state.confLanguage}
                     componentClass="select">
-                      <option value="English">English</option>
-                      <option value="Hebrew">Hebrew</option>
+                    <option value="English">English</option>
+                    <option value="Hebrew">Hebrew</option>
                   </FormControl>
                 </FormGroup>
                 <FormGroup controlId="confCurrency">
@@ -260,9 +260,9 @@ export default class ConferencesUpdate extends Component {
                     onChange={this.handleChange}
                     value={this.state.confCurrency}
                     componentClass="select">
-                      <option value="dollar">Dollar</option>
-                      <option value="shekel">Shekel</option>
-                      <option value="euro">Euro</option>
+                    <option value="dollar">Dollar</option>
+                    <option value="shekel">Shekel</option>
+                    <option value="euro">Euro</option>
                   </FormControl>
                 </FormGroup>
                 <FormGroup controlId="confExRate">
@@ -327,14 +327,14 @@ export default class ConferencesUpdate extends Component {
           <div className="buttonsformore">
             <Button
               id="settings">
-                <span className="glyphicon glyphicon-cog"></span> Settings
+              <span className="glyphicon glyphicon-cog"></span> Settings
             </Button>
             <Button
               id="newconf"
               key="new"
               href="/conferences/new"
               onClick={this.handleConferenceClick2} >
-                <span className="glyphicon glyphicon-plus"></span> New Conference
+              <span className="glyphicon glyphicon-plus"></span> New Conference
             </Button>
           </div>
 

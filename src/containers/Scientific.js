@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
-import ConfNavbar from "./ConfNavbar";
-import { invokeApig } from "../libs/awsLib";
+import ConfNavbar from './ConfNavbar';
+import { invokeApig } from '../libs/awsLib';
 
 import '../css/Scientific.css';
 
@@ -12,7 +12,7 @@ export default class Scientific extends Component {
 
     this.state = {
       conference: [],
-      confTitle: ""
+      confTitle: ''
     };
   }
 
@@ -48,12 +48,12 @@ export default class Scientific extends Component {
           <div className="buttonsformore">
             <Button
               id="settings">
-                <span className="glyphicon glyphicon-cog"></span> Settings
+              <span className="glyphicon glyphicon-cog"></span> Settings
             </Button>
             <Button
               id="newabstract"
               key="new" >
-                <span className="glyphicon glyphicon-plus"></span> New Abstract
+              <span className="glyphicon glyphicon-plus"></span> New Abstract
             </Button>
           </div>
 

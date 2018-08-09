@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 // import LoaderButton from "../components/LoaderButton";
-import ConfNavbar from "./ConfNavbar";
+import ConfNavbar from './ConfNavbar';
 // import config from "../config";
-import { invokeApig } from "../libs/awsLib";
+import { invokeApig } from '../libs/awsLib';
 
 import '../css/Registration.css';
 
@@ -17,22 +17,22 @@ export default class Registration extends Component {
       regcategories: [],
       conference: [],
       regCatIds: [],
-      confTitle: "",
-      confTitleAbr: "",
-      conferenceId: "",
-      regTypeFullName: "",
-      regTypeAbbrName: "",
-      regTypeCurrency: "",
-      regTypeLanguage: "",
-      regTypeUsePackage: "",
-      regTypeAddScience: "",
-      regTypeAddTours: "",
-      regTypeAddAccommodation: "",
-      regTypeAddAP: "",
-      regTypePaymentMethod: "",
-      regTypeQuestions: "",
-      regTypeNotes: "",
-      regTypeMailing: "",
+      confTitle: '',
+      confTitleAbr: '',
+      conferenceId: '',
+      regTypeFullName: '',
+      regTypeAbbrName: '',
+      regTypeCurrency: '',
+      regTypeLanguage: '',
+      regTypeUsePackage: '',
+      regTypeAddScience: '',
+      regTypeAddTours: '',
+      regTypeAddAccommodation: '',
+      regTypeAddAP: '',
+      regTypePaymentMethod: '',
+      regTypeQuestions: '',
+      regTypeNotes: '',
+      regTypeMailing: '',
       value: null,
     };
   }
@@ -54,7 +54,7 @@ export default class Registration extends Component {
   }
 
   regCategories() {
-    return invokeApig({ path: "/regcategories" })
+    return invokeApig({ path: '/regcategories' })
   }
 
   getConference() {
