@@ -14,7 +14,7 @@
 
 .Details .conferenceDetails {
   padding: 20px;
-  width: 90%;
+  width: 88%;
   background-color: #f2f2f2;
 }
 
@@ -33,7 +33,7 @@
 .Details .buttonsformore {
   display: flex;
   flex-flow: column nowrap;
-  width: 10%;
+  width: 12%;
   margin-left: 25px;
   /* border-left-style: solid;
   border-width: thin;
