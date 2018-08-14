@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl, ControlLabel, Checkbox  } from 'react-bootstrap';
+import { FormGroup, FormControl, ControlLabel, Checkbox, PageHeader } from 'react-bootstrap';
 
 // import LoaderButton from "../components/LoaderButton";
 // import config from "../config";
@@ -77,6 +77,8 @@ export default class NewConference extends Component {
   render() {
     return (
       <div className="NewConferenceDetails">
+        <PageHeader>Registration Contexts</PageHeader>
+        <h2>Details</h2>
         <form>
           <h3>Naming</h3>
           <FormGroup controlId="regTypeFullName">
@@ -93,7 +95,7 @@ export default class NewConference extends Component {
               value={this.state.regTypeAbbrName}
               type="text" />
           </FormGroup>
-          <h3>Include in registration:</h3>
+          <h3>General</h3>
           <Checkbox controlid="addHebrew">Hebrew interface</Checkbox>
           <Checkbox controlid="addScience">Scientific</Checkbox>
           <Checkbox controlid="addTours">Tourism</Checkbox>
