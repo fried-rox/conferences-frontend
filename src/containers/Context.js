@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel, Checkbox, PageHeader } from 'react-bootstrap';
 
-// import LoaderButton from "../components/LoaderButton";
+import LoaderButton from "../components/LoaderButton";
 // import config from "../config";
 import { invokeApig } from '../libs/awsLib';
 
@@ -9,17 +9,12 @@ import { invokeApig } from '../libs/awsLib';
 
 // import "../css/NewConference.css";
 
-export default class NewConference extends Component {
+export default class NewContext extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isLoading: false,
-      regcategories: [],
-      conference: [],
-      regCatIds: [],
-      confTitle: '',
-      confTitleAbr: '',
       conferenceId: '',
       regTypeFullName: '',
       regTypeAbbrName: '',
@@ -41,10 +36,7 @@ export default class NewConference extends Component {
   async componentDidMount() {
     try {
       const confreg = await this.getConference();
-      const results = await this.regCategories();
-      debugger;
       this.setState({
-        regcategories: results,
         conference: confreg,
         confTitle: confreg.confTitle,
         confTitleAbr: confreg.confAbbr
@@ -54,8 +46,8 @@ export default class NewConference extends Component {
     }
   }
 
-  regCategories() {
-    return invokeApig({ path: '/regcategories' })
+  validateForm() {
+    return this.state.regTypeFullName.length > 0 && this.state.regTypeAbbrName.length > 0;
   }
 
   getConference() {
@@ -68,15 +60,10 @@ export default class NewConference extends Component {
     });
   }
 
-  handleRegCatClick = event => {
-    event.preventDefault();
-    debugger;
-    this.props.history.push(event.currentTarget.getAttribute('href'));
-  }
-
   render() {
     return (
       <div className="NewConferenceDetails">
+        <h1> {this.state.confTitle} </h1>
         <PageHeader>Registration Contexts</PageHeader>
         <h2>Details</h2>
         <form>
@@ -97,10 +84,12 @@ export default class NewConference extends Component {
           </FormGroup>
           <h3>General</h3>
           <Checkbox controlid="addHebrew">Hebrew interface</Checkbox>
-          <Checkbox controlid="addScience">Scientific</Checkbox>
-          <Checkbox controlid="addTours">Tourism</Checkbox>
+          <Checkbox controlid="addRegistration">Add Registration</Checkbox>
+          <Checkbox controlid="onlyoneregoption">Allow only one registration date</Checkbox>
+          <Checkbox controlid="addScience">Add Scientific</Checkbox>
+          <Checkbox controlid="addTours">Add Tourism</Checkbox>
           <Checkbox controlid="addHotel">Accommodation</Checkbox>
-          <Checkbox controlid="addAP">Accompanying person</Checkbox>
+          <Checkbox controlid="addAP">Allow accompanying person</Checkbox>
           <Checkbox controlid="attendParts">Allow participants to attend part of the conference</Checkbox>
           <h3>Payment Options</h3>
           <FormGroup controlId="regCurrency">
@@ -116,12 +105,18 @@ export default class NewConference extends Component {
           </FormGroup>
           <FormGroup controlId="regPayment">
             <ControlLabel>Payment Method</ControlLabel>
-            <Checkbox controlid="payCash" >Cash</Checkbox>
-            <Checkbox controlid="payCheque">Cheque</Checkbox>
-            <Checkbox controlid="payCard">Credit Card</Checkbox>
-            <Checkbox controlid="payGuard">Credit Guard</Checkbox>
-            <Checkbox controlid="payEFT">Bank Transfer</Checkbox>
+            <div>
+              <Checkbox controlid="payCash">Cash</Checkbox>
+              <Checkbox controlid="payCheque">Cheque</Checkbox>
+              <Checkbox controlid="payCard">Credit Card</Checkbox>
+              <Checkbox controlid="payGuard">Credit Guard</Checkbox>
+              <Checkbox controlid="payEFT">Bank Transfer</Checkbox>
+            </div>
           </FormGroup>
+          <Checkbox controlid="paymentInPayments">Allow participants to pay less than the amount due</Checkbox>
+          <h3>Custom Questions</h3>
+          <h3>Custom Messages</h3>
+          <h3>Extras</h3>
           <FormGroup controlId="regNotes">
             <ControlLabel>Notes</ControlLabel>
             <FormControl
@@ -129,6 +124,16 @@ export default class NewConference extends Component {
               value={this.state.regTypeNotes}
               componentClass="textarea"/>
           </FormGroup>
+          <LoaderButton
+            className="create-reg-button"
+            block
+            bsSize="large"
+            disabled={!this.validateForm()}
+            type="submit"
+            isLoading={this.state.isLoading}
+            text="Create"
+            loadingText="Creating…"
+          />
         </form>
 
       </div>
