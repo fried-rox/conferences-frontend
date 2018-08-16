@@ -31,6 +31,8 @@ export default class NewContext extends Component {
       regTypeMailing: '',
       value: null,
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
@@ -60,13 +62,54 @@ export default class NewContext extends Component {
     });
   }
 
+  handleSubmit = async event => {
+    event.preventDefault();
+
+    this.setState({ isLoading: true });
+
+    try {
+        const createRegContextObject = {
+          confTitle: this.state.confTitle,
+          regTypeFullName: this.state.regTypeFullName === '' ? undefined : this.state.regTypeFullName,
+          regTypeAbbrName: this.state.regTypeAbbrName === '' ? undefined : this.state.regTypeAbbrName,
+          regTypeCurrency: this.state.regTypeCurrency === '' ? undefined : this.state.regTypeCurrency,
+          regTypeLanguage: this.state.regTypeLanguage === '' ? undefined : this.state.regTypeLanguage,
+          regTypeUsePackage: this.state.regTypeUsePackage === '' ? undefined : this.state.regTypeUsePackage,
+          regTypeAddScience: this.state.regTypeAddScience === '' ? undefined : this.state.regTypeAddScience,
+          regTypeAddTours: this.state.regTypeAddTours === '' ? undefined : this.state.regTypeAddTours,
+          regTypeAddAccommodation: this.state.regTypeAddAccommodation === '' ? undefined : this.state.regTypeAddAccommodation,
+          regTypeAddAP: this.state.regTypeAddAP === '' ? undefined : this.state.regTypeAddAP,
+          regTypePaymentMethod: this.state.regTypePaymentMethod === '' ? undefined : this.state.regTypePaymentMethod,
+          regTypeQuestions: this.state.regTypeQuestions === '' ? undefined : this.state.regTypeQuestions,
+          regTypeNotes: this.state.regTypeNotes === '' ? undefined : this.state.regTypeNotes,
+          regTypeMailing: this.state.regTypeMailing === '' ? undefined : this.state.regTypeMailing
+        }
+
+      console.log(createRegContextObject);
+
+      await this.createContext(createRegContextObject);
+      this.props.history.push(`/conferences/${this.state.confAbbr}/registration`);
+    } catch (e) {
+      alert(e);
+      this.setState({ isLoading: false });
+    }
+  }
+
+  createContext(context) {
+    return invokeApig({
+      path: '/regcontexts',
+      method: 'POST',
+      body: context
+    });
+  }
+
   render() {
     return (
       <div className="NewConferenceDetails">
         <h1> {this.state.confTitle} </h1>
         <PageHeader>Registration Contexts</PageHeader>
         <h2>Details</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <h3>Naming</h3>
           <FormGroup controlId="regTypeFullName">
             <ControlLabel>Full Name</ControlLabel>
@@ -92,7 +135,7 @@ export default class NewContext extends Component {
           <Checkbox controlid="addAP">Allow accompanying person</Checkbox>
           <Checkbox controlid="attendParts">Allow participants to attend part of the conference</Checkbox>
           <h3>Payment Options</h3>
-          <FormGroup controlId="regCurrency">
+          <FormGroup controlId="regTypeCurrency">
             <ControlLabel>Currency</ControlLabel>
             <FormControl
               onChange={this.handleChange}
@@ -131,7 +174,7 @@ export default class NewContext extends Component {
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            text="Create"
+            text="Create Context"
             loadingText="Creating…"
           />
         </form>
