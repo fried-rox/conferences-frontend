@@ -70,7 +70,7 @@ export default class Registration extends Component {
   handleRegCatClick = event => {
     event.preventDefault();
     debugger;
-    this.props.history.push(`/conferences/${this.state.confAbbr}/registration_new`);
+    this.props.history.push(`/conferences/${this.state.confTitleAbr}/registration_new`);
   }
 
   render() {

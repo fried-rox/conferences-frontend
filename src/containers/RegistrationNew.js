@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { FormGroup, Checkbox, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 // import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from './ConfNavbar';
@@ -16,44 +16,37 @@ export default class RegistrationNew extends Component {
       isLoading: false,
       conference: [],
       confTitle: '',
+      confAbbr: '',
       conferenceId: '',
-      regTypeFullName: '',
-      regTypeAbbrName: '',
-      regTypeCurrency: '',
-      regTypeLanguage: '',
-      regTypeUsePackage: '',
-      regTypeAddScience: '',
-      regTypeAddTours: '',
-      regTypeAddAccommodation: '',
-      regTypeAddAP: '',
-      regTypePaymentMethod: '',
-      regTypeQuestions: '',
+      regTypeContext: [],
+      regCategoryName: '',
+      regCategoryPrice: '',
       regTypeNotes: '',
-      regTypeMailing: '',
-      value: null,
-      regcategory: null
+      value: null
     };
   }
 
   async componentDidMount() {
     try {
-      const confreg = await this.getConference();
+      const results = await this.getConference();
+      const regContext = await this.getRegContext();
       this.setState({
-        conference: confreg,
-        confTitle: confreg.confTitle,
-        confAbbr: confreg.confAbbr
+        conference: results,
+        confTitle: results.confTitle,
+        confAbbr: results.confAbbr,
+        regTypeContext: regContext
       });
     } catch (e) {
       alert(e);
     }
   }
 
-  // validateForm(){
-  //   return this.state.regFullName.length > 0 && this.state.regAbbrName.length > 0
-  // }
-
   getConference() {
     return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
+  }
+
+  getRegContext() {
+    return invokeApig({ path: '/regcontexts' })
   }
 
   handleChange = event => {
@@ -61,19 +54,6 @@ export default class RegistrationNew extends Component {
       [event.target.id]: event.target.value
     });
   }
-
-  // regIncludes(event) {
-  //   debugger;
-  //   const box = document.getElementById(event.target.id);
-  //   const boxChecked = box.checked;
-  //   debugger;
-  //   if (boxChecked === "true") {
-  //     this.setState({
-  //       [box.id]: boxChecked
-  //     });
-  //   } else return;
-  // }
-
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -130,100 +110,21 @@ export default class RegistrationNew extends Component {
 
           <h3>Registration Categories</h3>
 
+          <form>
+            <FormGroup>
+              <ControlLabel>Registration Context</ControlLabel>
+              <FormControl
+                onChange={this.handleChange}
+                value={this.state.regTypeContext}
+                componentClass="select">
+              </FormControl>
+            </FormGroup>
+
+          </form>
+
         </div>
 
       </div>
     );
   }
 }
-
-
-//   <form>
-
-//     <FormGroup controlId="regFullName">
-//       <ControlLabel>Categroy Name</ControlLabel>
-//       <FormControl
-//         onChange={this.handleChange}
-//         value={this.state.regFullName}
-//         type="text" />
-//     </FormGroup>
-//     <FormGroup controlId="regAbbrName">
-//       <ControlLabel>Abbreviated Name</ControlLabel>
-//       <FormControl
-//         onChange={this.handleChange}
-//         value={this.state.regAbbrName}
-//         type="text" />
-//     </FormGroup>
-//     <FormGroup controlId="regCurrency">
-//       <ControlLabel>Currency</ControlLabel>
-//       <FormControl
-//         onChange={this.handleChange}
-//         value={this.state.regCurrency}
-//         componentClass="select">
-//           <option value="dollar">Dollar</option>
-//           <option value="shekel">Shekel</option>
-//           <option value="euro">Euro</option>
-//       </FormControl>
-//     </FormGroup>
-//     <FormGroup controlId="regLanguage">
-//       <ControlLabel>Language</ControlLabel>
-//       <FormControl
-//         onChange={this.handleChange}
-//         value={this.state.regLanguage}
-//         componentClass="select">
-//           <option value="English">English</option>
-//           <option value="Hebrew">Hebrew</option>
-//       </FormControl>
-//     </FormGroup>
-//     <div id="regIncludes">
-//       <ControlLabel>Form to include:</ControlLabel>
-//       <div>
-//         <input type="checkbox" id="addScience" value=""/>
-//         <label id="addScience"> Scientific</label>
-//       </div>
-//       <div>
-//         <input type="checkbox" id="addTours" value="Tourism" />
-//         <label id="addTours"> Tourism</label>
-//       </div>
-//       <div>
-//         <input type="checkbox" id="addHotel" value="Accommodation" />
-//         <label id="addHotel"> Accommodation</label>
-//       </div>
-//       <div>
-//         <input type="checkbox" id="addAP" value="Accompanyingperson" />
-//         <label id="addAP"> Accompanying person</label>
-//       </div>
-//     </div>
-//     <FormGroup controlId="regFee">
-//       <ControlLabel>Registration Fee</ControlLabel>
-//       <FormControl
-//         onChange={this.handleChange}
-//         value={this.state.regFee}
-//         type="text"/>
-//     </FormGroup>
-//     <FormGroup controlId="regPayment">
-//       <ControlLabel>Payment Method</ControlLabel>
-//       <Checkbox controlid="payCash" >Cash</Checkbox>
-//       <Checkbox controlid="payCheque">Cheque</Checkbox>
-//       <Checkbox controlid="payCard">Credit Card</Checkbox>
-//       <Checkbox controlid="payGuard">Credit Guard</Checkbox>
-//       <Checkbox controlid="payEFT">Bank Transfer</Checkbox>
-//     </FormGroup>
-//     <FormGroup controlId="regNotes">
-//       <ControlLabel>Notes</ControlLabel>
-//       <FormControl
-//         onChange={this.handleChange}
-//         value={this.state.regNotes}
-//         componentClass="textarea"/>
-//     </FormGroup>
-//     <LoaderButton
-//       className="reg-create-button"
-//       block
-//       bsSize="large"
-//       // disabled={!this.validateForm()}
-//       type="submit"
-//       isLoading={this.state.isLoading}
-//       text="Save"
-//       loadingText="Saving..."
-//     />
-//   </form>
