@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-// import LoaderButton from "../components/LoaderButton";
+import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from './ConfNavbar';
 // import config from "../config";
 import { invokeApig } from '../libs/awsLib';
@@ -14,14 +14,15 @@ export default class RegistrationNew extends Component {
 
     this.state= {
       isLoading: false,
-      conference: [],
+      conferences: [],
       confTitle: '',
       confAbbr: '',
       conferenceId: '',
-      regTypeContext: [],
+      regTypeContexts: [],
+      regCategoryContext: '',
       regCategoryName: '',
       regCategoryPrice: '',
-      regTypeNotes: '',
+      regCategoryNotes: '',
       value: null
     };
   }
@@ -29,12 +30,13 @@ export default class RegistrationNew extends Component {
   async componentDidMount() {
     try {
       const results = await this.getConference();
-      const regContext = await this.getRegContext();
+      const regContexts = await this.getRegContext();
+      debugger;
       this.setState({
-        conference: results,
+        conferences: results,
         confTitle: results.confTitle,
         confAbbr: results.confAbbr,
-        regTypeContext: regContext
+        regTypeContexts: regContexts
       });
     } catch (e) {
       alert(e);
@@ -47,6 +49,15 @@ export default class RegistrationNew extends Component {
 
   getRegContext() {
     return invokeApig({ path: '/regcontexts' })
+  }
+
+  regContextDropdown(regTypeContexts) {
+    return regTypeContexts.map(
+      (regTypeContext, i) =>
+        <option>
+          {regTypeContexts[i].regTypeFullName}
+        </option>
+    );
   }
 
   handleChange = event => {
@@ -62,22 +73,11 @@ export default class RegistrationNew extends Component {
 
     try {
       const createRegCategoryObject = {
-        conferenceId: this.props.match.params.id,
-        regFullName: this.state.regFullName === '' ? undefined : this.state.regFullName,
-        regAbbrName: this.state.regAbbrName === '' ? undefined : this.state.regAbbrName,
-        regCurrency: this.state.regCurrency === '' ? undefined : this.state.regCurrency,
-        regLanguage: this.state.regLanguage === '' ? undefined : this.state.regLanguage,
-        addScience: this.state.addScience === '' ? undefined : this.state.addScience,
-        addTours: this.state.addTours === '' ? undefined : this.state.addTours,
-        addHotel: this.state.addHotel === '' ? undefined : this.state.addHotel,
-        addAP: this.state.addAP === '' ? undefined : this.state.addAP,
-        regFee: this.state.regFee === '' ? undefined : this.state.regFee,
-        payCash: this.state.payCash === '' ? undefined : this.state.payCash,
-        payCheque: this.state.payCheque === '' ? undefined : this.state.payCheque,
-        payCard: this.state.payCard === '' ? undefined : this.state.payCard,
-        payGuard: this.state.payGuard === '' ? undefined : this.state.payGuard,
-        payEFT: this.state.payEFT === '' ? undefined : this.state.payEFT,
-        regNotes: this.state.regNotes === '' ? undefined : this.state.regNotes,
+        conferenceId: localStorage.getItem('confIdKey'),
+        regCategoryContext: this.state.regCategoryContext === '' ? undefined : this.state.regCategoryContext,
+        regCategoryName: this.state.regCategoryName === '' ? undefined : this.state.regCategoryName,
+        regCategoryPrice: this.state.regCategoryPrice === '' ? undefined : this.state.regCategoryPrice,
+        regCategoryNotes: this.state.regCategoryNotes === '' ? undefined : this.state.regCategoryNotes
       }
 
       console.log(createRegCategoryObject);
@@ -110,16 +110,46 @@ export default class RegistrationNew extends Component {
 
           <h3>Registration Categories</h3>
 
-          <form>
-            <FormGroup>
+          <form onSubmit={this.handleSubmit}>
+            <FormGroup controlId="regCategoryContext">
               <ControlLabel>Registration Context</ControlLabel>
               <FormControl
                 onChange={this.handleChange}
-                value={this.state.regTypeContext}
                 componentClass="select">
+                  <option></option>
+                  {this.regContextDropdown(this.state.regTypeContexts)}
               </FormControl>
             </FormGroup>
-
+            <FormGroup controlId="regCategoryName">
+              <ControlLabel>Name</ControlLabel>
+              <FormControl
+                onChange={this.handleChange}
+                value={this.state.regCategoryName}
+                type="text" />
+            </FormGroup>
+            <FormGroup controlId="regCategoryPrice">
+              <ControlLabel>Price</ControlLabel>
+              <FormControl
+                onChange={this.handleChange}
+                value={this.state.regCategoryPrice}
+                type="text" />
+            </FormGroup>
+            <FormGroup controlId="regCategoryNotes">
+              <ControlLabel>Notes</ControlLabel>
+              <FormControl
+                onChange={this.handleChange}
+                value={this.state.regCategoryNotes}
+                type="textarea" />
+            </FormGroup>
+            <LoaderButton
+              className="create-reg-button"
+              block
+              bsSize="large"
+              type="submit"
+              isLoading={this.state.isLoading}
+              text="Create Category"
+              loadingText="Creating…"
+            />
           </form>
 
         </div>

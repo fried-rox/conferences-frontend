@@ -31,8 +31,6 @@ export default class NewContext extends Component {
       regTypeMailing: '',
       value: null,
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
@@ -69,7 +67,7 @@ export default class NewContext extends Component {
 
     try {
         const createRegContextObject = {
-          confTitle: this.state.confTitle,
+          conferenceId: localStorage.getItem('confIdKey'),
           regTypeFullName: this.state.regTypeFullName === '' ? undefined : this.state.regTypeFullName,
           regTypeAbbrName: this.state.regTypeAbbrName === '' ? undefined : this.state.regTypeAbbrName,
           regTypeCurrency: this.state.regTypeCurrency === '' ? undefined : this.state.regTypeCurrency,
