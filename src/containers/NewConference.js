@@ -96,7 +96,7 @@ export default class NewConference extends Component {
 
   createConference(conference) {
     return invokeApig({
-      path: '/regcontexts',
+      path: '/conferences',
       method: 'POST',
       body: conference
     });

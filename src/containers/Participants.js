@@ -28,13 +28,13 @@ export default class Participants extends Component {
     try {
       const results = await this.getConference();
       const parresults = await this.participants();
-      debugger;
+
       this.setState({
         conference: results,
         confTitle: results.confTitle,
         participants: parresults
       });
-      debugger;
+
     } catch (e) {
       alert(e);
     }

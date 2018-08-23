@@ -12,14 +12,14 @@
   margin: 140px 50px 10px 50px;
 }
 
-.RegandTitle {
-  display: flex;
-  flex-flow: column nowrap;
+.RegistrationDetails .RegandTitle {
   width: 85%;
+  padding: 20px;
+  background-color: #f2f2f2;
 }
 
-.RegandTitle h2 {
-  order: 0;
+.RegistrationDetails .RegandTitle h2 {
+  order: 1;
   font-size: 50px;
   margin: 0 0 30px 0;
 }
@@ -28,34 +28,26 @@
   display: flex;
   flex-flow: column nowrap;
   width: 15%;
-  margin-left: 50px;
-  border-left: 5px;
-  padding-left: 25px;
-  border-left-style: ridge;
+  margin-left: 25px;
 }
 
 .RegistrationDetails .buttonsformore #newregcat {
-  margin: 20px 0 2px 0;
-  align-self: left;
-  width: 125px;
-  padding: 4px 10px 6px 10px;
-  /* box-shadow: 1px 1px 0 0 #999; */
+  order: 0;
+  width: 180px;
+  text-align: left;
+  padding: 5px 10px;
+  border: 0;
+  margin-bottom: 30px;
   letter-spacing: 0.5px;
-  text-align: center;
   position: fixed;
   color: #000;
   height: 30px;
   font-size: 14px;
-  border: 0;
-  font-weight: 600;
-  /* background-color: #fff;
-  border-color: #3f99a1;
-  border-radius: 4px; */
+  background-color: #f2f2f2;
 }
 
 .RegistrationDetails .buttonsformore #newregcat:hover {
   outline: none;
-  background: none;
   color: #3f99a1;
 }
 

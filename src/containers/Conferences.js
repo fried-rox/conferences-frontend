@@ -15,8 +15,8 @@ export default class Conferences extends Component {
 
     this.state = {
       conference: [],
-      regcategories: [],
-      regCatIds: [],
+      regcontexts: [],
+      regcontextids: [],
       confTitle: '',
       confAbbr: '',
       projectManager: '',
@@ -38,10 +38,9 @@ export default class Conferences extends Component {
   async componentDidMount() {
     try {
       const results = await this.getConference();
-      const regresults = await this.regCategories();
-      debugger;
+      const regresults = await this.getContexts();
       this.setState({
-        regcategories: regresults,
+        regcontexts: regresults,
         conference: results,
         confTitle: results.confTitle,
         confAbbr: results.confAbbr,
@@ -64,8 +63,8 @@ export default class Conferences extends Component {
     }
   }
 
-  regCategories() {
-    return invokeApig({ path: '/regcategories' })
+  getContexts() {
+    return invokeApig({ path: '/regcontexts' })
   }
 
   getConference() {
@@ -97,17 +96,17 @@ export default class Conferences extends Component {
     window.open(domain);
   }
 
-  regCategoryList(regcategories) {
-    return regcategories.map(
-      (regcategory) =>
-        regcategory.conferenceId === localStorage.getItem('confIdKey')
+  regContextList(regcontexts) {
+    return regcontexts.map(
+      (regcontext) =>
+        regcontext.conferenceId === localStorage.getItem('confIdKey')
           ? <tbody>
             <tr>
-              <td>{regcategory.regFullName}</td>
+              <td>{regcontext.regTypeFullName}</td>
               <td>
                 <a
                     id="regcatlist"
-                    key={regcategory.regCategoryId}
+                    key={regcontext.regContextId}
                     onClick={this.conferenceGoersLink}>
                   {this.createURL()}
                 </a>
@@ -118,11 +117,11 @@ export default class Conferences extends Component {
     );
   }
 
-  regCategoriesIds(regcategories) {
-    regcategories.map(
-      (regcategory) =>
-        regcategory.conferenceId === localStorage.getItem('confIdKey')
-          ? this.state.regCatIds.push(regcategory.regCategoryId)
+  regContextsIds(regcontexts) {
+    regcontexts.map(
+      (regcontext) =>
+        regcontext.conferenceId === localStorage.getItem('confIdKey')
+          ? this.state.regcontextids.push(regcontext.regContextId)
           : null
     );
   }
@@ -196,18 +195,18 @@ export default class Conferences extends Component {
               </Table>
             </div>
             <h3>Registration Categories</h3>
-            <div className="regcategoriesview">
-              <Table className="regcategories" hover>
+            <div className="regcontextsview">
+              <Table className="regcontexts" hover>
                 <thead>
                   <tr>
                     <th>Full Name</th>
                     <th>Website Link</th>
                   </tr>
                 </thead>
-                {this.regCategoryList(this.state.regcategories)}
+                {this.regContextList(this.state.regcontexts)}
               </Table>
               <div>
-                {this.regCategoriesIds(this.state.regcategories)}
+                {this.regContextsIds(this.state.regcontexts)}
               </div>
             </div>
           </div>

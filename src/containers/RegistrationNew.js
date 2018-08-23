@@ -31,7 +31,7 @@ export default class RegistrationNew extends Component {
     try {
       const results = await this.getConference();
       const regContexts = await this.getRegContext();
-      debugger;
+
       this.setState({
         conferences: results,
         confTitle: results.confTitle,

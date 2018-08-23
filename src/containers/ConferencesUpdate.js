@@ -107,8 +107,6 @@ export default class ConferencesUpdate extends Component {
 
     this.setState({ isLoading: true });
 
-    debugger;
-
     try {
       if (this.file) {
         uploadedFilename = (await s3Upload(this.file))
@@ -134,7 +132,7 @@ export default class ConferencesUpdate extends Component {
         notes: this.state.notes,
         confGraphic: uploadedFilename || this.state.conference.confGraphic
       });
-      debugger;
+
       this.props.history.push(`/conferences/${this.state.confAbbr}`);
     } catch (e) {
       alert(e);

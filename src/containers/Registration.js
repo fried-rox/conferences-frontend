@@ -41,7 +41,7 @@ export default class Registration extends Component {
     try {
       const confreg = await this.getConference();
       const results = await this.regCategories();
-      debugger;
+
       this.setState({
         regcategories: results,
         conference: confreg,
@@ -69,7 +69,6 @@ export default class Registration extends Component {
 
   handleRegCatClick = event => {
     event.preventDefault();
-    debugger;
     this.props.history.push(`/conferences/${this.state.confTitleAbr}/registration_new`);
   }
 
@@ -89,14 +88,14 @@ export default class Registration extends Component {
 
           </div>
 
-        </div>
+          <div className="buttonsformore">
+            <Button
+              id="newregcat"
+              onClick={this.handleRegCatClick}>
+              <span className="glyphicon glyphicon-plus"></span> New Reg Categroy
+            </Button>
+          </div>
 
-        <div className="buttonsformore">
-          <Button
-            id="newregcat"
-            onClick={this.handleRegCatClick}>
-            <span className="glyphicon glyphicon-plus"></span> New Reg Categroy
-          </Button>
         </div>
 
       </div>
