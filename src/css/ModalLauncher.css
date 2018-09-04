@@ -1,0 +1,21 @@
+.modalButton {
+  padding: 5px 10px;
+  width: 155px;
+  text-align: center;
+  height: 30px;
+  color: #000;
+  position: fixed;
+  letter-spacing: 0.5px;
+  background-color: #f2f2f2;
+  border: 0;
+  font-weight: 500;
+  border-radius: 0.3px;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+:hover {
+  color: #3f99a1;
+}
