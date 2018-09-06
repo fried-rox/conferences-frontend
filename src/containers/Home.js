@@ -49,8 +49,8 @@ export default class Home extends Component {
 
   renderConferencesList(conferences) {
     return conferences.map(
-      (conference) =>
-        <tbody>
+      (conference, i) =>
+        <tbody key={i.toString()}>
           <tr>
             <td>
               <a

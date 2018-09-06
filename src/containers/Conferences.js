@@ -98,9 +98,9 @@ export default class Conferences extends Component {
 
   regContextList(regcontexts) {
     return regcontexts.map(
-      (regcontext) =>
+      (regcontext, i) =>
         regcontext.conferenceId === localStorage.getItem('confIdKey')
-          ? <tbody>
+          ? <tbody key={i.toString()}>
             <tr>
               <td>{regcontext.regTypeFullName}</td>
               <td>
