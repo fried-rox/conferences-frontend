@@ -6,6 +6,45 @@
   width: 100%;
 }
 
+.RegistrationDetails {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  margin: 135px 30px 10px 30px;
+}
+
+.RegistrationDetails .RegandTitle {
+  width: 88%;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.RegistrationDetails .RegandTitle h2 {
+  order: 1;
+  font-size: 50px;
+  margin: 0 0 30px 0;
+}
+
+.RegistrationDetails button {
+  text-align: left;
+  width: 155px;
+  padding: 5px 10px;
+  border: 0;
+  margin-left: 25px;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  position: fixed;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  background-color: #f2f2f2;
+}
+
+.RegistrationDetails button:hover {
+  outline: none;
+  color: #3f99a1;
+}
+
 .registration-modal__container {
   position: absolute;
   height: 100vh;
@@ -47,98 +86,4 @@
 .modal_exitButton:hover {
   background-color: white;
   color: #fbb031;
-}
-
-.RegistrationDetails {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  margin: 140px 50px 10px 50px;
-}
-
-.RegistrationDetails .RegandTitle {
-  width: 85%;
-  padding: 20px;
-  background-color: #f2f2f2;
-}
-
-.RegistrationDetails .RegandTitle h2 {
-  order: 1;
-  font-size: 50px;
-  margin: 0 0 30px 0;
-}
-
-.RegistrationDetails .buttonsformore {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 15%;
-  margin-left: 25px;
-}
-
-.RegistrationDetails .buttonsformore #newregcat {
-  order: 0;
-  width: 180px;
-  text-align: left;
-  padding: 5px 10px;
-  border: 0;
-  margin-bottom: 30px;
-  letter-spacing: 0.5px;
-  position: fixed;
-  color: #000;
-  height: 30px;
-  font-size: 14px;
-  background-color: #f2f2f2;
-}
-
-.RegistrationDetails .buttonsformore #newregcat:hover {
-  outline: none;
-  color: #3f99a1;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  /* transition: opacity 500ms; */
-  visibility: hidden;
-  opacity: 0;
-}
-
-#regCatNewPopup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
-
-#regCatNewPopup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-#regCatNewPopup .close:hover {
-  color: #3f99a1;
-}
-
-.header-container h1 {
-  text-align: center;
-}
-
-#regCatNewPopup .container {
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  margin: 20px;
-  padding: 20px;
 }

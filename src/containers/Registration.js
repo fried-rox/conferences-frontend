@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
-
+import isNil from "lodash/fp/isNil";
 // import SimpleModalLauncher from '../components/ModalLauncher';
 import LoaderButton from "../components/LoaderButton";
 import ConfNavbar from './ConfNavbar';
@@ -31,6 +31,8 @@ export default class Registration extends Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
@@ -46,6 +48,28 @@ export default class Registration extends Component {
       });
     } catch (e) {
       alert(e);
+    }
+  }
+
+  handleClick() {
+    if (!this.state.showModal) {
+      document.addEventListener("click", this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener("click", this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+      showModal: !prevState.showModal,
+    }));
+  }
+
+  handleOutsideClick(e) {
+    if (!isNil(this.node)) {
+      if (this.node.contains(e.target)) {
+        return;
+      }
+
+      this.handleClick();
     }
   }
 
@@ -83,7 +107,6 @@ export default class Registration extends Component {
       showModal: false
     })
   }
-
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -131,64 +154,69 @@ export default class Registration extends Component {
 
           </div>
 
-          <button onClick={this.openModal}> add a new category </button>
-
-          {this.state.showModal ?
-            <div className="registration-modal__container">
-              <div className="registration-modal">
-                <Button className="modal_exitButton" onClick={this.closeModal}>x</Button>
-                <div className="inner-registration-modal">
-                  <h2>Registration Category</h2>
-                  <form>
-                    <FormGroup controlId="regCategoryContext">
-                      <ControlLabel>Registration Context</ControlLabel>
-                      <FormControl
-                        onChange={this.handleChange}
-                        componentClass="select">
-                          <option></option>
-                          {this.regContextDropdown(this.state.regTypeContexts)}
-                      </FormControl>
-                    </FormGroup>
-                    <FormGroup controlId="regCategoryName">
-                      <ControlLabel>Name</ControlLabel>
-                      <FormControl
-                        onChange={this.handleChange}
-                        value={this.state.regCategoryName}
-                        type="text" />
-                    </FormGroup>
-                    <FormGroup controlId="regCategoryPrice">
-                      <ControlLabel>Price</ControlLabel>
-                      <FormControl
-                        onChange={this.handleChange}
-                        value={this.state.regCategoryPrice}
-                        type="text" />
-                    </FormGroup>
-                    <FormGroup controlId="regCategoryNotes">
-                      <ControlLabel>Notes</ControlLabel>
-                      <FormControl
-                        onChange={this.handleChange}
-                        value={this.state.regCategoryNotes}
-                        type="textarea" />
-                    </FormGroup>
-                    <LoaderButton
-                      className="create-reg-button"
-                      block
-                      bsSize="large"
-                      type="submit"
-                      isLoading={this.state.isLoading}
-                      text="Create Category"
-                      loadingText="Creating…"
-                      onClick={this.handleSubmit}
-                    />
-                  </form>
-                </div>
-               </div>
-             </div>
-             : null}
+          <div>
+            <button onClick={this.handleClick}>
+              <span className="glyphicon glyphicon-plus"></span> New category
+            </button>
+          </div>
 
         </div>
 
+        {this.state.showModal ?
+          <div className="registration-modal__container">
+            <div className="registration-modal" ref={node => (this.node = node)}>
+              <Button className="modal_exitButton" onClick={this.closeModal}>x</Button>
+              <div className="inner-registration-modal">
+                <h2>Registration Category</h2>
+                <form>
+                  <FormGroup controlId="regCategoryContext">
+                    <ControlLabel>Registration Context</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      componentClass="select">
+                        <option></option>
+                        {this.regContextDropdown(this.state.regTypeContexts)}
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="regCategoryName">
+                    <ControlLabel>Name</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.regCategoryName}
+                      type="text" />
+                  </FormGroup>
+                  <FormGroup controlId="regCategoryPrice">
+                    <ControlLabel>Price</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.regCategoryPrice}
+                      type="text" />
+                  </FormGroup>
+                  <FormGroup controlId="regCategoryNotes">
+                    <ControlLabel>Notes</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.regCategoryNotes}
+                      type="textarea" />
+                  </FormGroup>
+                  <LoaderButton
+                    className="create-reg-button"
+                    block
+                    bsSize="large"
+                    type="submit"
+                    isLoading={this.state.isLoading}
+                    text="Create Category"
+                    loadingText="Creating…"
+                    onClick={this.handleSubmit}
+                  />
+                </form>
+              </div>
+             </div>
+           </div>
+           : null}
+
       </div>
+
     );
   }
 }

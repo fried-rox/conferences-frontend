@@ -13,6 +13,7 @@
 }
 
 .Details .conferenceDetails {
+  height: fit-content;
   padding: 20px;
   width: 88%;
   background-color: #f2f2f2;
@@ -100,4 +101,48 @@
 .Details .buttonsformore #newconf:hover, .Details .buttonsformore #settings:hover, .Details .buttonsformore #update:hover, .Details .buttonsformore #newcontext:hover {
   outline: none;
   color: #3f99a1;
+}
+
+.conferencedetailsall .registration-modal__container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0,0.7);
+}
+
+.conferencedetailsall .registration-modal {
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  overflow-y: scroll;
+  background-color: white;
+  padding: 2px 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+.conferencedetailsall .inner-registration-modal {
+  padding: 20px;
+}
+
+.inner-registration-modal h2 {
+  padding: 5px 0 20px 0;
+  font-size: 30px;
+}
+
+.modal_exitButton {
+  float: right;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.modal_exitButton:hover {
+  background-color: white;
+  color: #fbb031;
 }

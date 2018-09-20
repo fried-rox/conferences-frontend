@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, FormGroup, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
+import DayPicker from 'react-day-picker';
+
+import isNil from "lodash/fp/isNil";
 
 import { invokeApig } from '../libs/awsLib';
+import LoaderButton from '../components/LoaderButton';
 import ConfNavbar from './ConfNavbar';
 // import RouteNavItem from "../components/RouteNavItem";
 
@@ -31,8 +35,14 @@ export default class Conferences extends Component {
       confLanguage: '',
       confCurrency: '',
       confExRate: '',
-      notes: ''
+      notes: '',
+      showModal: false,
     };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
@@ -61,6 +71,44 @@ export default class Conferences extends Component {
     } catch (e) {
       alert(e);
     }
+  }
+
+  validateForm() {
+    return this.state.confTitle.length > 0;
+  }
+
+  handleClick() {
+    if (!this.state.showModal) {
+      document.addEventListener("click", this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener("click", this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+      showModal: !prevState.showModal,
+    }));
+  }
+
+  handleOutsideClick(e) {
+    if (!isNil(this.node)) {
+      if (this.node.contains(e.target)) {
+        return;
+      }
+
+      this.handleClick();
+    }
+  }
+
+  openModal() {
+    this.setState({
+      showModal: true
+    })
+  }
+
+  closeModal() {
+    this.setState({
+      showModal: false
+    })
   }
 
   getContexts() {
@@ -214,10 +262,10 @@ export default class Conferences extends Component {
           <div className="buttonsformore">
             <Button
               id="update"
-              key={this.state.conferenceId}
-              onClick={this.handleConferenceClick} >
+              onClick={this.handleClick} >
               <span className="glyphicon glyphicon-pencil"></span> Edit Conference
             </Button>
+
             <Button
               id="settings">
               <span className="glyphicon glyphicon-cog"></span> Settings
@@ -238,6 +286,149 @@ export default class Conferences extends Component {
           </div>
 
         </div>
+
+        {this.state.showModal ?
+          <div className="registration-modal__container">
+            <div className="registration-modal" ref={node => (this.node = node)}>
+              <Button className="modal_exitButton" onClick={this.closeModal}>x</Button>
+              <div className="inner-registration-modal">
+                <form>
+                  <FormGroup controlId="confTitle">
+                    <ControlLabel>Conference Title</ControlLabel>
+                    <FormControl
+                      value={this.state.confTitle}
+                      onChange={this.handleChange}
+                      type="text"/>
+                  </FormGroup>
+                  <FormGroup controlId="confAbbr">
+                    <ControlLabel>Conference Abbreviated Name</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.confAbbr}
+                      type="text"/>
+                  </FormGroup>
+                  <FormGroup controlId="projectManager">
+                    <ControlLabel>Project Manager</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.projectManager}
+                      componentClass="select">
+                      <option value="John Smith">John Smith</option>
+                      <option value="Mary Murphy">Mary Murphy</option>
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="accountClient">
+                    <ControlLabel>Account Client</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.accountClient}
+                      type="text"/>
+                  </FormGroup>
+                  <FormGroup controlId="confVenue">
+                    <ControlLabel>Conference Venue</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.confVenue}
+                      type="text"/>
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Conference dates</ControlLabel>
+                    <br />
+                    <DayPicker
+                      onDayClick={this.handleDayClick}
+                      selectedDays={this.state.selectedDay} />
+                  </FormGroup>
+                  <FormGroup controlId="regAccess">
+                    <Checkbox>Allow Registration</Checkbox>
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Registration Early Bird Dates</ControlLabel>
+                    <br />
+                    <ControlLabel>Registration Normal Dates</ControlLabel>
+                    <br />
+                  </FormGroup>
+                  <FormGroup controlId="confLanguage">
+                    <ControlLabel>Language</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.confLanguage}
+                      componentClass="select">
+                      <option value="English">English</option>
+                      <option value="Hebrew">Hebrew</option>
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="confCurrency">
+                    <ControlLabel>Currency</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.confCurrency}
+                      componentClass="select">
+                      <option value="dollar">Dollar</option>
+                      <option value="shekel">Shekel</option>
+                      <option value="euro">Euro</option>
+                    </FormControl>
+                  </FormGroup>
+                  <FormGroup controlId="confExRate">
+                    <ControlLabel>Exchange Rate</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.confExRate}
+                      type="text" />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Mailing</ControlLabel>
+                  </FormGroup>
+                  <FormGroup controlId="notes">
+                    <ControlLabel>Notes</ControlLabel>
+                    <FormControl
+                      onChange={this.handleChange}
+                      value={this.state.notes}
+                      componentClass="textarea" />
+                  </FormGroup>
+                  {this.state.conference.confGraphic &&
+                    <FormGroup >
+                      <ControlLabel>Conference Banner</ControlLabel>
+                      <FormControl.Static>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={this.state.conference.confGraphic}
+                        >
+                          {this.formatFilename(this.state.conference.confGraphic)}
+                        </a>
+                      </FormControl.Static>
+                    </FormGroup>}
+                  <FormGroup controlId="file">
+                    {!this.state.conference.confGraphic &&
+                      <ControlLabel>Conference Banner</ControlLabel>}
+                    <FormControl onChange={this.handleFileChange} type="file" />
+                  </FormGroup>
+
+                  <div className="button-panel">
+                    <LoaderButton
+                      className="save-button"
+                      bsSize="large"
+                      disabled={!this.validateForm()}
+                      type="submit"
+                      isLoading={this.state.isLoading}
+                      text="Save"
+                      loadingText="Saving…"
+                    />
+                    <LoaderButton
+                      className="delete-button"
+                      bsSize="large"
+                      isLoading={this.state.isDeleting}
+                      onClick={this.handleDelete}
+                      text="Delete"
+                      loadingText="Deleting…"
+                    />
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+          : null}
 
       </div>
   );
