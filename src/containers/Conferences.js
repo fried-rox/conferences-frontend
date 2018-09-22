@@ -292,6 +292,7 @@ export default class Conferences extends Component {
             <div className="registration-modal" ref={node => (this.node = node)}>
               <Button className="modal_exitButton" onClick={this.closeModal}>x</Button>
               <div className="inner-registration-modal">
+                <h2>Update Conference Details</h2>
                 <form>
                   <FormGroup controlId="confTitle">
                     <ControlLabel>Conference Title</ControlLabel>

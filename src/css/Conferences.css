@@ -14,6 +14,8 @@
 
 .Details .conferenceDetails {
   height: fit-content;
+  overflow-y: scroll;
+  height: 75vh;
   padding: 20px;
   width: 88%;
   background-color: #f2f2f2;
@@ -114,11 +116,11 @@
 
 .conferencedetailsall .registration-modal {
   position: absolute;
-  height: 60%;
+  height: 80%;
   width: 60%;
   overflow-y: scroll;
   background-color: white;
-  padding: 2px 10px;
+  padding: 4px 20px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) !important;
