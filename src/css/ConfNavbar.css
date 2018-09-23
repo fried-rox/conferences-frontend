@@ -3,18 +3,18 @@
   flex-flow: row nowrap;
   width: 100%;
   list-style-type: none;
-  margin: 65px 0 0 0;
-  background-color: #a6a6a6;
+  margin: 70px 0 0 0;
+  background-color: #fff;
   padding: 0;
   border-radius: 0;
   position: fixed;
   overflow: hidden;
-  /* border-bottom: 2.5px;
+  /* border-bottom: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #fbb031; */
-  border-top: 10px;
+  border-bottom-color: rgb(0,0,0,0.5); */
+  border-top: 1px;
   border-top-style: solid;
-  border-top-color: #fff;
+  border-top-color: #fbb031;
 }
 
 #detailsnav, #detailsnav2, #detailsnav3, #detailsnav4, #detailsnav5, #detailsnav6 {
@@ -24,9 +24,9 @@
   float: left;
   margin: 8px 5px;
   padding: 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.5;
-  color: #fff;
+  color: #3f99a1;
   font-weight: 500;
   vertical-align: middle;
 }

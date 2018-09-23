@@ -54,7 +54,7 @@
   display: flex;
   flex-flow: row nowrap;
   padding: 0;
-  height: 65px;
+  height: 70px;
 }
 
 .App-container #loginlink {

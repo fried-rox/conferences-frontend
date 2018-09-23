@@ -5,26 +5,33 @@
   width: 100%;
 }
 
-.Details {
+.DetailsTitle {
   display: flex;
   flex-flow: row nowrap;
+  margin: 135px 20px 10px 30px;
+}
+
+.DetailsTitle h2 {
+  font-size: 50px;
+  margin: 0 40px 30px 0;
+}
+
+.Details {
+  order: 2;
+  display: flex;
+  flex-flow: column nowrap;
   justify-content: flex-start;
-  margin: 135px 30px 10px 30px;
 }
 
 .Details .conferenceDetails {
   height: fit-content;
-  overflow-y: scroll;
-  height: 75vh;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   width: 88%;
-  background-color: #f2f2f2;
-}
-
-.Details .conferenceDetails h2 {
-  order: 1;
-  font-size: 50px;
-  margin: 0 0 30px 0;
+  background-color: #fff;
+  /* border-radius: 2.5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3f99a1; */
 }
 
 .Details .conferenceDetails h3 {
@@ -33,14 +40,14 @@
   font-size: 30px;
 }
 
-.Details .buttonsformore {
+.buttonsformore {
   display: flex;
   flex-flow: column nowrap;
   width: 12%;
-  margin-left: 25px;
+  margin-right: 80px;
 }
 
-.Details .buttonsformore #newconf {
+.buttonsformore #newconf {
   order: 0;
   width: 155px;
   text-align: left;
@@ -52,10 +59,10 @@
   color: #000;
   height: 30px;
   font-size: 14px;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
-.Details .buttonsformore #settings {
+.buttonsformore #settings {
   order: 1;
   text-align: left;
   width: 155px;
@@ -67,10 +74,10 @@
   height: 30px;
   font-size: 14px;
   position: fixed;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
-.Details .buttonsformore #update {
+.buttonsformore #update {
   order: 3;
   text-align: left;
   width: 155px;
@@ -82,10 +89,10 @@
   color: #000;
   height: 30px;
   font-size: 14px;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
-.Details .buttonsformore #newcontext {
+.buttonsformore #newcontext {
   order: 4;
   text-align: left;
   width: 155px;
@@ -97,11 +104,12 @@
   color: #000;
   height: 30px;
   font-size: 14px;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
-.Details .buttonsformore #newconf:hover, .Details .buttonsformore #settings:hover, .Details .buttonsformore #update:hover, .Details .buttonsformore #newcontext:hover {
+.buttonsformore #newconf:hover, .buttonsformore #settings:hover, .buttonsformore #update:hover, .buttonsformore #newcontext:hover {
   outline: none;
+  background-color: #fff;
   color: #3f99a1;
 }
 
