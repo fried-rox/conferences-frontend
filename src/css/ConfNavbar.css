@@ -5,30 +5,34 @@
   list-style-type: none;
   margin: 70px 0 0 0;
   background-color: #fff;
-  padding: 0;
+  padding: 0 0 0 25px;
   border-radius: 0;
   position: fixed;
   overflow: hidden;
-  /* border-bottom: 1px;
+  border-bottom: 1px;
   border-bottom-style: solid;
-  border-bottom-color: rgb(0,0,0,0.5); */
-  border-top: 1px;
+  border-bottom-color: rgb(0,0,0,0.5);
+  /* border-bottom-color: #fbb031; */
+  /* border-top: 1px;
   border-top-style: solid;
-  border-top-color: #fbb031;
+  border-top-color: rgb(0,0,0,0.5); */
 }
 
 #detailsnav, #detailsnav2, #detailsnav3, #detailsnav4, #detailsnav5, #detailsnav6 {
   text-align: center;
-  width: 150px;
+  width: fit-content;
   letter-spacing: 0.5px;
   float: left;
   margin: 8px 5px;
-  padding: 0;
+  padding: 0 15px;
   font-size: 20px;
   line-height: 1.5;
   color: #3f99a1;
   font-weight: 500;
   vertical-align: middle;
+  border-right-style: solid;
+  border-right-color: #000;
+  border-width: thin;
 }
 
 #detailsnav:hover, #detailsnav2:hover, #detailsnav3:hover, #detailsnav4:hover, #detailsnav5:hover, #detailsnav6:hover {

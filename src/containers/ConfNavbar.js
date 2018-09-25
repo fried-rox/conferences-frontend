@@ -23,9 +23,14 @@ export default class ConfNavbar extends Component {
     this.props.history.push(`/conferences/${this.props.match.params.id}/participants`);
   }
 
+  handleContextClick = event => {
+    event.preventDefault();
+    this.props.history.push(`/conferences/${this.props.match.params.id}/registration_context`);
+  }
+
   handleRegistrationClick = event => {
     event.preventDefault();
-    this.props.history.push(`/conferences/${this.props.match.params.id}/registration`);
+    this.props.history.push(`/conferences/${this.props.match.params.id}/registration_categories`);
   }
 
   handleScientificClick = event => {
@@ -43,10 +48,11 @@ export default class ConfNavbar extends Component {
       <div className="secondnav">
         <RouteNavItem key={4} id="detailsnav" onClick={this.handleDetailsClick}>Details</RouteNavItem>
         <RouteNavItem key={5} id="detailsnav2" onClick={this.handleParticipantsClick}>Participants</RouteNavItem>
-        <RouteNavItem key={6} id="detailsnav3" onClick={this.handleRegistrationClick}>Registration</RouteNavItem>
-        <RouteNavItem key={7} id="detailsnav4" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
-        <RouteNavItem key={8} id="detailsnav5" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
-        <RouteNavItem key={9} id="detailsnav6">Finances</RouteNavItem>
+        <RouteNavItem key={6} id="detailsnav3" onClick={this.handleContextClick}>Registration Contexts</RouteNavItem>
+        <RouteNavItem key={7} id="detailsnav3" onClick={this.handleRegistrationClick}>Registration Categories</RouteNavItem>
+        <RouteNavItem key={8} id="detailsnav4" onClick={this.handleScientificClick}>Scientific</RouteNavItem>
+        <RouteNavItem key={9} id="detailsnav5" onClick={this.handleTourismClick}>Tourism</RouteNavItem>
+        <RouteNavItem key={10} id="detailsnav6">Finances</RouteNavItem>
       </div>
     );
   }

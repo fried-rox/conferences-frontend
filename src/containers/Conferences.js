@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Button, FormGroup, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
+import { Table, Button, PageHeader, FormGroup, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
 import DayPicker from 'react-day-picker';
 
 import isNil from "lodash/fp/isNil";
@@ -37,12 +37,31 @@ export default class Conferences extends Component {
       confExRate: '',
       notes: '',
       showModal: false,
+      showModal2: false,
+      conferenceId: '',
+      regTypeFullName: '',
+      regTypeAbbrName: '',
+      regTypeCurrency: '',
+      regTypeLanguage: '',
+      regTypeUsePackage: '',
+      regTypeAddScience: '',
+      regTypeAddTours: '',
+      regTypeAddAccommodation: '',
+      regTypeAddAP: '',
+      regTypePaymentMethod: '',
+      regTypeQuestions: '',
+      regTypeNotes: '',
+      regTypeMailing: '',
     };
 
     this.openModal = this.openModal.bind(this);
+    this.openModal2 = this.openModal2.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.closeModal2 = this.closeModal2.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleOutsideClick2 = this.handleOutsideClick2.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClick2 = this.handleClick2.bind(this);
   }
 
   async componentDidMount() {
@@ -66,7 +85,7 @@ export default class Conferences extends Component {
         confLanguage: results.confLanguage,
         confCurrency: results.confCurrency,
         confExRate: results.confExRate,
-        notes: results.notes,
+        notes: results.notes
       });
     } catch (e) {
       alert(e);
@@ -89,6 +108,18 @@ export default class Conferences extends Component {
     }));
   }
 
+  handleClick2() {
+    if (!this.state.showModal2) {
+      document.addEventListener("click", this.handleOutsideClick2, false);
+    } else {
+      document.removeEventListener("click", this.handleOutsideClick2, false);
+    }
+
+    this.setState(prevState => ({
+      showModal2: !prevState.showModal2,
+    }));
+  }
+
   handleOutsideClick(e) {
     if (!isNil(this.node)) {
       if (this.node.contains(e.target)) {
@@ -99,15 +130,37 @@ export default class Conferences extends Component {
     }
   }
 
+  handleOutsideClick2(e) {
+    if (!isNil(this.node2)) {
+      if (this.node2.contains(e.target)) {
+        return;
+      }
+
+      this.handleClick2();
+    }
+  }
+
   openModal() {
     this.setState({
       showModal: true
     })
   }
 
+  openModal2() {
+    this.setState({
+      showModal2: true
+    })
+  }
+
   closeModal() {
     this.setState({
       showModal: false
+    })
+  }
+
+  closeModal2() {
+    this.setState({
+      showModal2: false
     })
   }
 
@@ -202,8 +255,7 @@ export default class Conferences extends Component {
             </Button>
             <Button
               id="newcontext"
-              key="newcontext"
-              onClick={this.handleConferenceContext}>
+              onClick={this.handleClick2}>
               <span className="glyphicon glyphicon-plus"></span> New Reg Type
             </Button>
           </div>
@@ -432,6 +484,87 @@ export default class Conferences extends Component {
               </div>
             </div>
           </div>
+          : null}
+
+          {this.state.showModal2 ?
+            <div className="regtype-modal__container">
+              <div className="regtype-modal" ref={node2 => (this.node2 = node2)}>
+                <Button className="regtype-modal_exitButton" onClick={this.closeModal2}>x</Button>
+                <div className="inner-regtype-modal">
+                  <PageHeader>Registration Contexts</PageHeader>
+                  <h2>Details</h2>
+                  <form>
+                    <h3>Naming</h3>
+                    <FormGroup controlId="regTypeFullName">
+                      <ControlLabel>Full Name</ControlLabel>
+                      <FormControl
+                        onChange={this.handleChange}
+                        value={this.state.regTypeFullName}
+                        type="text" />
+                    </FormGroup>
+                    <FormGroup controlId="regTypeAbbrName">
+                      <ControlLabel>Abbreviated Name</ControlLabel>
+                      <FormControl
+                        onChange={this.handleChange}
+                        value={this.state.regTypeAbbrName}
+                        type="text" />
+                    </FormGroup>
+                    <h3>General</h3>
+                    <Checkbox controlid="addHebrew">Hebrew interface</Checkbox>
+                    <Checkbox controlid="addRegistration">Add Registration</Checkbox>
+                    <Checkbox controlid="onlyoneregoption">Allow only one registration date</Checkbox>
+                    <Checkbox controlid="addScience">Add Scientific</Checkbox>
+                    <Checkbox controlid="addTours">Add Tourism</Checkbox>
+                    <Checkbox controlid="addHotel">Accommodation</Checkbox>
+                    <Checkbox controlid="addAP">Allow accompanying person</Checkbox>
+                    <Checkbox controlid="attendParts">Allow participants to attend part of the conference</Checkbox>
+                    <h3>Payment Options</h3>
+                    <FormGroup controlId="regTypeCurrency">
+                      <ControlLabel>Currency</ControlLabel>
+                      <FormControl
+                        onChange={this.handleChange}
+                        value={this.state.regTypeCurrency}
+                        componentClass="select">
+                        <option value="dollar">Dollar</option>
+                        <option value="shekel">Shekel</option>
+                        <option value="euro">Euro</option>
+                      </FormControl>
+                    </FormGroup>
+                    <FormGroup controlId="regPayment">
+                      <ControlLabel>Payment Method</ControlLabel>
+                      <div>
+                        <Checkbox controlid="payCash">Cash</Checkbox>
+                        <Checkbox controlid="payCheque">Cheque</Checkbox>
+                        <Checkbox controlid="payCard">Credit Card</Checkbox>
+                        <Checkbox controlid="payGuard">Credit Guard</Checkbox>
+                        <Checkbox controlid="payEFT">Bank Transfer</Checkbox>
+                      </div>
+                    </FormGroup>
+                    <Checkbox controlid="paymentInPayments">Allow participants to pay less than the amount due</Checkbox>
+                    <h3>Custom Questions</h3>
+                    <h3>Custom Messages</h3>
+                    <h3>Extras</h3>
+                    <FormGroup controlId="regNotes">
+                      <ControlLabel>Notes</ControlLabel>
+                      <FormControl
+                        onChange={this.handleChange}
+                        value={this.state.regTypeNotes}
+                        componentClass="textarea"/>
+                    </FormGroup>
+                    <LoaderButton
+                      className="create-reg-button"
+                      block
+                      bsSize="large"
+                      disabled={!this.validateForm()}
+                      type="submit"
+                      isLoading={this.state.isLoading}
+                      text="Create Context"
+                      loadingText="Creating…"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
           : null}
 
       </div>

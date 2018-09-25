@@ -30,10 +30,10 @@ export default ({ childProps }) =>
     <AuthenticatedRoute path="/conferences/new" exact component={NewConference} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id" exact component={Conferences} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/update" exact component={ConferencesUpdate} props={childProps} />
-    <AuthenticatedRoute path="/conferences/:id/reg_context" exact component={Context} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/registration_context" exact component={Context} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/participants" exact component={Participants} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/registration" exact component={Registration} props={childProps} />
-    <AuthenticatedRoute path="/conferences/:id/registration/regcategories" exact component={RegistrationView} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/registration/registration_categories" exact component={RegistrationView} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/scientific" exact component={Scientific} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/accommodation" exact component={Accommodation} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/tourism" exact component={Tourism} props={childProps} />

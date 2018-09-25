@@ -48,6 +48,7 @@
   align-self: flex-start;
   justify-content: flex-start;
   overflow: hidden;
+  height: 80px;
 }
 
 .App-container .navbar-brand {
