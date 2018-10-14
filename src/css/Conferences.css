@@ -63,7 +63,7 @@
   background-color: #fff;
   border-style: solid;
   border-width: 1px;
-  border-color: #fbb031;
+  border-color: #3f99a1;
 }
 
 .buttonsformore #settings {
@@ -81,7 +81,7 @@
   background-color: #fff;
   border-style: solid;
   border-width: 1px;
-  border-color: #fbb031;
+  border-color: #3f99a1;
 }
 
 .buttonsformore #update {
@@ -99,7 +99,7 @@
   background-color: #fff;
   border-style: solid;
   border-width: 1px;
-  border-color: #fbb031;
+  border-color: #3f99a1;
 }
 
 .buttonsformore #newcontext {
@@ -117,13 +117,14 @@
   background-color: #fff;
   border-style: solid;
   border-width: 1px;
-  border-color: #fbb031;
+  border-color: #3f99a1;
 }
 
 .buttonsformore #newconf:hover, .buttonsformore #settings:hover, .buttonsformore #update:hover, .buttonsformore #newcontext:hover {
   outline: none;
   /* background-color: #fff; */
-  background-color: rgb(63,153,161,0.4);
+  /* background-color: rgb(63,153,161); blue */
+  background-color: rgb(251,176,49); yellow
   color: #000;
 }
 
