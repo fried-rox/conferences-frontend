@@ -1,78 +1,68 @@
-.participantsdetails {
+.categoriesdetailsall {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   width: 100%;
 }
 
-.ParticipantsDetails {
+.CategoriesTitle {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
   margin: 135px 20px 10px 30px;
 }
 
-.ParticipantsDetails .participants {
+.categoriesinfo {
   order: 2;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
 }
 
-.ParticipantsDetails .participants h2 {
+.categoriesinfo h2 {
   font-size: 50px;
   margin: 0 40px 30px 0;
 }
 
-.participantsInfo {
+.categoriesDetails {
   height: fit-content;
   padding: 0 20px 20px 20px;
   width: 88%;
   background-color: #fff;
 }
 
-.ParticipantsDetails .participants .parsearching {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.participants .parsearching h3 {
-  order: 1;
-  align-self: flex-start;
-  flex-grow: 15;
-  margin-top: 0;
+.categoriesDetails h3 {
+  order: 3;
   color: #3f99a1;
   font-size: 30px;
+  margin-top: 0;
 }
 
-.participants .parsearching #parsearch {
-  order: 1;
-  align-self: flex-end;
-  padding: 4px 10px;
-  margin: 5px;
-  font-size: 14px;
-  line-height: 1.5;
-  width: 275px;
-  border-radius: 4px;
-  color: #000000;
-  border-style: solid;
-  background-color: #fff;
-  border-color: #a6a6a6;
-  border-width: thin;
-}
-
-.ParticipantsDetails .participants #parsearch:focus {
-  outline: none;
-}
-
-.ParticipantsDetails .buttonsformore {
+.buttonsformore {
   display: flex;
   flex-flow: column nowrap;
   width: 12%;
   margin: 10px 30px 0 15px;
 }
 
-.ParticipantsDetails .buttonsformore #settings {
+.buttonsformore #newcategories {
+  order: 0;
+  text-align: left;
+  width: 155px;
+  padding: 5px 10px;
+  border: 0;
+  letter-spacing: 0.5px;
+  position: fixed;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3f99a1;
+}
+
+.buttonsformore #settings {
   order: 1;
   text-align: left;
   width: 155px;
@@ -90,25 +80,7 @@
   border-color: #3f99a1;
 }
 
-.ParticipantsDetails .buttonsformore #newpar {
-  order: 0;
-  width: 155px;
-  text-align: left;
-  padding: 5px 10px;
-  border: 0;
-  margin-bottom: 30px;
-  letter-spacing: 0.5px;
-  position: fixed;
-  color: #000;
-  height: 30px;
-  font-size: 14px;
-  background-color: #fff;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #3f99a1;
-}
-
-.buttonsformore #settings:hover, .buttonsformore #newpar:hover {
+.buttonsformore #settings:hover, .buttonsformore #newcategories:hover {
   outline: none;
   /* background-color: #fff; */
   background-color: rgb(63,153,161);

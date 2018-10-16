@@ -6,6 +6,8 @@
 }
 
 .ContextTitle {
+  display: flex;
+  flex-flow: row nowrap;
   width: 100%;
   margin: 135px 20px 10px 30px;
 }
@@ -13,4 +15,75 @@
 .ContextTitle h2 {
   font-size: 50px;
   margin: 0 40px 30px 0;
+}
+
+.contextinfo {
+  order: 2;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.contextDetails {
+  height: fit-content;
+  padding: 0 20px 20px 20px;
+  width: 88%;
+  background-color: #fff;
+}
+
+.contextDetails h3 {
+  order: 3;
+  color: #3f99a1;
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.buttonsformore {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 12%;
+  margin: 10px 30px 0 15px;
+}
+
+.buttonsformore #newcontext {
+  order: 0;
+  text-align: left;
+  width: 155px;
+  padding: 5px 10px;
+  border: 0;
+  letter-spacing: 0.5px;
+  position: fixed;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3f99a1;
+}
+
+.buttonsformore #settings {
+  order: 1;
+  text-align: left;
+  width: 155px;
+  padding: 5px 10px;
+  border: 0;
+  margin-top: 40px;
+  letter-spacing: 0.5px;
+  color: #000;
+  height: 30px;
+  font-size: 14px;
+  position: fixed;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3f99a1;
+}
+
+.buttonsformore #settings:hover, .buttonsformore #newcontext:hover {
+  outline: none;
+  /* background-color: #fff; */
+  background-color: rgb(63,153,161);
+  /* background-color: rgb(251,176,49); yellow */
+  color: #fff;
 }

@@ -253,11 +253,6 @@ export default class Conferences extends Component {
               onClick={this.handleConferenceClick2} >
               <span className="glyphicon glyphicon-plus"></span> New Conference
             </Button>
-            <Button
-              id="newcontext"
-              onClick={this.handleClick2}>
-              <span className="glyphicon glyphicon-plus"></span> New Reg Type
-            </Button>
           </div>
 
           <div className="Details">

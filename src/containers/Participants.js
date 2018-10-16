@@ -91,27 +91,6 @@ export default class Participants extends Component {
 
         <div className="ParticipantsDetails">
 
-          <div className="participants">
-
-            <h2> {this.state.confTitle} </h2>
-
-            <div className="parsearching">
-              <h3>Participants</h3>
-              <input id="parsearch"
-                type="text"
-                placeholder="Search list by name..."
-                value={this.state.search}
-                onChange={this.searchList.bind(this)} />
-            </div>
-
-            <div className="ParticipantsFullList">
-              <ListGroup id="participant-list">
-                {this.participantsList(this.state.participants)}
-              </ListGroup>
-            </div>
-
-          </div>
-
           <div className="buttonsformore">
             <Button
               id="settings">
@@ -123,6 +102,31 @@ export default class Participants extends Component {
               href="/participants/new" >
               <span className="glyphicon glyphicon-plus"></span> New Participant
             </Button>
+          </div>
+
+          <div className="participants">
+
+            <h2> {this.state.confTitle} </h2>
+
+            <div className="participantsInfo">
+
+              <div className="parsearching">
+                <h3>Participants</h3>
+                <input id="parsearch"
+                  type="text"
+                  placeholder="Search list by name..."
+                  value={this.state.search}
+                  onChange={this.searchList.bind(this)} />
+              </div>
+
+              <div className="ParticipantsFullList">
+                <ListGroup id="participant-list">
+                  {this.participantsList(this.state.participants)}
+                </ListGroup>
+              </div>
+
+            </div>
+
           </div>
 
         </div>

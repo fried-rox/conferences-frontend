@@ -12,9 +12,9 @@ import Conferences from "./containers/Conferences";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 import Participants from "./containers/Participants";
-// import RegistrationNew from "./containers/RegistrationNew";
+import RegistrationNew from "./containers/RegistrationNew";
 import Registration from "./containers/Registration";
-import RegistrationView from "./containers/RegistrationView";
+import Categories from "./containers/Categories";
 import Scientific from "./containers/Scientific";
 import Accommodation from "./containers/Accommodation";
 import Tourism from "./containers/Tourism";
@@ -33,7 +33,7 @@ export default ({ childProps }) =>
     <AuthenticatedRoute path="/conferences/:id/registration_context" exact component={Context} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/participants" exact component={Participants} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/registration" exact component={Registration} props={childProps} />
-    <AuthenticatedRoute path="/conferences/:id/registration/registration_categories" exact component={RegistrationView} props={childProps} />
+    <AuthenticatedRoute path="/conferences/:id/registration_categories" exact component={Categories} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/scientific" exact component={Scientific} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/accommodation" exact component={Accommodation} props={childProps} />
     <AuthenticatedRoute path="/conferences/:id/tourism" exact component={Tourism} props={childProps} />
