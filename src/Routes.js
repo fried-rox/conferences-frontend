@@ -12,7 +12,7 @@ import Conferences from "./containers/Conferences";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 import Participants from "./containers/Participants";
-import RegistrationNew from "./containers/RegistrationNew";
+// import RegistrationNew from "./containers/RegistrationNew";
 import Registration from "./containers/Registration";
 import Categories from "./containers/Categories";
 import Scientific from "./containers/Scientific";

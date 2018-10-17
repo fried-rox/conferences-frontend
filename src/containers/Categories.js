@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { FormGroup, Button, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-import LoaderButton from "../components/LoaderButton";
+// import LoaderButton from "../components/LoaderButton";
 // import config from "../config";
 import { invokeApig } from '../libs/awsLib';
 import ConfNavbar from './ConfNavbar';
