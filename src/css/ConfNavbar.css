@@ -3,15 +3,16 @@
   flex-flow: row nowrap;
   width: 100%;
   list-style-type: none;
-  margin: 70px 0 0 0;
+  margin: 50px 0 0 0;
   background-color: #fff;
   padding: 0 0 0 25px;
   border-radius: 0;
   position: fixed;
   overflow: hidden;
-  border-bottom: 1px;
+  background-color: #d3d3d3;
+  /* border-bottom: 1px;
   border-bottom-style: solid;
-  border-bottom-color: rgb(0,0,0,0.5);
+  border-bottom-color: rgb(0,0,0,0.5); */
   /* border-bottom-color: #fbb031; */
   /* border-top: 1px;
   border-top-style: solid;
@@ -27,15 +28,15 @@
   padding: 0 15px;
   font-size: 20px;
   line-height: 1.5;
-  color: #3f99a1;
+  color: #000;
   font-weight: 500;
   vertical-align: middle;
-  border-right-style: solid;
-  border-right-color: #000;
-  border-width: thin;
+  /* border-right-style: solid;
+  border-right-color: #a6a6a6;
+  border-width: thin; */
 }
 
 #detailsnav:hover, #detailsnav2:hover, #detailsnav3:hover, #detailsnav4:hover, #detailsnav5:hover, #detailsnav6:hover {
   text-decoration: none;
-  color: #000;
+  color: #3f99a1;
 }

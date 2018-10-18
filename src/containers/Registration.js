@@ -143,23 +143,27 @@ export default class Registration extends Component {
       <div className="registrationdetailsall">
 
         <ConfNavbar {...this.props} />
+        <div className="CategoriesTitle">
 
-        <div className="RegistrationDetails">
+          <div className="buttonsformore">
+            <Button
+              id="newcategories"
+              onClick={this.handleClick2}>
+              <span className="glyphicon glyphicon-plus"></span> New Category
+            </Button>
+            <Button
+              id="settings">
+              <span className="glyphicon glyphicon-cog"></span> Settings
+            </Button>
+          </div>
 
-          <div className="RegandTitle">
-
+          <div className="categoriesinfo">
             <h2> {this.state.confTitle} </h2>
 
-            <h3>Registration Categories</h3>
-
+            <div className="categoriesDetails">
+              <h3>Registration Categories</h3>
+            </div>
           </div>
-
-          <div>
-            <button onClick={this.handleClick}>
-              <span className="glyphicon glyphicon-plus"></span> New category
-            </button>
-          </div>
-
         </div>
 
         {this.state.showModal ?

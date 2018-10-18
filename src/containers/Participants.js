@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Button, Table } from 'react-bootstrap';
 
+import isNil from "lodash/fp/isNil";
+
 import ConfNavbar from './ConfNavbar';
 import { invokeApig } from '../libs/awsLib';
 // import RouteNavItem from "../components/RouteNavItem";
@@ -16,8 +18,14 @@ export default class Participants extends Component {
       search: '',
       conference: null,
       confTitle: '',
-      participants: []
+      participants: [],
+      showModal: false,
     };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
@@ -44,6 +52,40 @@ export default class Participants extends Component {
 
   getConference() {
     return invokeApig({ path: `/conferences/${localStorage.getItem('confIdKey')}` });
+  }
+
+  handleClick() {
+    if (!this.state.showModal) {
+      document.addEventListener("click", this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener("click", this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+      showModal: !prevState.showModal,
+    }));
+  }
+
+  handleOutsideClick(e) {
+    if (!isNil(this.node)) {
+      if (this.node.contains(e.target)) {
+        return;
+      }
+
+      this.handleClick();
+    }
+  }
+
+  openModal() {
+    this.setState({
+      showModal: true
+    })
+  }
+
+  closeModal() {
+    this.setState({
+      showModal: false
+    })
   }
 
   participants() {
@@ -99,7 +141,7 @@ export default class Participants extends Component {
             <Button
               id="newpar"
               key="new"
-              href="/participants/new" >
+              onClick={this.handleClick} >
               <span className="glyphicon glyphicon-plus"></span> New Participant
             </Button>
           </div>
@@ -130,6 +172,17 @@ export default class Participants extends Component {
           </div>
 
         </div>
+
+        {this.state.showModal ?
+          <div className="registration-modal__container">
+            <div className="registration-modal" ref={node => (this.node = node)}>
+              <Button className="modal_exitButton" onClick={this.closeModal}>x</Button>
+              <div className="inner-registration-modal">
+                <h2>new Participant</h2>
+              </div>
+            </div>
+          </div>
+        : null}
 
       </div>
   );
