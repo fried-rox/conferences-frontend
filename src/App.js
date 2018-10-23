@@ -70,7 +70,7 @@ class App extends Component {
                     </RouteNavItem>
                   }
             </Nav>
-            <Nav>
+            <Nav pullLeft>
               {this.state.isAuthenticated
                 ? <RouteNavItem id="conflistlink" key={2} href="/">
                     Conferences & Groups

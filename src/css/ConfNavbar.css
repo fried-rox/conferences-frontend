@@ -1,15 +1,16 @@
 .secondnav {
   display: flex;
   flex-flow: row nowrap;
-  width: 100%;
   list-style-type: none;
-  margin: 50px 0 0 0;
+  margin: 0;
   background-color: #fff;
-  padding: 0 0 0 25px;
+  padding: 0;
   border-radius: 0;
-  position: fixed;
   overflow: hidden;
-  background-color: #d3d3d3;
+  width: 100%;
+  background: none;
+  /* background-image: url("../images/background.jpeg"); */
+  /* background-color: #fff; */
   /* border-bottom: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgb(0,0,0,0.5); */
@@ -26,11 +27,12 @@
   float: left;
   margin: 8px 5px;
   padding: 0 15px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
   color: #000;
-  font-weight: 500;
+  font-weight: 600;
   vertical-align: middle;
+  /* background-color: #fff; */
   /* border-right-style: solid;
   border-right-color: #a6a6a6;
   border-width: thin; */

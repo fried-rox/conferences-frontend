@@ -6,7 +6,11 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   color: #000;
-  background-color: #fff;
+  background: url("../images/background.jpeg") no-repeat center center fixed;
+  /* background-image: url("../images/background.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 h1, h2, h3, h4, h5, h6 {
