@@ -62,35 +62,37 @@ export default class Login extends Component {
   render() {
     return (
       <div className="LogIn">
-        <h1>Target Conferences Ltd</h1>
-        <p>Online Managment System</p>
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="email">
-            <ControlLabel>Email</ControlLabel>
-            <FormControl
-              autoFocus
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
+        <div className="LogInInner">
+          <h1>Target Conferences Ltd</h1>
+          <p>Online Managment System</p>
+          <form onSubmit={this.handleSubmit}>
+            <FormGroup controlId="email">
+              <ControlLabel>Email</ControlLabel>
+              <FormControl
+                autoFocus
+                type="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+            <FormGroup controlId="password">
+              <ControlLabel>Password</ControlLabel>
+              <FormControl
+                value={this.state.password}
+                onChange={this.handleChange}
+                type="password"
+              />
+            </FormGroup>
+            <LoaderButton
+              block
+              disabled={!this.validateForm()}
+              type="submit"
+              isLoading={this.state.isLoading}
+              text="Login"
+              loadingText="Logging in…"
             />
-          </FormGroup>
-          <FormGroup controlId="password">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-            />
-          </FormGroup>
-          <LoaderButton
-            block
-            disabled={!this.validateForm()}
-            type="submit"
-            isLoading={this.state.isLoading}
-            text="Login"
-            loadingText="Logging in…"
-          />
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

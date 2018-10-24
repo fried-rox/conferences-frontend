@@ -9,7 +9,7 @@
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
-  margin: 120px 20px 10px 30px;
+  margin: 30px 20px 10px 30px;
 }
 
 .DetailsTitle h2 {
@@ -20,15 +20,16 @@
 .Details {
   order: 2;
   display: flex;
+  padding: 5px;
   flex-flow: column nowrap;
   justify-content: flex-start;
+  width: 60%;
+  background-color: #fff;
 }
 
 .Details .conferenceDetails {
   height: fit-content;
   padding: 0 20px 20px 20px;
-  width: 88%;
-  background-color: #fff;
   /* border-radius: 2.5px;
   border-style: solid;
   border-width: 1px;

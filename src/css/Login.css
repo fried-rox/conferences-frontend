@@ -1,35 +1,30 @@
 .LogIn {
+  padding: 70px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+.LogInInner {
   display: flex;
-  margin: 100px 0 0 500px;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  padding: 70px;
-  /* border-color: #fbb031;
-  border-style: double; */
 }
 
-.LogIn form {
-  order: 2;
+.LogInInner form {
   margin: 0;
   width: 300px;
 }
 
-/* .LogIn form span.help-block {
-  font-size: 14px;
-  padding-bottom: 10px;
-  color: #999;
-} */
-
-.LogIn h1 {
-  order: 0;
+.LogInInner h1 {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 40px;
 }
 
-.LogIn p {
-  order: 0;
+.LogInInner p {
   color: #999;
   font-size: 20px;
   font-weight: 250;
@@ -37,8 +32,6 @@
 }
 
 .form-group #email, #password {
-  order: 3;
-  align-self: stretch;
   margin: 0;
   padding: 4px 10px;
   font-size: 14px;

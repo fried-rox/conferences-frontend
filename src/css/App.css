@@ -28,17 +28,33 @@
   }
 }
 
+.navbar {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  background: none;
+}
+
+.App-container #conflistlink {
+  float: left;
+}
+
+.App-container #logo {
+  width: 250px;
+  height: 50px;
+}
+
+/*
 .App-container .navbar {
   padding: 0;
   border: 0;
-  margin: 0 auto;
+  margin: 0;
   order: 0;
   flex-grow: 100;
   justify-content: flex-start;
   top: 0;
   background: none;
-  /* background-image: url("../images/background.jpeg"); */
-  /* background-color: #d3d3d3; */
   width: 100%;
 }
 
@@ -51,16 +67,10 @@
   align-self: flex-start;
   justify-content: flex-start;
   overflow: hidden;
-  /* height: 80px; */
 }
 
-.App-container .navbar-brand {
-  display: flex;
-  flex-flow: row nowrap;
-  padding: 0 0 0 550px;
-  border: 0;
-  margin: 0;
-  height: 50px;
+.App-container #targetLogo {
+  align-self: center;
 }
 
 .App-container #loginlink {
@@ -85,7 +95,6 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 1.5;
-  /* text-shadow: 1px 1px #999; */
 }
 
 .App-container #logoutlink:hover, .App-container #conflistlink:hover {
@@ -101,5 +110,4 @@
   line-height: 1.5;
   color: #000;
   font-weight: 600;
-  /* text-shadow: 1px 1px #999; */
-}
+} */
