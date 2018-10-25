@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Button, FormGroup, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
+import { Table, Button, PageHeader, FormGroup, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
 import DayPicker from 'react-day-picker';
 
 import isNil from "lodash/fp/isNil";
@@ -203,7 +203,7 @@ export default class Conferences extends Component {
           </div>
 
           <div className="Details">
-            <h2> {this.state.confTitle} </h2>
+            <PageHeader> {this.state.confTitle} </PageHeader>
 
             <div className="conferenceDetails">
               <h3> Conference Details </h3>

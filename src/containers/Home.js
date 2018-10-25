@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { PageHeader, Button, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 //import Search from 'react-search'
 
 import { invokeApig } from '../libs/awsLib';
@@ -97,21 +97,16 @@ export default class Home extends Component {
     );
     return (
       <div className="conferences">
-        <PageHeader>Conferences and Groups</PageHeader>
+        <div className="alignment">
+          <h1>Conferences and Groups</h1>
 
-        <div className="confbuttonandsearch">
-          <Button
-            className="newconf"
-            key="new"
-            href="/conferences/new"
-            onClick={this.handleConferenceClick} >
-            <b>{'\uFF0B'}</b> Create a new conference
-          </Button>
-          <input id="confsearch"
-            type="text"
-            placeholder="Search list by name..."
-            value={this.state.search}
-            onChange={this.searchList.bind(this)} />
+          <div className="confbuttonandsearch">
+            <input id="confsearch"
+              type="text"
+              placeholder="Search list by name..."
+              value={this.state.search}
+              onChange={this.searchList.bind(this)} />
+          </div>
         </div>
 
         <Table className="ConferenceList" hover>
@@ -139,3 +134,11 @@ export default class Home extends Component {
     );
   }
 }
+
+// <Button
+//   className="newconf"
+//   key="new"
+//   href="/conferences/new"
+//   onClick={this.handleConferenceClick} >
+//   <b>{'\uFF0B'}</b> Create a new conference
+// </Button>

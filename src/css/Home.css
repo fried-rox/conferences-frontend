@@ -57,21 +57,23 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 80px 50px;
-  width: 90%;
-  /* background-color: #fff; */
+  margin: 30px 10px;
+  padding: 15px;
+  border: 0;
+  width: 92%;
+  background-color: #f2f2f2;
+  border-radius: 5px;
 }
 
-.confbuttonandsearch {
-  order: 0;
-  align-self: flex-end;
+.alignment {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
 }
 
-.conferences .page-header {
-  order: 0;
-  padding: 0;
-  align-self: stretch;
-  margin: 10px 0;
+.alignment .confbuttonandsearch {
+  align-self: center;
+  padding-left: 650px;
 }
 
 .confbuttonandsearch #confsearch {
@@ -85,7 +87,7 @@
   border-radius: 4px;
   color: #000000;
   border-style: solid;
-  background-color: #fff;
+  background-color: #f2f2f2;
   border-color: #a6a6a6;
   border-width: thin;
 }

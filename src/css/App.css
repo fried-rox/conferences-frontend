@@ -28,86 +28,51 @@
   }
 }
 
-.navbar {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: 100%;
-  background: none;
-}
-
-.App-container #conflistlink {
-  float: left;
-}
-
-.App-container #logo {
-  width: 250px;
-  height: 50px;
-}
-
-/*
 .App-container .navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  /* align-items: flex-start; */
   padding: 0;
   border: 0;
   margin: 0;
-  order: 0;
-  flex-grow: 100;
-  justify-content: flex-start;
   top: 0;
   background: none;
   width: 100%;
 }
 
-.App-container .navbar-collapse {
-  margin: 0;
+.App-container .container-fluid {
   padding: 0;
   border: 0;
-  order: 0;
-  flex-grow: 100;
-  align-self: flex-start;
-  justify-content: flex-start;
-  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  /* box-shadow: 0 0 8px 0 #fff; */
 }
 
-.App-container #targetLogo {
-  align-self: center;
-}
-
-.App-container #loginlink {
-  order: 0;
-  margin: 5px 0 2px 0;
-  min-width: 50px;
-  padding: 2px 8px;
-  box-shadow: 1.5px 1.5px 0 0 #fbb031;
-  letter-spacing: 0.5px;
-  color: #fff;
-  font-size: 16px;
-  background-color: #3f99a1;
-  border-color: #999;
-  border-radius: 4px;
-}
-
-.App-container #logoutlink {
-  letter-spacing: 0.5px;
-  margin: 5px 40px 0 0;
+.App-container .navbar-brand {
   padding: 0;
-  color: #000;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1.5;
+  border: 0;
+  margin: 0 auto;
+  height: 50px;
+  left: 42%;
+  display: block;
+  text-align: center;
+  position: absolute;
 }
 
-.App-container #logoutlink:hover, .App-container #conflistlink:hover {
-  text-decoration: none;
-  color: #3f99a1;
-}
-
-.App-container #conflistlink {
+.App-container #conflistlink, .App-container #logoutlink, .App-container #newconfplusmain {
+  background: none;
+  margin: 5px 10px;
+  padding: 10px;
   letter-spacing: 0.5px;
-  margin: 5px 0 0 20px;
-  padding: 0;
-  font-size: 24px;
-  line-height: 1.5;
   color: #000;
+  font-size: 18px;
   font-weight: 600;
-} */
+}
+
+
+.App-container #conflistlink:hover, .App-container #logoutlink:hover, .App-container #newconfplusmain:hover {
+  background: none;
+  /* outline: #fff; */
+  text-shadow: 1px 1px #999;
+  color: #fbb031;
+}

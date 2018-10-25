@@ -17,6 +17,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", sans-serif;
 }
 
+h1 {
+  padding: 5px;
+  border: 0;
+  margin: 5px;
+  /* border-bottom: 0.5px dotted #000; */
+  /* text-shadow: 1px 1px #a6a6a6; */
+}
+
 select.form-control,
 textarea.form-control,
 input.form-control {

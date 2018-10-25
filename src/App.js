@@ -45,45 +45,6 @@ class App extends Component {
     this.setState({ isAuthenticating: false });
   }
 
-  // render() {
-  //   const childProps = {
-  //     isAuthenticated: this.state.isAuthenticated,
-  //     userHasAuthenticated: this.userHasAuthenticated
-  //   };
-  //
-  //   return (
-  //     !this.state.isAuthenticating &&
-  //     <div className="App-container">
-  //       <Navbar fluid collapseOnSelect>
-  //         <Navbar.Header>
-  //           <Navbar.Brand>
-  //             <img id="logo" src="/target_logo.png" alt="TARGET CONFERENCES LTD" />
-  //           </Navbar.Brand>
-  //           <Navbar.Toggle />
-  //         </Navbar.Header>
-  //         <Navbar.Collapse>
-  //           <Nav pullRight>
-  //             {this.state.isAuthenticated
-  //               ? <NavItem id="logoutlink" onClick={this.handleLogout}>Logout</NavItem>
-  //               : []
-  //                 }
-  //           </Nav>
-  //           <Nav pullLeft>
-  //             {this.state.isAuthenticated
-  //               ? <RouteNavItem id="conflistlink" key={2} href="/">
-  //                   Conferences & Groups
-  //                 </RouteNavItem>
-  //               : []
-  //             }
-  //           </Nav>
-  //         </Navbar.Collapse>
-  //       </Navbar>
-  //       <Routes childProps={childProps} />
-  //     </div>
-  //   );
-  // }
-
-
   render() {
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
@@ -94,27 +55,29 @@ class App extends Component {
       !this.state.isAuthenticating &&
       <div className="App-container">
         <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
           <Navbar.Collapse>
-            <Nav>
+            <Nav pullLeft>
               {this.state.isAuthenticated
-                ? <div>
-                    <NavItem id="targetLogo"><img id="logo" src="/target_logo.png" alt="TARGET CONFERENCES LTD" /></NavItem>
-                    <NavItem id="logoutlink" onClick={this.handleLogout}>Logout</NavItem>
-                  </div>
-                : []
-                  }
-            </Nav>
-            <Nav>
-              {this.state.isAuthenticated
-                ? <RouteNavItem id="conflistlink" href="/">
-                    Conferences & Groups
-                  </RouteNavItem>
+                ? [<RouteNavItem id="conflistlink" href="/">
+                    <span className="glyphicon glyphicon-home"></span>
+                  </RouteNavItem>,
+                  <RouteNavItem id="newconfplusmain">
+                    <span className="glyphicon glyphicon-plus"></span>
+                  </RouteNavItem>]
                 : []
               }
             </Nav>
+            <Navbar.Brand>
+              <img id="logo" src="/target_logo.png" alt="TARGET CONFERENCES LTD" />
+            </Navbar.Brand>
+            <Navbar.Toggle />
+            <Nav pullRight>
+              {this.state.isAuthenticated
+                ? <NavItem id="logoutlink" onClick={this.handleLogout}>Logout</NavItem>
+                : []
+                  }
+            </Nav>
           </Navbar.Collapse>
-          </Navbar.Header>
         </Navbar>
         <Routes childProps={childProps} />
       </div>

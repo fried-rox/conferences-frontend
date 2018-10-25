@@ -2,22 +2,13 @@
   display: flex;
   flex-flow: row nowrap;
   list-style-type: none;
-  margin: 0;
+  margin: 2px 0 0 20px;
   background-color: #fff;
   padding: 0;
   border-radius: 0;
   overflow: hidden;
   width: 100%;
   background: none;
-  /* background-image: url("../images/background.jpeg"); */
-  /* background-color: #fff; */
-  /* border-bottom: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(0,0,0,0.5); */
-  /* border-bottom-color: #fbb031; */
-  /* border-top: 1px;
-  border-top-style: solid;
-  border-top-color: rgb(0,0,0,0.5); */
 }
 
 #detailsnav, #detailsnav2, #detailsnav3, #detailsnav4, #detailsnav5, #detailsnav6 {
@@ -32,13 +23,10 @@
   color: #000;
   font-weight: 600;
   vertical-align: middle;
-  /* background-color: #fff; */
-  /* border-right-style: solid;
-  border-right-color: #a6a6a6;
-  border-width: thin; */
 }
 
 #detailsnav:hover, #detailsnav2:hover, #detailsnav3:hover, #detailsnav4:hover, #detailsnav5:hover, #detailsnav6:hover {
   text-decoration: none;
   color: #3f99a1;
+  text-shadow: 1px 1px #999;
 }
