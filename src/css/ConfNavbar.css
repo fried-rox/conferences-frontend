@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: row nowrap;
   list-style-type: none;
-  margin: 2px 0 0 20px;
+  margin: 2px 0 0 0;
   background-color: #fff;
   padding: 0;
   border-radius: 0;
@@ -16,8 +16,8 @@
   width: fit-content;
   letter-spacing: 0.5px;
   float: left;
-  margin: 8px 5px;
-  padding: 0 15px;
+  margin: 8px 40px;
+  padding: 0;
   font-size: 18px;
   line-height: 1.5;
   color: #000;

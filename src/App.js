@@ -61,7 +61,7 @@ class App extends Component {
                 ? [<RouteNavItem id="conflistlink" href="/">
                     <span className="glyphicon glyphicon-home"></span>
                   </RouteNavItem>,
-                  <RouteNavItem id="newconfplusmain">
+                  <RouteNavItem id="newconfplusmain" href="/conferences/new">
                     <span className="glyphicon glyphicon-plus"></span>
                   </RouteNavItem>]
                 : []
