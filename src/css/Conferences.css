@@ -74,7 +74,7 @@
   height: 80%;
   width: 60%;
   overflow-y: scroll;
-  background-color: white;
+  background-color: #f2f2f2;
   padding: 4px 20px;
   top: 50%;
   left: 50%;
@@ -83,6 +83,18 @@
 
 .conferencedetailsall .inner-registration-modal {
   padding: 20px;
+}
+
+.inner-registration-modal #confTitle, .inner-registration-modal #confAbbr, .inner-registration-modal #projectManager, .inner-registration-modal #accountClient, .inner-registration-modal #confVenue, .inner-registration-modal #regAccess, .inner-registration-modal #confLanguage, .inner-registration-modal #confCurrency, .inner-registration-modal #confExRate, .inner-registration-modal #notes {
+  background-color: #fff;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: auto;
 }
 
 .inner-registration-modal h2 {
@@ -98,6 +110,7 @@
   margin: 0;
   font-weight: 600;
   font-size: 20px;
+  background-color: #f2f2f2;
 }
 
 .modal_exitButton:hover {

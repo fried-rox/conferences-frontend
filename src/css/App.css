@@ -70,7 +70,6 @@
   font-weight: 600;
 }
 
-
 .App-container #conflistlink:hover, .App-container #logoutlink:hover, .App-container #newconfplusmain:hover {
   background: none;
   /* outline: #fff; */
